@@ -1,0 +1,18 @@
+<section>
+    <div class="left-section">
+        <form>
+            <input type="text" placeholder="Search Songs" #filter>
+            <select placeholder="Category">
+                <option value="all">All</option>
+                <option value="title">Song Title</option>
+                <option value="composer">Composer</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
+        <app-song *ngFor="let songComponent of songs" [song]="songComponent" (songClicked)="onSongClicked($event)"></app-song>
+    </div>
+    <div class="right-section">
+    <button (click)="openAddSongDialog()">Add Song</button>
+    <app-current-song [song]="currentSong"></app-current-song>
+    </div>
+</section>

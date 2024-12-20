@@ -1,0 +1,13 @@
+section {
+    display: flex;
+  }
+  
+  .left-section {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .right-section {
+    flex: 1;
+    padding: 10px;
+  }

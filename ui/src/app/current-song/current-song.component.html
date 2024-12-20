@@ -1,0 +1,9 @@
+
+<div *ngIf="song">
+    <h2>{{ song.title }}</h2>
+    <p><strong>Composer:</strong> {{ song.composer }}</p>
+    <p><strong>MIDI Path:</strong> <a [href]="song.midiPath">{{ song.midiPath }}</a></p>
+  </div>
+  <div *ngIf="!song">
+    <p>No song selected.</p>
+  </div>
