@@ -6,10 +6,11 @@ import { NgForOf } from '@angular/common';
 import { CurrentSongComponent } from '../current-song/current-song.component';
 import { AddSongDialogComponent } from '../add-song-dialog/add-song-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-
+import { FormsModule, FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { CategoryService } from '../categories.service';
 @Component({
   selector: 'app-song-list',
-  imports: [CurrentSongComponent, SongComponent, NgForOf],
+  imports: [CurrentSongComponent, SongComponent, NgForOf, FormsModule, ReactiveFormsModule],
   templateUrl: './song-list.component.html',
   styleUrl: './song-list.component.css'
 })
@@ -18,7 +19,15 @@ export class SongListComponent {
   songsService: SongsService = inject(SongsService);
   currentSong: SongEntry | null = null;
   dialog: MatDialog = inject(MatDialog);
-  constructor(
+  
+  
+  newCategoryForm = new FormGroup(
+    {
+      category: new FormControl(''),
+    }
+  );
+
+  constructor(private categoryService: CategoryService,
   ) {
     this.songs = [];
   }
@@ -43,6 +52,13 @@ export class SongListComponent {
   openAddSongDialog(): void {
     const dialogRef = this.dialog.open(AddSongDialogComponent, {
       width: '300px'
+    });
+  }
+
+  addNewCategory(): void {
+    const category = this.newCategoryForm.value.category ?? '';
+    this.categoryService.addCategory(category).subscribe(() => {
+      this.newCategoryForm.reset();
     });
   }
 }
