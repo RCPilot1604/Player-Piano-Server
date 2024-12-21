@@ -5,12 +5,13 @@ import { Validators } from '@angular/forms';
 import { SongsService } from '../songs.service';
 import { CategoryService } from '../categories.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIcon } from '@angular/material/icon';
-import { NgIf } from '@angular/common';
+import { NgIf, NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-add-song-dialog',
-  imports: [ReactiveFormsModule, MatIconModule, NgIf, MatIcon],
+  imports: [ReactiveFormsModule, MatIconModule, NgIf, NgForOf, MatIcon],
   template: `
     <div class="dialog-overlay" (click)="onCancel()"></div>
     <div class="dialog">
@@ -21,9 +22,8 @@ import { NgIf } from '@angular/common';
         <label for="composer"> Composer: </label>
         <input type="text" id="composer" formControlName="composer" required>
         <label for="category"> Category: </label>
-        <select id="category" formControlName="category" required>
-          <!--<option *ngFor="let category of categories" [value]="category">{{ category }}</option> -->
-          <option value="Classical"> Classical </option>
+        <select id="category" formControlName="category" (onclick)="refreshCategories()" required>
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
         </select>
         <label for="midiFile"> Upload MIDI File: </label>
         <input type="file" class="file-input" formControlName="midiFile" (change)="onFileSelected($event)" #fileUpload>
@@ -64,15 +64,20 @@ export class AddSongDialogComponent {
 
   constructor( 
     private songsService: SongsService,
-    private dialogRef: MatDialogRef<AddSongDialogComponent>
+    private categoryService: CategoryService,
+    private dialogRef: MatDialogRef<AddSongDialogComponent>,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
-    // this.categoryService.getCategories().subscribe(data => {
-    //   this.categories = data;
-    // });
+    this.refreshCategories();
   }
 
+  refreshCategories(){
+    this.categoryService.getCategories().subscribe(data => {
+      this.categories = data;
+    });
+  }
   addNewSong(): void{
     if (this.newSongForm.valid && this.selectedFile) {
       this.formError = null; // Clear any previous error
@@ -82,13 +87,16 @@ export class AddSongDialogComponent {
       this.formData.append('midiPath', this.fileName ?? '');
       this.formData.append('midiFile', this.selectedFile);
       this.songsService.addSong(this.formData).subscribe(() => {
+        this.snackBar.open('Song added successfully!', 'Close', {
+          duration: 3000,
+        });
         this.songAdded.emit();
         this.dialogRef.close();
         this.fileName = ''; //reset the file name after the song is added
       }, error => {
         this.formError = "Error adding song: " + error;
       });
-      console.table(Object.fromEntries(this.formData));
+      //console.table(Object.fromEntries(this.formData));
     } else {
       this.formError = "Please fill out all fields and upload a MIDI file.";
     }
