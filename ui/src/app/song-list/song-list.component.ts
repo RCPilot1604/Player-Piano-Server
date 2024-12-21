@@ -33,12 +33,15 @@ export class SongListComponent {
   }
   
   ngOnInit() {
+    this.refreshSongs();
+  }
+  
+  refreshSongs() {
     this.songsService.getSong().subscribe(data => {
       console.log(data);
       this.songs = data as SongEntry[];
     });
   }
-  
   deleteSong(id: number) {
     this.songsService.deleteSong(id).subscribe((data) => {
       console.log(data);
@@ -52,6 +55,10 @@ export class SongListComponent {
   openAddSongDialog(): void {
     const dialogRef = this.dialog.open(AddSongDialogComponent, {
       width: '300px'
+    });
+
+    dialogRef.componentInstance.songAdded.subscribe(() => {
+      this.refreshSongs();
     });
   }
 
