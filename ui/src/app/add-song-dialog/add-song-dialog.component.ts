@@ -62,8 +62,7 @@ export class AddSongDialogComponent {
   
   @Output() songAdded = new EventEmitter();
 
-  constructor(
-    private categoryService: CategoryService, 
+  constructor( 
     private songsService: SongsService,
     private dialogRef: MatDialogRef<AddSongDialogComponent>
   ) {}
