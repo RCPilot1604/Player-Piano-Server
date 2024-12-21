@@ -14,7 +14,7 @@
     <div class="right-section">
     <button (click)="openAddSongDialog()">Add Song</button>
     <form [formGroup]="newCategoryForm" (submit)="addNewCategory()">
-        <label for="newCategory">New Category: </label>
+        <label for="newCategory">Add New Category: </label>
         <input type="text" id="newCategory" formControlName="category" required>
         <button type="submit" [disabled]="!newCategoryForm.valid">Add</button>
     </form>
