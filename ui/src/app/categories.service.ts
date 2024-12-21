@@ -13,4 +13,8 @@ export class CategoryService {
   getCategories(): Observable<string[]> {
     return this.http.get<string[]>(this.apiUrl);
   }
+
+  addCategory(category: string): Observable<void> {
+    return this.http.post<void>(this.apiUrl, { category });
+  }
 }
