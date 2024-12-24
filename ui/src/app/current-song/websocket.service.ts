@@ -1,39 +1,21 @@
+// src/app/services/socket.service.ts
 import { Injectable } from '@angular/core';
-import { wsdata } from './wsdata';
-import { Observable, Subject } from 'rxjs';
-@Injectable({
-  providedIn: 'root'
-})
+import { Socket } from "ngx-socket-io";
+import { Observable } from 'rxjs';
+
+@Injectable()
 export class WebsocketService {
-  private subject!: Subject<MessageEvent>;
-
-  constructor() {}
-
-  public connect(url: string): Subject<MessageEvent> {
-    if (!this.subject) {
-      this.subject = this.create(url);
-    }
-    return this.subject;
+  constructor(private socket:Socket) {
   }
 
-  private create(url: string): Subject<MessageEvent> {
-    let ws = new WebSocket(url);
+  emit(event: string, data: any) {
+    this.socket.emit(event, data);
+  }
 
-    let observable = new Observable(observer => {
-      ws.onmessage = observer.next.bind(observer);
-      ws.onerror = observer.error.bind(observer);
-      ws.onclose = observer.complete.bind(observer);
-      return ws.close.bind(ws);
-    });
-
-    let observer = {
-      next: (data: Object) => {
-        if (ws.readyState === WebSocket.OPEN) {
-          ws.send(JSON.stringify(data));
-        }
-      }
-    };
-
-    return Subject.create(observer, observable);
+  fromEvent(event: string): Observable<any>{
+    return this.socket.fromEvent(event);
+  }
+  disconnect() {
+    this.socket.disconnect();
   }
 }
