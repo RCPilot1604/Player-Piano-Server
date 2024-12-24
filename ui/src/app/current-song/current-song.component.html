@@ -3,13 +3,11 @@
     <h2>{{ song.title }}</h2>
     <p><strong>Composer:</strong> {{ song.composer }}</p>
     <p><strong>MIDI Path:</strong> <a [href]="song.midiPath">{{ song.midiPath }}</a></p>
-    <!--
     <div>
       <button (click)="togglePlayPause()">{{ isPlaying ? 'Pause' : 'Play' }}</button>
-      <input type="range" min="0" max="100" [(ngModel)]="currentTime" (input)="seekTo($event)">
-      <input type="range" min="0" max="100" [(ngModel)]="volume" (input)="changeVolume($event)">
+      <input type="range" min="0" max="100" [(ngModel)]="currentTime" (input)="seekTo(getValue($event))">
+      <input type="range" min="0" max="100" [(ngModel)]="volume" (input)="setVolume(getValue($event))">
     </div>
-    -->
 </div>
 <div *ngIf="!song">
     <p>No song selected.</p>
