@@ -1,0 +1,35 @@
+/* Define custom styles for Angular Material components */
+
+/* Primary color */
+.mat-primary {
+    background-color: #3f51b5; /* Indigo */
+    color: white;
+  }
+  
+  /* Accent color */
+  .mat-accent {
+    background-color: #e91e63; /* Pink */
+    color: white;
+  }
+  
+  /* Warn color */
+  .mat-warn {
+    background-color: #f44336; /* Red */
+    color: white;
+  }
+  
+  /* Custom styles for buttons */
+  .mat-raised-button.mat-primary {
+    background-color: #3f51b5; /* Indigo */
+    color: white;
+  }
+  
+  .mat-raised-button.mat-accent {
+    background-color: #e91e63; /* Pink */
+    color: white;
+  }
+  
+  .mat-raised-button.mat-warn {
+    background-color: #f44336; /* Red */
+    color: white;
+  }

@@ -17,7 +17,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   isPlaying = false;
   currentTime = 0;
   duration = 100; // Initialize duration to 0
-  volume = 50;
+  volume = 100;
   socket: WebsocketService = inject(WebsocketService);
   constructor() { }
   getValue(event: Event): string {

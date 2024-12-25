@@ -1,9 +1,23 @@
 <main>
-  <header class="header">
-    <section class="logo">
-      <h2>Logo goes here</h2>
-    </section>
-  </header>
+  <mat-toolbar-row class="header">
+    <span class = "logo">
+      <mat-icon id="piano-icon">piano</mat-icon>
+      <h2>Player Piano Control Webapp</h2>
+    </span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" id="side-menu" aria-label="Options">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="openAddSongDialog()">
+        <mat-icon>library_music</mat-icon>
+        <span>Add New Song</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>category</mat-icon>
+        <span>Add New Category</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
   <app-song-list></app-song-list>
   <router-outlet />
 </main>

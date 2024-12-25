@@ -16,6 +16,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(withFetch()), 
     provideAnimationsAsync(),
-    importProvidersFrom(SocketIoModule.forRoot(config)),
+    importProvidersFrom(SocketIoModule.forRoot(config)), provideAnimationsAsync(),
   ]
 };

@@ -1,0 +1,26 @@
+@import 'styles/custom-theme.css';
+.logo {
+    display: inline-flex;
+    align-items: center;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #d0d1da;
+}
+h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+}
+#side-menu{
+    font-size: 24px;
+}
+#piano-icon{
+    margin-right: 1px;
+    font-size: 48px; /* Adjust the size as needed */
+    width: 48px;     /* Adjust the width as needed */
+    height: 48px;    /* Adjust the height as needed */
+}
