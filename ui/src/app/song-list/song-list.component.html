@@ -1,23 +1,21 @@
 <section>
     <div class="left-section">
-        <form>
-            <input type="text" placeholder="Search Songs" #filter>
-            <select placeholder="Category">
-                <option value="all">All</option>
-                <option value="title">Song Title</option>
-                <option value="composer">Composer</option>
-            </select>
-            <button type="submit">Search</button>
-        </form>
-        <app-song *ngFor="let songComponent of songs" [song]="songComponent" (songClicked)="onSongClicked($event)"></app-song>
+        <span>
+            <mat-form-field id="search-field">
+            <mat-label>Search</mat-label>
+            <input matInput (input)="filterSongs()" type="text" [(ngModel)]="searchText">
+            </mat-form-field>
+            <mat-form-field id="category-field">
+            <mat-label>Category</mat-label>
+            <mat-select (openedChange)="refreshCategories()" (selectionChange)="filterSongs()" [(ngModel)]="selectedCategory">
+                <mat-option value="All">All</mat-option>
+                <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+        </span>
+        <app-song *ngFor="let songComponent of filteredSongs" [song]="songComponent" (songClicked)="onSongClicked($event)"></app-song>
     </div>
     <div class="right-section">
-    <button (click)="openAddSongDialog()">Add Song</button>
-    <form [formGroup]="newCategoryForm" (submit)="addNewCategory()">
-        <label for="newCategory">Add New Category: </label>
-        <input type="text" id="newCategory" formControlName="category" required>
-        <button type="submit" [disabled]="!newCategoryForm.valid">Add</button>
-    </form>
     <app-current-song [song]="currentSong"></app-current-song>
     </div>
 </section>
