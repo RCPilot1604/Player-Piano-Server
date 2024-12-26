@@ -1,6 +1,6 @@
 <section>
     <div class="left-section">
-        <span>
+        <div id="search-bar">
             <mat-form-field id="search-field">
             <mat-label>Search</mat-label>
             <input matInput (input)="filterSongs()" type="text" [(ngModel)]="searchText">
@@ -12,10 +12,13 @@
                 <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
             </mat-select>
             </mat-form-field>
-        </span>
+        </div>
+        <mat-list>
         <app-song *ngFor="let songComponent of filteredSongs" [song]="songComponent" (songClicked)="onSongClicked($event)"></app-song>
+        </mat-list>
     </div>
     <div class="right-section">
     <app-current-song [song]="currentSong"></app-current-song>
+    <mat-divider id="mobile-divider"></mat-divider>
     </div>
 </section>

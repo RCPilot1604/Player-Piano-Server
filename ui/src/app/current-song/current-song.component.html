@@ -3,10 +3,22 @@
     <h2>{{ song.title }}</h2>
     <p><strong>Composer:</strong> {{ song.composer }}</p>
     <p><strong>MIDI Path:</strong> <a [href]="song.midiPath">{{ song.midiPath }}</a></p>
-    <div>
-      <button (click)="togglePlayPause()">{{ isPlaying ? 'Pause' : 'Play' }}</button>
-      <input type="range" min="0" max="100" [(ngModel)]="currentTime" (input)="seekTo()">
-      <input type="range" min="0" max="100" [(ngModel)]="volume" (input)="setVolume(getValue($event))" >
+    <div class = "player-controls">
+      <div id = "playbar">
+        <button mat-icon-button aria-label="Play Pause Button" (click)="togglePlayPause()">
+          <mat-icon>{{ isPlaying ? 'pause' : 'play_arrow' }}</mat-icon>
+        </button>
+        <mat-slider class = "playback-slider"><input matSliderThumb min="0" max="100" [(ngModel)]="currentTime" (input)="seekTo()"></mat-slider>
+      </div>
+      <div id = "volumebar">
+        <button mat-icon-button aria-label="Volume Down" (mousedown)="decrementVolume()">
+          <mat-icon>volume_down</mat-icon>
+        </button>
+        <input type="range" min="0" max="100" class="volume-slider" [(ngModel)]="volume" (input)="updateVolume()" >
+        <button mat-icon-button aria-label="Volume Down" (mousedown)="incrementVolume()">
+          <mat-icon>volume_up</mat-icon>
+        </button>
+      </div>
     </div>
 </div>
 <div *ngIf="!song">

@@ -3,11 +3,14 @@ import { SongEntry } from '../song-entry';
 import { NgIf } from '@angular/common';
 import { WebsocketService } from './websocket.service';
 import { FormsModule } from '@angular/forms';
+import { MatSliderModule} from '@angular/material/slider';
+import { MatIcon } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-current-song',
   standalone: true,
-  imports: [NgIf, FormsModule],
+  imports: [NgIf, FormsModule, MatSliderModule, MatIcon, MatButtonModule],
   providers: [WebsocketService],
   templateUrl: './current-song.component.html',
   styleUrls: ['./current-song.component.css']
@@ -31,9 +34,16 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
       this.socket.emit('pause', "");
     }
   }
-  setVolume(volume: string) {
-    this.volume = Number(volume);
-    this.socket.emit('volume', volume);
+  incrementVolume() {
+    this.volume = Math.min(100, this.volume + 1);
+    this.updateVolume();
+  }
+  decrementVolume() {
+    this.volume = Math.max(0, this.volume - 1);
+    this.updateVolume();
+  }
+  updateVolume() {
+    this.socket.emit('volume', this.volume);
   }
   seekTo() {
     this.socket.emit('seek', this.currentTime);

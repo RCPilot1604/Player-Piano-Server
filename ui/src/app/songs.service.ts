@@ -7,7 +7,7 @@ import { SongEntry } from './song-entry';
   providedIn: 'root'
 })
 export class SongsService {
-  host = "http://localhost:3000/api/crud";
+  host = "http://192.168.0.226:3000/api/crud";
   constructor(private http: HttpClient) { }
   getSong() {
     return this.http.get<SongEntry[]>(this.host).pipe(map((res) => res));

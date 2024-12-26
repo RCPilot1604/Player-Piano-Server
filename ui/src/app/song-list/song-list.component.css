@@ -1,13 +1,52 @@
-section {
+  section {
     display: flex;
+    flex-direction: row;
   }
   
   .left-section {
     flex: 1;
     padding: 10px;
+    overflow-y: auto; /* Enable vertical scrolling */
   }
   
   .right-section {
     flex: 1;
     padding: 10px;
+    position: sticky;
+    top: 0; /* Keep the right section fixed at the top */
   }
+  #mobile-divider {
+    display: none;
+  }
+
+  #search-bar {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    position: sticky;
+    top: 0;
+  }
+  #search-field{
+    width: 70%;
+  }
+  #category-field{
+    width: 30%;
+  }
+
+  /* Media query for mobile view */
+@media (max-width: 1000px) {
+  section {
+    flex-direction: column-reverse; /* Change the order of the sections */
+  }
+  #mobile-divider {
+    display: flex;
+  }
+  .right-section{
+    height: min-content;
+  }
+  .left-section,
+  .right-section {
+    padding: 5px;
+    width: 100%;
+  }
+}

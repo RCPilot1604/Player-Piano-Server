@@ -13,10 +13,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOption } from '@angular/material/core';
+import { MatList } from '@angular/material/list';
+import {MatDivider, MatDividerModule} from '@angular/material/divider';
 @Component({
   selector: 'app-song-list',
   imports: [CurrentSongComponent, SongComponent, NgForOf, FormsModule, ReactiveFormsModule, MatFormFieldModule, 
-        MatInputModule, MatSelectModule, MatOption, MatToolbarModule],
+        MatInputModule, MatSelectModule, MatOption, MatToolbarModule, MatList, MatDividerModule],
   providers: [SongsService, WebsocketService, CategoryService],
   templateUrl: './song-list.component.html',
   styleUrl: './song-list.component.css'

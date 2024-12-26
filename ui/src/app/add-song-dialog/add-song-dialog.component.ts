@@ -3,14 +3,13 @@ import { FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { SongsService } from '../songs.service';
 import { CategoryService } from '../categories.service';
 import { MatDialogRef } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgIf, NgForOf } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
 import { MatDialogContent, MatDialogActions } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButton } from '@angular/material/button';
 
 @Component({
@@ -32,6 +31,10 @@ import { MatButton } from '@angular/material/button';
         <mat-select formControlName="category" id="category" (onclick)="refreshCategories()" required>
           <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
         </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Composer</mat-label>
+        <input matInput formControlName="composer" id="composer">
       </mat-form-field>
       <mat-toolbar id="file-upload-toolbar">
       <mat-toolbar-row id="file-upload">
@@ -116,7 +119,7 @@ export class AddSongDialogComponent {
       //console.table(Object.fromEntries(this.formData));
     } else {
       if(!this.selectedFile) this.finalError = "Please upload a .mid/.midi file.";
-      else this.finalError = "Please fill out all fields.";
+      else this.finalError = "Please fill out all mandatory fields.";
     }
   }
 

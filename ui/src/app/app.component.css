@@ -24,3 +24,8 @@ h2 {
     width: 48px;     /* Adjust the width as needed */
     height: 48px;    /* Adjust the height as needed */
 }
+@media (max-width: 550px) {
+    #name{
+        display: none;
+    }
+}
