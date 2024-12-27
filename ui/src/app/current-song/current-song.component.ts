@@ -58,6 +58,15 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.socket.fromEvent('timeUpdate').subscribe((data) => {
       this.currentTime = data;
     });
+    this.socket.fromEvent('playUpdate').subscribe((data) => {
+      this.isPlaying = Boolean(data);
+    });
+    this.socket.fromEvent('volumeUpdate').subscribe((data) => {
+      this.volume = data;
+    });
+    this.socket.fromEvent('seekUpdate').subscribe((data) => {
+      this.currentTime = data;
+    });
   }
   ngOnDestroy(): void {
     this.socket.disconnect();
