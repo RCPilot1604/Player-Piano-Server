@@ -42,6 +42,9 @@ export class SongListComponent {
   ngOnInit() {
     this.refreshSongs();
     this.refreshCategories();
+    this.websocket.fromEvent('loadMidiUpdate').subscribe((data) => {
+      this.currentSong = data;
+    });
   }
 
   filterSongs() {
@@ -76,6 +79,6 @@ export class SongListComponent {
 
   onSongClicked(song: SongEntry) {
     this.currentSong = song;
-    this.websocket.emit('loadMidi', song.midiPath);
+    this.websocket.emit('loadMidi', song);
   }
 }
