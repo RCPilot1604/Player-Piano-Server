@@ -1,3 +1,5 @@
 node_modules/
 flask/venv/
 flask/.env
+ui/src/environments/environment.development.ts
+ui/src/environments/environment.ts
