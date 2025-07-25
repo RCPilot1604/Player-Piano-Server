@@ -4,11 +4,12 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { environment } from '../environments/environment';
 
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-const config: SocketIoConfig = { url: 'ws://192.168.0.226:1234' };
+const config: SocketIoConfig = { url: environment.wsUrl, options: {} };
 
 export const appConfig: ApplicationConfig = {
   providers: [
