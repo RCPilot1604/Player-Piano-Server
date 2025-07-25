@@ -1,0 +1,47 @@
+{
+  "tempo_changes": [
+    {
+      "tick": 0,
+      "tempo": 500000,
+      "time_ms": 0.0
+    }
+  ],
+  "events": [
+    {
+      "tick": 0,
+      "time_ms": 0.0,
+      "channel": 0,
+      "type": "note_on",
+      "note_number": 60,
+      "velocity": 80,
+      "data": [144, 60, 80]
+    },
+    {
+      "tick": 480,
+      "time_ms": 500.0,
+      "channel": 0,
+      "type": "note_off",
+      "note_number": 60,
+      "velocity": 0,
+      "data": [128, 60, 0]
+    },
+    {
+      "tick": 480,
+      "time_ms": 500.0,
+      "channel": 0,
+      "type": "note_on",
+      "note_number": 64,
+      "velocity": 80,
+      "data": [144, 64, 80]
+    },
+    {
+      "tick": 960,
+      "time_ms": 1000.0,
+      "channel": 0,
+      "type": "note_off",
+      "note_number": 64,
+      "velocity": 0,
+      "data": [128, 64, 0]
+    }
+  ]
+}

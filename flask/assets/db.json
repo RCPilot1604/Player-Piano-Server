@@ -1,0 +1,21 @@
+{
+  "songs": [
+    {
+      "id": 1,
+      "category": "Anime",
+      "title": "Kibou No Uta",
+      "composer": "",
+      "midiPath": "./assets/midi/Kibou no Uta.mid"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Anime"
+    },
+    {
+      "id": 2,
+      "name": "Rock and Roll"
+    }
+  ]
+}
