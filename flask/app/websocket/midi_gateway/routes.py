@@ -78,7 +78,7 @@ class MidiPlayerGateway:
         """Start the C++ ALSA player process"""
         self.alsa_player = subprocess.Popen([
             './ALSA/alsa_midi_player',  # Your compiled C++ binary
-            '/tmp/midi_events.json'
+            './tmp/midi_events.json'
         ], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
     
     def play(self):
