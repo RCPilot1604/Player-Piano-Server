@@ -321,6 +321,11 @@ private:
     void send_midi_event(const MidiEvent& event) {
         if (!seq_handle) return;
         
+        std::cout << "Sending MIDI event: type=" << event.type
+          << " channel=" << event.channel
+          << " note=" << event.note_number
+          << " velocity=" << event.velocity << std::endl;
+          
         snd_seq_event_t seq_event;
         snd_seq_ev_clear(&seq_event);
         
