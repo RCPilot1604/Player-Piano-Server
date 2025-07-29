@@ -4,9 +4,11 @@ import json
 import subprocess
 import os
 import time
-from threading import Thread, Timer
+from threading import Thread
 from datetime import datetime
 import logging
+from app.utils.instruments import GeneralMidiInstrument
+from alsa_midi import SequencerClient, NoteOnEvent, NoteOffEvent, ControlChangeEvent
 from ...parsers.midi_parser import MidiParser
 from ...parsers.midi_events import MidiEvent
 
@@ -27,59 +29,73 @@ class MidiPlayerGateway:
         self.last_percentage = -1
         self.parser = None
         self.alsa_player = None
-        
+        self.track_names = None
+        self.tracks_to_play = []
+        # Player thread
+        self.player_thread = None
+        self.stop_event = False # default set to RUN
+        self.pause_event = True # default set to PAUSE
+        self.port = None  # ALSA port for MIDI output
         # For logging MIDI events
         self.midi_log_path = None
-        self.initialize_midi_log()
-    
-    def initialize_midi_log(self):
-        """Initialize MIDI event logging"""
-        log_dir = os.path.join(os.path.dirname(__file__), '../../..', 'server', 'midi-logs')
-        os.makedirs(log_dir, exist_ok=True)
-        self.midi_log_path = os.path.join(log_dir, 'midi-events.json')
-    
+
+    def player_thread_function(self):
+        """Thread function to handle playback logic"""
+        client = SequencerClient()
+        while not self.stop_event:
+            for event in self.current_events:
+                while self.pause_event:
+                    pass # Do nothing; halt the execution
+                # Playback logic here
+                event_to_send = None
+                if(event.isBounceBack):
+                    event_to_send = ControlChangeEvent(controller=110, value=event.note, channel=0)
+                else:
+                    event_to_send = NoteOnEvent(note=event.note, velocity=event.velocity) if event.type == 'note_on' else NoteOffEvent(note=event.note, velocity=event.velocity)
+                if event_to_send:
+                    client.event_output(event_to_send)
+
+    def parse_song(self, tracks_to_play):
+        """Parse the MIDI file and filter tracks based on selected instruments"""
+        try:
+            parsed_events = self.parser._parse_to_events(tracks_to_play) # Parse raw MIDI file
+            sanitized_events = self.parser._sanitize_events(parsed_events) # Sanitize events
+            self.current_events = self.parser._convert_events(sanitized_events) # Convert to MidiEvent objects
+            self.parser._export_to_json(self.current_events)
+            return True
+        except Exception as e:
+            logger.error(f"Error parsing MIDI file: {e}")
+            emit('error', {'message': f'Failed to parse MIDI file: {str(e)}'})
+            return False
+        
     def load_song(self, song_path: str, song_data: dict = None):
         """Load a MIDI song for playback"""
+        # Clear the current running player thread 
+        if self.player_thread and self.player_thread.is_alive():
+            self.stop_event = True
+            self.player_thread.join()
+        # Parse MIDI file into ./tmp/midi_events.json which merely serves as staging ground 
         try:
             self.parser = MidiParser(song_path)
+            self.parser._load_midi()
             print("Successfully parsed MIDI file")
             self.current_song = song_data
-            self.current_events = self.parser.get_playback_events()
             self.position = 0
             self.is_playing = False
             
-            # Export events for ALSA player
-            self._export_events()
-            print("Successfully exported events")
-            # Initialize ALSA player
-            self._start_alsa_player()
-            print("Successfully started ALSA MIDI file")
-            
-            logger.info(f"Song loaded: {len(self.current_events)} events")
-            emit('song_loaded', {
-                'song': song_data,
-                'duration': self.parser.duration,
-                'events': len(self.current_events)
-            })
+            # Update the checkboxes to select tracks
+            with open('./tmp/tracks.json', 'r') as f:
+                file_data = json.load(f)
+                data = file_data.items()
+                print(data)
+                instrument_names = [{"id": i, "channel": i[0], "name": GeneralMidiInstrument.get_instrument_name(i[1])} for i in data]
+                emit('instruments', instrument_names, room='midi_players')
             
             return True
         except Exception as e:
             logger.error(f"Error loading song: {e}")
             emit('error', {'message': f'Failed to load song: {str(e)}'})
             return False
-    
-    def _export_events(self):
-        """Export parsed events for ALSA player"""
-        events_data = self.parser.export_for_alsa()
-        with open('./tmp/midi_events.json', 'w') as f:
-            json.dump(events_data, f)
-    
-    def _start_alsa_player(self):
-        """Start the C++ ALSA player process"""
-        self.alsa_player = subprocess.Popen([
-            './ALSA/alsa_midi_player',  # Your compiled C++ binary
-            './tmp/midi_events.json'
-        ], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
     
     def play(self):
         if self.alsa_player:
@@ -121,7 +137,6 @@ class MidiPlayerGateway:
             'currentSong': self.current_song,
             'volume': self.volume,
             'position': self.position,
-            'duration': self.parser.duration if self.parser else 0
         }
     
     def log_event(self, event_data):
@@ -166,7 +181,6 @@ def register_websocket_events(socketio):
         try:
             # Extract song information from frontend format
             midi_path = song_data.get('midiPath') or song_data.get('path')
-
             if not midi_path or not os.path.exists(midi_path):
                 emit('error', {'message': 'Song file not found'})
                 print(f"Song file not found: {midi_path}")
@@ -184,27 +198,22 @@ def register_websocket_events(socketio):
             logger.error(f"Error in loadMidi handler: {e}")
             emit('error', {'message': str(e)})
     
-    @socketio.on('load_song')
-    def handle_load_song(data):
-        """Load a song for playback (alternative API)"""
+    @socketio.on('parseMidi')
+    def handle_load_song(selected_tracks):
+        """Parse MIDI file and prepare for playback"""
+        selected_tracks = [int(t) for t in selected_tracks]
         try:
-            song_id = data.get('songId')
-            song_path = data.get('path')
-            song_data = data.get('songData', {})
-            
-            if not song_path or not os.path.exists(song_path):
-                emit('error', {'message': 'Song file not found'})
-                return
-            
-            success = gateway.load_song(song_path, song_data)
+            success = gateway.parse_song(selected_tracks)
             if success:
-                emit('song_loaded', {
-                    'songId': song_id,
-                    'songData': song_data
-                }, room='midi_players')
+                # Emit event that frontend expects
+                emit('parseMidiUpdate', {'status': 'success'}, room='midi_players')
+                logger.info("MIDI file parsed successfully")
+            else:
+                emit('error', {'message': 'Failed to parse MIDI file'})
         except Exception as e:
-            logger.error(f"Error in load_song handler: {e}")
+            logger.error(f"Error parsing MIDI file: {e}")
             emit('error', {'message': str(e)})
+        
     
     @socketio.on('play')
     def handle_play(data=None):
@@ -308,5 +317,19 @@ def register_websocket_events(socketio):
             emit('player_status', status)
         except Exception as e:
             logger.error(f"Error getting status: {e}")
+            emit('error', {'message': str(e)})
+
+    @socketio.on('setTracks')
+    def handle_set_track_names(tracks):
+        """Set tracks to be played for current song"""
+        try:
+            if not isinstance(tracks, list):
+                raise ValueError("Track names must be a list")
+            # Ensure all elements are ints
+            tracks = [t for t in tracks if isinstance(t, int)]
+            gateway.tracks_to_play = tracks
+            
+        except Exception as e:
+            logger.error(f"Error setting track names: {e}")
             emit('error', {'message': str(e)})
     
