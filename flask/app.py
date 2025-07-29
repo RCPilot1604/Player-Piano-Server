@@ -958,8 +958,9 @@ if __name__ == '__main__':
     app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
 
     # Initialize extensions
-    CORS(app, cors_allowed_origins="*")
+    CORS(app, origins="*")
     socket.init_app(app, cors_allowed_origins="*")
 
     # Register WebSocket events
     register_websocket_events(socket)
+    socket.run(app, host='0.0.0.0', port=5000)
