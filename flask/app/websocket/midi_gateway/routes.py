@@ -42,7 +42,7 @@ class MidiPlayerGateway:
 
     def player_thread_function(self):
         """Thread function to handle playback logic"""
-        client = SequencerClient()
+        client = SequencerClient("Player Piano")
         while True:
             if self.stop_event: 
                 self.midi_idx = 0
