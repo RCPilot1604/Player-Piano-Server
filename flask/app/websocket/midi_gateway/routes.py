@@ -69,6 +69,7 @@ class MidiPlayerGateway:
             sanitized_events = self.parser._sanitize_events(parsed_events) # Sanitize events
             self.current_events = self.parser._convert_events(sanitized_events) # Convert to MidiEvent objects
             self.parser._export_to_json(self.current_events)
+            self.total_duration = self.parser._calculate_duration(self.current_events)  # Get total duration in ms
             return True
         except Exception as e:
             logger.error(f"Error parsing MIDI file: {e}")
@@ -89,8 +90,7 @@ class MidiPlayerGateway:
             self.position = 0
             self.stop_event = True
             self.pause_event = True
-            self.total_duration = self.parser._calculate_duration()  # Get total duration in ms
-            
+                        
             # Update the checkboxes to select tracks
             with open('./tmp/tracks.json', 'r') as f:
                 file_data = json.load(f)
