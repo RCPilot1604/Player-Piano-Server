@@ -41,19 +41,20 @@ class MidiPlayerGateway:
         self.midi_log_path = None
 
     def player_thread_function(self):
+        import flask_socketio
         """Thread function to handle playback logic"""
         client = SequencerClient("Player Piano")
         while True:
             if self.stop_event: 
                 self.midi_idx = 0
-                emit('playback_finished', room='midi_players')
+                flask_socketio.emit('playback_finished', room='midi_players')
                 break
             while self.pause_event:
                 pass # Do nothing; halt the execution
             if self.midi_idx >= len(self.current_events):
                 self.pause_event = True
                 self.midi_idx = 0
-                emit('playback_finished', room='midi_players')
+                flask_socketio.emit('playback_finished', room='midi_players')
                 break
             event = self.current_events[self.midi_idx]
             # Playback logic here
@@ -65,7 +66,7 @@ class MidiPlayerGateway:
             if event_to_send:
                 client.event_output(event_to_send)
                 self.midi_idx += 1
-                emit('timeUpdate', (event.timestamp / self.total_duration) * 100, room='midi_players')
+                flask_socketio.emit('timeUpdate', (event.timestamp / self.total_duration) * 100, room='midi_players')
                 print("Heartbeat: ", event.timestamp, "DeltaT: ", event.deltaT)
                 time.sleep(event.deltaT / 1000.0)  # Convert deltaT to seconds
 
