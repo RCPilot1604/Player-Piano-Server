@@ -8,7 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { AddSongDialogComponent } from './add-song-dialog/add-song-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCategoryDialogComponent } from './add-category-dialog/add-category-dialog/add-category-dialog.component';
-
+import { WebsocketService } from './services/websocket.service';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, SongListComponent, MatToolbarRow, MatIconModule, MatButtonModule, MatMenuModule],

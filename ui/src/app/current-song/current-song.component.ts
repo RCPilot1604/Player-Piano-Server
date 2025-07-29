@@ -1,17 +1,15 @@
 import { Component, Input, OnInit, OnDestroy, inject } from '@angular/core';
 import { SongEntry } from '../song-entry';
 import { NgIf, NgFor } from '@angular/common';
-import { WebsocketService } from '../services/websocket.service';
 import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-
+import { WebsocketService } from '../services/websocket.service';
 @Component({
   selector: 'app-current-song',
   standalone: true,
   imports: [NgIf, NgFor, FormsModule, MatSliderModule, MatIcon, MatButtonModule],
-  providers: [WebsocketService],
   templateUrl: './current-song.component.html',
   styleUrls: ['./current-song.component.css']
 })
@@ -21,8 +19,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   currentTime = 0;
   duration = 100; // Initialize duration to 0
   volume = 100;
-  socket: WebsocketService = inject(WebsocketService);
-  constructor() { }
+  constructor(private socket: WebsocketService) { }
   onInstrumentAction() {
     this.socket.emit('parseMidi', this.selectedInstrumentIds);
   }

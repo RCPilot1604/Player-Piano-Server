@@ -19,7 +19,7 @@ import {MatDivider, MatDividerModule} from '@angular/material/divider';
   selector: 'app-song-list',
   imports: [CurrentSongComponent, SongComponent, NgForOf, FormsModule, ReactiveFormsModule, MatFormFieldModule, 
         MatInputModule, MatSelectModule, MatOption, MatToolbarModule, MatList, MatDividerModule],
-  providers: [SongsService, WebsocketService, CategoryService],
+  providers: [SongsService, CategoryService],
   templateUrl: './song-list.component.html',
   styleUrl: './song-list.component.css'
 })
@@ -27,7 +27,6 @@ export class SongListComponent {
   songs: SongEntry[] = [];
   filteredSongs: SongEntry[] = [];
   songsService: SongsService = inject(SongsService);
-  websocket: WebsocketService = inject(WebsocketService);
   currentSong: SongEntry | null = null;
   dialog: MatDialog = inject(MatDialog);
   categories: string[] = [];
@@ -35,7 +34,7 @@ export class SongListComponent {
   searchText: string = '';
   
   constructor(private categoryService: CategoryService,
-  ) {
+              private websocket: WebsocketService) {
     this.songs = [];
   }
   
