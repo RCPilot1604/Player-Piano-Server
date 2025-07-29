@@ -119,7 +119,7 @@ class MidiPlayerGateway:
         position_ms = (position / 100) * self.total_duration  # Convert percentage to ms
         closest_event = min(self.current_events, key=lambda e: abs(e.time_ms - position_ms))
         self.midi_idx = self.current_events.index(closest_event)
-        
+
     def close(self):
         if self.alsa_player:
             self.alsa_player.stdin.write("QUIT\n")
@@ -141,7 +141,7 @@ class MidiPlayerGateway:
     def get_status(self):
         """Get current player status"""
         return {
-            'isPlaying': self.is_playing,
+            'isPlaying': self.pause_event is False,
             'currentSong': self.current_song,
             'volume': self.volume,
             'position': self.position,
