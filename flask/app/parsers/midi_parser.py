@@ -209,7 +209,6 @@ class MidiParser:
         """Calculate total duration of MIDI file in seconds"""
         if not self.events:
             return 0.0
-        
         last_event = max(self.events, key=lambda x: x.time_ms)
         return last_event.time_ms / 1000.0  # Convert to seconds
     def _convert_events(self, events: List[List[MidiEvent]]) -> List[MidiEvent]:

@@ -18,7 +18,6 @@ logger = logging.getLogger(__name__)
 
 class MidiPlayerGateway:
     def __init__(self):
-        self.is_playing = False
         self.current_song = None
         self.volume = 100
         self.position = 0
@@ -31,29 +30,37 @@ class MidiPlayerGateway:
         self.alsa_player = None
         self.track_names = None
         self.tracks_to_play = []
+        self.total_duration = 0.0 # Total duration of the MIDI file in ms
         # Player thread
         self.player_thread = None
-        self.stop_event = False # default set to RUN
         self.pause_event = True # default set to PAUSE
         self.port = None  # ALSA port for MIDI output
+        self.midi_idx = None  # Current position in the MIDI file
         # For logging MIDI events
         self.midi_log_path = None
 
     def player_thread_function(self):
         """Thread function to handle playback logic"""
         client = SequencerClient()
-        while not self.stop_event:
-            for event in self.current_events:
-                while self.pause_event:
-                    pass # Do nothing; halt the execution
-                # Playback logic here
-                event_to_send = None
-                if(event.isBounceBack):
-                    event_to_send = ControlChangeEvent(controller=110, value=event.note, channel=0)
-                else:
-                    event_to_send = NoteOnEvent(note=event.note, velocity=event.velocity) if event.type == 'note_on' else NoteOffEvent(note=event.note, velocity=event.velocity)
-                if event_to_send:
-                    client.event_output(event_to_send)
+        while True:
+            while self.pause_event:
+                pass # Do nothing; halt the execution
+            if self.midi_idx >= len(self.current_events):
+                emit('playback_finished', room='midi_players')
+                self.pause_event = True
+                self.midi_idx = 0
+                continue
+            event = self.current_events[self.midi_idx]
+            # Playback logic here
+            event_to_send = None
+            if(event.isBounceBack):
+                event_to_send = ControlChangeEvent(controller=110, value=event.note, channel=0)
+            else:
+                event_to_send = NoteOnEvent(note=event.note, velocity=event.velocity) if event.type == 'note_on' else NoteOffEvent(note=event.note, velocity=event.velocity)
+            if event_to_send:
+                client.event_output(event_to_send)
+                self.midi_idx += 1
+                emit('timeUpdate', (event_to_send.time_ms / self.total_duration) * 100, room='midi_players')
 
     def parse_song(self, tracks_to_play):
         """Parse the MIDI file and filter tracks based on selected instruments"""
@@ -78,10 +85,11 @@ class MidiPlayerGateway:
         try:
             self.parser = MidiParser(song_path)
             self.parser._load_midi()
-            print("Successfully parsed MIDI file")
             self.current_song = song_data
             self.position = 0
-            self.is_playing = False
+            self.stop_event = True
+            self.pause_event = True
+            self.total_duration = self.parser.get_total_duration()  # Get total duration in ms
             
             # Update the checkboxes to select tracks
             with open('./tmp/tracks.json', 'r') as f:
@@ -98,20 +106,20 @@ class MidiPlayerGateway:
             return False
     
     def play(self):
-        if self.alsa_player:
-            self.alsa_player.stdin.write("PLAY\n")
-            self.alsa_player.stdin.flush()
+        self.pause_event = False
     
     def pause(self):
-        if self.alsa_player:
-            self.alsa_player.stdin.write("PAUSE\n")
-            self.alsa_player.stdin.flush()
+        self.pause_event = True
     
-    def seek(self, tick: int):
-        if self.alsa_player:
-            self.alsa_player.stdin.write(f"SEEK {tick}\n")
-            self.alsa_player.stdin.flush()
-    
+    def seek(self, position: int):
+        # The idea for seek is that we find the event with the closest time_ms and set the index to that event
+        if not self.current_events:
+            logger.warning("No MIDI events loaded for seeking")
+            return
+        position_ms = (position / 100) * self.total_duration  # Convert percentage to ms
+        closest_event = min(self.current_events, key=lambda e: abs(e.time_ms - position_ms))
+        self.midi_idx = self.current_events.index(closest_event)
+        
     def close(self):
         if self.alsa_player:
             self.alsa_player.stdin.write("QUIT\n")
@@ -220,7 +228,6 @@ def register_websocket_events(socketio):
         """Start playback"""
         try:
             gateway.play()
-            gateway.is_playing = True
             gateway.playback_start_time = time.time()
             
             # Emit events that frontend expects
@@ -240,7 +247,6 @@ def register_websocket_events(socketio):
         """Pause playback"""
         try:
             gateway.pause()
-            gateway.is_playing = False
             
             # Emit events that frontend expects
             emit('playUpdate', False, room='midi_players')
@@ -259,7 +265,6 @@ def register_websocket_events(socketio):
         try:
             gateway.pause()
             gateway.seek(0)
-            gateway.is_playing = False
             gateway.position = 0
             
             emit('playback_stopped', room='midi_players')
