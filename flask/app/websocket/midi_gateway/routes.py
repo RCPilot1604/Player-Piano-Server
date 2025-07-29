@@ -1,5 +1,5 @@
 from flask import current_app
-import flask_socketio
+from flask_socketio import emit, disconnect, join_room, leave_room
 import json
 import subprocess
 import os
@@ -39,23 +39,21 @@ class MidiPlayerGateway:
         self.midi_idx = None  # Current position in the MIDI file
         # For logging MIDI events
         self.midi_log_path = None
-        # SocketIO
-        self.socketio = flask_socketio.SocketIO(current_app)
 
-    def player_thread_function(self, socketio):
+    def player_thread_function(self):
         """Thread function to handle playback logic"""
         client = SequencerClient("Player Piano")
         while True:
             if self.stop_event: 
                 self.midi_idx = 0
-                socketio.emit('playback_finished', room='midi_players')
+                emit('playback_finished', room='midi_players')
                 break
             while self.pause_event:
                 pass # Do nothing; halt the execution
             if self.midi_idx >= len(self.current_events):
                 self.pause_event = True
                 self.midi_idx = 0
-                socketio.emit('playback_finished', room='midi_players')
+                emit('playback_finished', room='midi_players')
                 break
             event = self.current_events[self.midi_idx]
             # Playback logic here
@@ -67,7 +65,7 @@ class MidiPlayerGateway:
             if event_to_send:
                 client.event_output(event_to_send)
                 self.midi_idx += 1
-                socketio.emit('timeUpdate', (event.timestamp / self.total_duration) * 100, room='midi_players')
+                emit('timeUpdate', (event.timestamp / self.total_duration) * 100, room='midi_players')
                 print("Heartbeat: ", event.timestamp, "DeltaT: ", event.deltaT)
                 time.sleep(event.deltaT / 1000.0)  # Convert deltaT to seconds
 
@@ -79,7 +77,7 @@ class MidiPlayerGateway:
             self.current_events = self.parser._convert_events(sanitized_events) # Convert to MidiEvent objects
             self.parser._export_to_json(self.current_events)
             self.total_duration = self.parser._calculate_duration(self.current_events)  # Get total duration in ms
-            self.player_thread = Thread(target=self.player_thread_function, args=(self.socketio,))
+            self.player_thread = Thread(target=self.player_thread_function)
             self.stop_event = False
             self.pause_event = True
             self.midi_idx = 0
@@ -87,7 +85,7 @@ class MidiPlayerGateway:
             return True
         except Exception as e:
             logger.error(f"Error parsing MIDI file: {e}")
-            self.socketio.emit('error', {'message': f'Failed to parse MIDI file: {str(e)}'})
+            emit('error', {'message': f'Failed to parse MIDI file: {str(e)}'})
             return False
         
     def load_song(self, song_path: str, song_data: dict = None):
@@ -110,12 +108,12 @@ class MidiPlayerGateway:
                 data = file_data.items()
                 print(data)
                 instrument_names = [{"id": i, "channel": i[0], "name": GeneralMidiInstrument.get_instrument_name(i[1])} for i in data]
-                self.socketio.emit('instruments', instrument_names, room='midi_players')
+                emit('instruments', instrument_names, room='midi_players')
             
             return True
         except Exception as e:
             logger.error(f"Error loading song: {e}")
-            self.socketio.emit('error', {'message': f'Failed to load song: {str(e)}'})
+            emit('error', {'message': f'Failed to load song: {str(e)}'})
             return False
     
     def play(self):
@@ -142,13 +140,14 @@ class MidiPlayerGateway:
     def set_volume(self, volume: int):
         """Set playback volume"""
         self.volume = max(0, min(100, volume))
-        # Don't self.socketio.emit here, let the WebSocket handler self.socketio.emit the event
+        # Don't emit here, let the WebSocket handler emit the event
     
     def update_position(self, position: int):
-        """Update current playback position and self.socketio.emit to clients"""
+        """Update current playback position and emit to clients"""
         self.position = position
         # This would be called by your ALSA player or timing mechanism
-        self.socketio.emit('timeUpdate', position, room='midi_players')
+        from flask_socketio import emit
+        emit('timeUpdate', position, room='midi_players')
     
     def get_status(self):
         """Get current player status"""
@@ -184,37 +183,39 @@ def register_websocket_events(socketio):
     def handle_connect():
         """Handle client connection"""
         logger.info('Client connected')
-        socketio.join_room('midi_players')
-        socketio.emit('connected', {'status': 'Connected to MIDI Player'})
-        socketio.emit('player_status', gateway.get_status())
+        join_room('midi_players')
+        emit('connected', {'status': 'Connected to MIDI Player'})
+        emit('player_status', gateway.get_status())
     
     @socketio.on('disconnect')
     def handle_disconnect():
         """Handle client disconnection"""
         logger.info('Client disconnected')
-        socketio.leave_room('midi_players')
-
+        leave_room('midi_players')
+    
     @socketio.on('loadMidi')
     def handle_load_midi(song_data):
         """Load a MIDI song for playback (matches frontend expectation)"""
         print(f"Loading MIDI song: {song_data}")
         try:
+            # Extract song information from frontend format
             midi_path = song_data.get('midiPath') or song_data.get('path')
             if not midi_path or not os.path.exists(midi_path):
-                socketio.emit('error', {'message': 'Song file not found'})
+                emit('error', {'message': 'Song file not found'})
                 print(f"Song file not found: {midi_path}")
                 return
 
             success = gateway.load_song(midi_path, song_data)
             if success:
+                # Emit event that frontend expects
                 print(f"Song loaded successfully: {song_data}")
-                socketio.emit('loadMidiUpdate', song_data, room='midi_players')
+                emit('loadMidiUpdate', song_data, room='midi_players')
             else:
                 print(f"Failed to load song: {song_data}")
                 
         except Exception as e:
             logger.error(f"Error in loadMidi handler: {e}")
-            socketio.emit('error', {'message': str(e)})
+            emit('error', {'message': str(e)})
     
     @socketio.on('parseMidi')
     def handle_load_song(selected_tracks):
@@ -223,13 +224,14 @@ def register_websocket_events(socketio):
         try:
             success = gateway.parse_song(selected_tracks)
             if success:
-                socketio.emit('parseMidiUpdate', {'status': 'success'}, room='midi_players')
+                # Emit event that frontend expects
+                emit('parseMidiUpdate', {'status': 'success'}, room='midi_players')
                 logger.info("MIDI file parsed successfully")
             else:
-                socketio.emit('error', {'message': 'Failed to parse MIDI file'})
+                emit('error', {'message': 'Failed to parse MIDI file'})
         except Exception as e:
             logger.error(f"Error parsing MIDI file: {e}")
-            socketio.emit('error', {'message': str(e)})
+            emit('error', {'message': str(e)})
         
     
     @socketio.on('play')
@@ -238,29 +240,35 @@ def register_websocket_events(socketio):
         try:
             gateway.play()
             gateway.playback_start_time = time.time()
-            socketio.emit('playUpdate', True, room='midi_players')
-            socketio.emit('playback_started', {
+            
+            # Emit events that frontend expects
+            emit('playUpdate', True, room='midi_players')
+            emit('playback_started', {
                 'song': gateway.current_song,
                 'timestamp': gateway.playback_start_time
             }, room='midi_players')
+            
             logger.info('Playback started')
         except Exception as e:
             logger.error(f"Error starting playback: {e}")
-            socketio.emit('error', {'message': str(e)})
+            emit('error', {'message': str(e)})
     
     @socketio.on('pause')
     def handle_pause(data=None):
         """Pause playback"""
         try:
             gateway.pause()
-            socketio.emit('playUpdate', False, room='midi_players')
-            socketio.emit('playback_paused', {
+            
+            # Emit events that frontend expects
+            emit('playUpdate', False, room='midi_players')
+            emit('playback_paused', {
                 'position': gateway.position
             }, room='midi_players')
+            
             logger.info('Playback paused')
         except Exception as e:
             logger.error(f"Error pausing playback: {e}")
-            socketio.emit('error', {'message': str(e)})
+            emit('error', {'message': str(e)})
     
     @socketio.on('stop')
     def handle_stop():
@@ -269,11 +277,12 @@ def register_websocket_events(socketio):
             gateway.pause()
             gateway.seek(0)
             gateway.position = 0
-            socketio.emit('playback_stopped', room='midi_players')
+            
+            emit('playback_stopped', room='midi_players')
             logger.info('Playback stopped')
         except Exception as e:
             logger.error(f"Error stopping playback: {e}")
-            socketio.emit('error', {'message': str(e)})
+            emit('error', {'message': str(e)})
     
     @socketio.on('seek')
     def handle_seek(seek_position):
@@ -282,12 +291,15 @@ def register_websocket_events(socketio):
             tick = int(seek_position) if isinstance(seek_position, (int, str)) else seek_position.get('tick', 0)
             gateway.seek(tick)
             gateway.position = tick
-            socketio.emit('seekUpdate', tick, room='midi_players')
-            socketio.emit('timeUpdate', tick, room='midi_players')
+            
+            # Emit events that frontend expects
+            emit('seekUpdate', tick, room='midi_players')
+            emit('timeUpdate', tick, room='midi_players')
+            
             logger.info(f'Seeked to position: {tick}')
         except Exception as e:
             logger.error(f"Error seeking: {e}")
-            socketio.emit('error', {'message': str(e)})
+            emit('error', {'message': str(e)})
     
     @socketio.on('volume')
     def handle_volume(volume_value):
@@ -295,11 +307,11 @@ def register_websocket_events(socketio):
         try:
             volume = int(volume_value) if isinstance(volume_value, (int, str)) else volume_value
             gateway.set_volume(volume)
-            socketio.emit('volumeUpdate', volume, room='midi_players')
+            emit('volumeUpdate', volume, room='midi_players')
             logger.info(f'Volume set to: {volume}')
         except Exception as e:
             logger.error(f"Error setting volume: {e}")
-            socketio.emit('error', {'message': str(e)})
+            emit('error', {'message': str(e)})
     
     @socketio.on('set_volume')
     def handle_set_volume(data):
@@ -307,21 +319,21 @@ def register_websocket_events(socketio):
         try:
             volume = data.get('volume', 100)
             gateway.set_volume(volume)
-            socketio.emit('volumeUpdate', volume, room='midi_players')
+            emit('volumeUpdate', volume, room='midi_players')
             logger.info(f'Volume set to: {volume}')
         except Exception as e:
             logger.error(f"Error setting volume: {e}")
-            socketio.emit('error', {'message': str(e)})
+            emit('error', {'message': str(e)})
     
     @socketio.on('get_status')
     def handle_get_status():
         """Get current player status"""
         try:
             status = gateway.get_status()
-            socketio.emit('player_status', status)
+            emit('player_status', status)
         except Exception as e:
             logger.error(f"Error getting status: {e}")
-            socketio.emit('error', {'message': str(e)})
+            emit('error', {'message': str(e)})
 
     @socketio.on('setTracks')
     def handle_set_track_names(tracks):
@@ -329,9 +341,11 @@ def register_websocket_events(socketio):
         try:
             if not isinstance(tracks, list):
                 raise ValueError("Track names must be a list")
+            # Ensure all elements are ints
             tracks = [t for t in tracks if isinstance(t, int)]
             gateway.tracks_to_play = tracks
+            
         except Exception as e:
             logger.error(f"Error setting track names: {e}")
-            socketio.emit('error', {'message': str(e)})
+            emit('error', {'message': str(e)})
     
