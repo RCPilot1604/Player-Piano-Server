@@ -1,9 +1,8 @@
 import mido
 import json
-from typing import List, Dict, Any
-import time
-from .midi_events import MidiEvent, ConvertedEvent
-from ..utils.settings import Settings
+from typing import List
+from midi_events import MidiEvent, ConvertedEvent
+from settings import Settings
 import os 
 
 """
