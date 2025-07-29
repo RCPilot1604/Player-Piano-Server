@@ -187,7 +187,7 @@ gateway = MidiPlayerGateway(socket)
 def home():
     return 'Hello, Flask!'
 
-@app.route('/', methods=['GET'])
+@app.route('/crud', methods=['GET'])
 def get_categories():
     """Get all categories from database"""
     try:
@@ -200,28 +200,7 @@ def get_categories():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/<int:category_id>', methods=['GET'])
-def get_category(category_id):
-    """Get a specific category by ID"""
-    try:
-        assets_folder = current_app.config.get('ASSETS_FOLDER')
-        db_path = os.path.join(assets_folder, 'db.json')
-        
-        with open(db_path, 'r') as f:
-            database = json.load(f)
-        
-        categories = database.get('categories', [])
-        
-        # Find category by ID
-        for category in categories:
-            if category.get('id') == category_id:
-                return jsonify(category), 200
-        
-        return jsonify({'error': 'Category not found'}), 404
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-@app.route('/', methods=['POST'])
+@app.route('/api/categories', methods=['POST'])
 def create_category():
     """Create a new category"""
     try:
@@ -266,169 +245,7 @@ def create_category():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/<int:category_id>', methods=['PUT'])
-def update_category(category_id):
-    """Update an existing category"""
-    try:
-        data = request.json
-        if not data:
-            return jsonify({'error': 'No data provided'}), 400
-        
-        # Read current database
-        assets_folder = current_app.config.get('ASSETS_FOLDER')
-        db_path = os.path.join(assets_folder, 'db.json')
-        
-        with open(db_path, 'r') as f:
-            database = json.load(f)
-        
-        categories = database.get('categories', [])
-        
-        # Find category by ID
-        category_index = None
-        for i, category in enumerate(categories):
-            if category.get('id') == category_id:
-                category_index = i
-                break
-        
-        if category_index is not None:
-            # Check for duplicate name (excluding current category)
-            if 'name' in data:
-                for i, category in enumerate(categories):
-                    if (i != category_index and 
-                        category.get('name', '').lower() == data['name'].lower()):
-                        return jsonify({'error': 'Category with this name already exists'}), 409
-            
-            # Preserve original creation date and ID
-            original_created_at = categories[category_index].get('createdAt')
-            original_id = categories[category_index].get('id')
-            
-            # Update category data
-            categories[category_index].update(data)
-            categories[category_index]['updatedAt'] = datetime.utcnow().isoformat()
-            
-            # Restore original metadata
-            if original_created_at:
-                categories[category_index]['createdAt'] = original_created_at
-            if original_id:
-                categories[category_index]['id'] = original_id
-            
-            # Save to file
-            save_database_to_file(database)
-            
-            return jsonify(categories[category_index]), 200
-        else:
-            return jsonify({'error': 'Category not found'}), 404
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-@app.route('/<int:category_id>', methods=['DELETE'])
-def delete_category(category_id):
-    """Delete a category"""
-    try:
-        # Read current database
-        assets_folder = current_app.config.get('ASSETS_FOLDER')
-        db_path = os.path.join(assets_folder, 'db.json')
-        
-        with open(db_path, 'r') as f:
-            database = json.load(f)
-        
-        categories = database.get('categories', [])
-        songs = database.get('songs', [])
-        
-        # Find and remove category by ID
-        deleted_category = None
-        for i, category in enumerate(categories):
-            if category.get('id') == category_id:
-                deleted_category = categories.pop(i)
-                break
-        
-        if deleted_category:
-            # Check if any songs use this category
-            songs_using_category = [
-                song for song in songs 
-                if song.get('category') == deleted_category.get('name')
-            ]
-            
-            if songs_using_category:
-                return jsonify({
-                    'error': 'Cannot delete category. It is being used by songs.',
-                    'songs_count': len(songs_using_category)
-                }), 409
-            
-            # Save to file
-            save_database_to_file(database)
-            return jsonify(deleted_category), 200
-        else:
-            return jsonify({'error': 'Category not found'}), 404
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-@app.route('/<int:category_id>/songs', methods=['GET'])
-def get_songs_by_category(category_id):
-    """Get all songs in a specific category"""
-    try:
-        assets_folder = current_app.config.get('ASSETS_FOLDER')
-        db_path = os.path.join(assets_folder, 'db.json')
-        
-        with open(db_path, 'r') as f:
-            database = json.load(f)
-        
-        categories = database.get('categories', [])
-        songs = database.get('songs', [])
-        
-        # Find category by ID
-        category = None
-        for cat in categories:
-            if cat.get('id') == category_id:
-                category = cat
-                break
-        
-        if not category:
-            return jsonify({'error': 'Category not found'}), 404
-        
-        # Find songs in this category
-        category_songs = [
-            song for song in songs 
-            if song.get('category') == category.get('name')
-        ]
-        
-        return jsonify({
-            'category': category,
-            'songs': category_songs,
-            'count': len(category_songs)
-        }), 200
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-@app.route('/search', methods=['GET'])
-def search_categories():
-    """Search categories by name"""
-    try:
-        query = request.args.get('q', '').lower()
-        
-        if not query:
-            return jsonify({'error': 'Search query required'}), 400
-        
-        # Read current database
-        assets_folder = current_app.config.get('ASSETS_FOLDER')
-        db_path = os.path.join(assets_folder, 'db.json')
-        
-        with open(db_path, 'r') as f:
-            database = json.load(f)
-        
-        categories = database.get('categories', [])
-        
-        # Filter categories by search query
-        filtered_categories = [
-            category for category in categories
-            if query in category.get('name', '').lower()
-        ]
-        
-        return jsonify(filtered_categories), 200
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-@app.route('/', methods=['GET'])
+@app.route('/api/crud', methods=['GET'])
 def get_songs():
     try:
         assets_folder = current_app.config.get('ASSETS_FOLDER')
@@ -440,28 +257,7 @@ def get_songs():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/<int:song_id>', methods=['GET'])
-def get_song(song_id):
-    """Get a specific song by ID"""
-    try:
-        assets_folder = current_app.config.get('ASSETS_FOLDER')
-        db_path = os.path.join(assets_folder, 'db.json')
-        
-        with open(db_path, 'r') as f:
-            database = json.load(f)
-        
-        songs = database.get('songs', [])
-        
-        # Find song by ID
-        for song in songs:
-            if song.get('id') == song_id:
-                return jsonify(song), 200
-        
-        return jsonify({'error': 'Song not found'}), 404
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-@app.route('/', methods=['POST'])
+@app.route('/api/crud', methods=['POST'])
 def create_song():
     """Create a new song entry"""
     try:
@@ -500,55 +296,7 @@ def create_song():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/<int:song_id>', methods=['PUT'])
-def update_song(song_id):
-    """Update an existing song"""
-    try:
-        data = request.json
-        if not data:
-            return jsonify({'error': 'No data provided'}), 400
-        
-        # Read current database
-        assets_folder = current_app.config.get('ASSETS_FOLDER')
-        db_path = os.path.join(assets_folder, 'db.json')
-        
-        with open(db_path, 'r') as f:
-            database = json.load(f)
-        
-        songs = database.get('songs', [])
-        
-        # Find song by ID instead of array index
-        song_index = None
-        for i, song in enumerate(songs):
-            if song.get('id') == song_id:
-                song_index = i
-                break
-        
-        if song_index is not None:
-            # Preserve original creation date and ID
-            original_created_at = songs[song_index].get('createdAt')
-            original_id = songs[song_index].get('id')
-            
-            # Update song data
-            songs[song_index].update(data)
-            songs[song_index]['updatedAt'] = datetime.utcnow().isoformat()
-            
-            # Restore original metadata
-            if original_created_at:
-                songs[song_index]['createdAt'] = original_created_at
-            if original_id:
-                songs[song_index]['id'] = original_id
-            
-            # Save to file
-            save_database_to_file(database)
-            
-            return jsonify(songs[song_index]), 200
-        else:
-            return jsonify({'error': 'Song not found'}), 404
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-@app.route('/<int:song_id>', methods=['DELETE'])
+@app.route('/api/crud/<int:song_id>', methods=['DELETE'])
 def delete_song(song_id):
     """Delete a song"""
     try:
@@ -574,138 +322,6 @@ def delete_song(song_id):
             return jsonify(deleted_song), 200
         else:
             return jsonify({'error': 'Song not found'}), 404
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-@app.route('/search', methods=['GET'])
-def search_songs():
-    """Search songs by title, artist, or category"""
-    try:
-        query = request.args.get('q', '').lower()
-        category = request.args.get('category')
-        
-        # Read current database
-        assets_folder = current_app.config.get('ASSETS_FOLDER')
-        db_path = os.path.join(assets_folder, 'db.json')
-        
-        with open(db_path, 'r') as f:
-            database = json.load(f)
-        
-        songs = database.get('songs', [])
-        filtered_songs = songs
-        
-        # Filter by search query
-        if query:
-            filtered_songs = [
-                song for song in filtered_songs
-                if query in song.get('title', '').lower() or
-                   query in song.get('composer', '').lower()
-            ]
-        
-        # Filter by category
-        if category:
-            filtered_songs = [
-                song for song in filtered_songs
-                if song.get('category') == category
-            ]
-        
-        return jsonify(filtered_songs), 200
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-@app.route('/upload', methods=['POST'])
-def upload_midi():
-    """Upload a MIDI file and create song entry"""
-    try:
-        if 'file' not in request.files:
-            return jsonify({'error': 'No file provided'}), 400
-        
-        file = request.files['file']
-        if file.filename == '':
-            return jsonify({'error': 'No file selected'}), 400
-        
-        # Validate file type
-        if not file.filename.lower().endswith(('.mid', '.midi')):
-            return jsonify({'error': 'Only MIDI files are allowed'}), 400
-        
-        # Save file
-        upload_folder = current_app.config['UPLOAD_FOLDER']
-        if not os.path.exists(upload_folder):
-            os.makedirs(upload_folder)
-        
-        filename = secure_filename(file.filename)
-        filepath = os.path.join(upload_folder, filename)
-        file.save(filepath)
-        
-        # Create song entry
-        song_data = {
-            'title': request.form.get('title', filename.replace('.mid', '').replace('.midi', '')),
-            'artist': request.form.get('artist', ''),
-            'category': request.form.get('category', ''),
-            'filename': filename,
-            'filepath': filepath,
-            'filesize': os.path.getsize(filepath)
-        }
-        
-        # Add to database
-        song_data['id'] = generate_song_id_from_file()
-        song_data['createdAt'] = datetime.utcnow().isoformat()
-        song_data['updatedAt'] = datetime.utcnow().isoformat()
-        
-        # Read current database
-        assets_folder = current_app.config.get('ASSETS_FOLDER')
-        db_path = os.path.join(assets_folder, 'db.json')
-        
-        with open(db_path, 'r') as f:
-            database = json.load(f)
-        
-        if 'songs' not in database:
-            database['songs'] = []
-        
-        database['songs'].append(song_data)
-        save_database_to_file(database)
-        
-        return jsonify(song_data), 201
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-@app.route('/stats', methods=['GET'])
-def get_category_stats():
-    """Get statistics about categories and their song counts"""
-    try:
-        assets_folder = current_app.config.get('ASSETS_FOLDER')
-        db_path = os.path.join(assets_folder, 'db.json')
-        
-        with open(db_path, 'r') as f:
-            database = json.load(f)
-        
-        categories = database.get('categories', [])
-        songs = database.get('songs', [])
-        
-        # Calculate song counts per category
-        category_stats = []
-        for category in categories:
-            song_count = sum(
-                1 for song in songs 
-                if song.get('category') == category.get('name')
-            )
-            
-            category_stats.append({
-                'id': category.get('id'),
-                'name': category.get('name'),
-                'song_count': song_count,
-                'created_at': category.get('createdAt'),
-                'updated_at': category.get('updatedAt')
-            })
-        
-        # Sort by song count (descending)
-        category_stats.sort(key=lambda x: x['song_count'], reverse=True)
-        
-        return jsonify({
-            'total_categories': len(categories),
-            'total_songs': len(songs),
-            'category_stats': category_stats
-        }), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
