@@ -209,7 +209,7 @@ class MidiParser:
         if not events:
             return 0.0
         last_event = max(events, key=lambda x: x.timestamp)
-        return last_event.timestamp / 1000.0  # Convert to seconds
+        return last_event.timestamp  # Convert to seconds
     
     def _convert_events(self, events: List[List[MidiEvent]]) -> List[MidiEvent]:
         """Convert sanitized events back to a flat list of MidiEvent objects"""
