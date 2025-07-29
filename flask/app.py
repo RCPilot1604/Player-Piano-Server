@@ -71,7 +71,6 @@ class MidiPlayerGateway:
                 client.event_output(event_to_send)
                 self.midi_idx += 1
                 self.socket.emit('timeUpdate', (event.timestamp / self.total_duration) * 100, room='midi_players')
-                print("Heartbeat: ", event.timestamp, "DeltaT: ", event.deltaT)
                 time.sleep(event.deltaT / 1000.0)  # Convert deltaT to seconds
 
     def parse_song(self, tracks_to_play):
@@ -114,7 +113,6 @@ class MidiPlayerGateway:
                 print(data)
                 instrument_names = [{"id": i, "channel": i[0], "name": GeneralMidiInstrument.get_instrument_name(i[1])} for i in data]
                 self.socket.emit('instruments', instrument_names, room='midi_players')
-
             return True
         except Exception as e:
             logger.error(f"Error loading song: {e}")
