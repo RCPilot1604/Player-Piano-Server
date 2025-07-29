@@ -1,6 +1,6 @@
 import { Component,inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import { CategoryService } from '../../categories.service';
+import { CategoryService } from '../../services/categories.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogContent, MatDialogActions,MatDialogRef } from '@angular/material/dialog';

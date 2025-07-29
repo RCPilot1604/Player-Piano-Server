@@ -1,16 +1,16 @@
-import { Component, Input, OnInit, OnDestroy, inject} from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, inject } from '@angular/core';
 import { SongEntry } from '../song-entry';
-import { NgIf } from '@angular/common';
-import { WebsocketService } from './websocket.service';
+import { NgIf, NgFor } from '@angular/common';
+import { WebsocketService } from '../services/websocket.service';
 import { FormsModule } from '@angular/forms';
-import { MatSliderModule} from '@angular/material/slider';
+import { MatSliderModule } from '@angular/material/slider';
 import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-current-song',
   standalone: true,
-  imports: [NgIf, FormsModule, MatSliderModule, MatIcon, MatButtonModule],
+  imports: [NgIf, NgFor, FormsModule, MatSliderModule, MatIcon, MatButtonModule],
   providers: [WebsocketService],
   templateUrl: './current-song.component.html',
   styleUrls: ['./current-song.component.css']
@@ -23,6 +23,19 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   volume = 100;
   socket: WebsocketService = inject(WebsocketService);
   constructor() { }
+  onInstrumentAction() {
+    this.socket.emit('parseMidi', this.selectedInstrumentIds);
+  }
+  onInstrumentToggle(id: number, event: Event) {
+    const checked = (event.target as HTMLInputElement).checked;
+    if (checked) {
+      if (!this.selectedInstrumentIds.includes(id)) {
+        this.selectedInstrumentIds.push(id);
+      }
+    } else {
+      this.selectedInstrumentIds = this.selectedInstrumentIds.filter(i => i !== id);
+    }
+  }
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;
   }
@@ -47,7 +60,12 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   }
   seekTo() {
     this.socket.emit('seek', this.currentTime);
+    console.log('Seek to:', this.currentTime);
   }
+
+  instruments: { id: number, channel: number, name: string }[] = [];
+  selectedInstrumentIds: number[] = [];
+
   ngOnInit() {
     this.socket.fromEvent('connected').subscribe(() => {
       console.log('Connected to server');
@@ -66,6 +84,9 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     });
     this.socket.fromEvent('seekUpdate').subscribe((data) => {
       this.currentTime = data;
+    });
+    this.socket.fromEvent('instruments').subscribe((data: { id: number, channel: number, name: string }[]) => {
+      this.instruments = data;
     });
   }
   ngOnDestroy(): void {

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import { SongsService } from '../songs.service';
-import { CategoryService } from '../categories.service';
+import { SongsService } from '../services/songs.service';
+import { CategoryService } from '../services/categories.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgIf, NgForOf } from '@angular/common';

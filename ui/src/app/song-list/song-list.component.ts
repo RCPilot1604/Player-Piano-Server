@@ -1,13 +1,13 @@
 import { Component, inject, Output } from '@angular/core';
 import { SongEntry } from '../song-entry';
 import { SongComponent } from '../song/song.component';
-import { SongsService } from '../songs.service';
+import { SongsService } from '../services/songs.service';
 import { NgForOf } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { FormsModule, FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CurrentSongComponent } from '../current-song/current-song.component';
-import { CategoryService } from '../categories.service';
-import { WebsocketService } from '../current-song/websocket.service';
+import { CategoryService } from '../services/categories.service';
+import { WebsocketService } from '../services/websocket.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';

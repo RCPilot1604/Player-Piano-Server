@@ -1,26 +1,43 @@
-
 <div *ngIf="song">
-    <h2>{{ song.title }}</h2>
-    <p><strong>Composer:</strong> {{ song.composer }}</p>
-    <p><strong>MIDI Path:</strong> <a [href]="song.midiPath">{{ song.midiPath }}</a></p>
-    <div class = "player-controls">
-      <div id = "playbar">
-        <button mat-icon-button aria-label="Play Pause Button" (click)="togglePlayPause()">
-          <mat-icon>{{ isPlaying ? 'pause' : 'play_arrow' }}</mat-icon>
-        </button>
-        <mat-slider class = "playback-slider"><input matSliderThumb min="0" max="100" [(ngModel)]="currentTime" (input)="seekTo()"></mat-slider>
+  <h2>{{ song.title }}</h2>
+  <p><strong>Composer:</strong> {{ song.composer }}</p>
+  <p><strong>MIDI Path:</strong> <a [href]="song.midiPath">{{ song.midiPath }}</a></p>
+  <div class="player-controls">
+    <div id="instrument-selection" class="instrument-selection-container">
+      <div class="instrument-list">
+        <div *ngFor="let instrument of instruments" class="instrument-item">
+          <label>
+            <input type="checkbox" [value]="instrument.channel" [checked]="selectedInstrumentIds.includes(instrument.id)"
+              (change)="onInstrumentToggle(instrument.channel, $event)">
+            Channel {{ instrument.channel }}: {{ instrument.name }}
+          </label>
+        </div>
       </div>
-      <div id = "volumebar">
-        <button mat-icon-button aria-label="Volume Down" (mousedown)="decrementVolume()">
-          <mat-icon>volume_down</mat-icon>
-        </button>
-        <input type="range" min="0" max="100" class="volume-slider" [(ngModel)]="volume" (input)="updateVolume()" >
-        <button mat-icon-button aria-label="Volume Down" (mousedown)="incrementVolume()">
-          <mat-icon>volume_up</mat-icon>
+      <div class="instrument-action">
+        <button mat-raised-button color="primary" (click)="onInstrumentAction()" [disabled]="selectedInstrumentIds.length === 0">
+          <mat-icon>music_note</mat-icon>
+          Parse MIDI
         </button>
       </div>
     </div>
+    <div id="playbar">
+      <button mat-icon-button aria-label="Play Pause Button" (click)="togglePlayPause()">
+        <mat-icon>{{ isPlaying ? 'pause' : 'play_arrow' }}</mat-icon>
+      </button>
+      <mat-slider class="playback-slider"><input matSliderThumb min="0" max="100" [(ngModel)]="currentTime"
+          (input)="seekTo()"></mat-slider>
+    </div>
+    <div id="volumebar">
+      <button mat-icon-button aria-label="Volume Down" (mousedown)="decrementVolume()">
+        <mat-icon>volume_down</mat-icon>
+      </button>
+      <input type="range" min="0" max="100" class="volume-slider" [(ngModel)]="volume" (input)="updateVolume()">
+      <button mat-icon-button aria-label="Volume Down" (mousedown)="incrementVolume()">
+        <mat-icon>volume_up</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>
 <div *ngIf="!song">
-    <p>No song selected.</p>
+  <p>No song selected.</p>
 </div>
