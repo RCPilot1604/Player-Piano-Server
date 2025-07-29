@@ -37,7 +37,7 @@ class MidiPlayerGateway:
         self.stop_event = True
         self.port = None  # ALSA port for MIDI output
         self.midi_idx = None  # Current position in the MIDI file
-        self.socketio = flask_socketio.SocketIO()
+        self.socketio = flask_socketio.SocketIO(current_app)
         # For logging MIDI events
         self.midi_log_path = None
 
@@ -184,7 +184,7 @@ def register_websocket_events(socketio):
     def handle_connect():
         """Handle client connection"""
         logger.info('Client connected')
-        socketio.join_room('midi_players')
+        flask_socketio.join_room('midi_players')
         socketio.emit('connected', {'status': 'Connected to MIDI Player'})
         socketio.emit('player_status', gateway.get_status())
     
@@ -192,7 +192,7 @@ def register_websocket_events(socketio):
     def handle_disconnect():
         """Handle client disconnection"""
         logger.info('Client disconnected')
-        socketio.leave_room('midi_players')
+        flask_socketio.leave_room('midi_players')
     
     @socketio.on('loadMidi')
     def handle_load_midi(song_data):
