@@ -60,7 +60,7 @@ class MidiPlayerGateway:
             if event_to_send:
                 client.event_output(event_to_send)
                 self.midi_idx += 1
-                emit('timeUpdate', (event_to_send.time_ms / self.total_duration) * 100, room='midi_players')
+                emit('timeUpdate', (event.timestamp / self.total_duration) * 100, room='midi_players')
 
     def parse_song(self, tracks_to_play):
         """Parse the MIDI file and filter tracks based on selected instruments"""

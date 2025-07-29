@@ -211,6 +211,7 @@ class MidiParser:
             return 0.0
         last_event = max(events, key=lambda x: x.time_ms)
         return last_event.time_ms / 1000.0  # Convert to seconds
+    
     def _convert_events(self, events: List[List[MidiEvent]]) -> List[MidiEvent]:
         """Convert sanitized events back to a flat list of MidiEvent objects"""
         # We achieve this by iterating over the first elements in the list represent each note and finding the event that happens first. 
