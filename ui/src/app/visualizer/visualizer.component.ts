@@ -1,0 +1,355 @@
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, Input } from '@angular/core';
+import { WebsocketService } from '../services/websocket.service';
+import { Subscription } from 'rxjs';
+
+interface MidiEvent {
+  timestamp: number;
+  deltaT: number;
+  type: 'note_on' | 'note_off';
+  velocity: number;
+  isBounceBack: boolean;
+  note?: number;
+  channel?: number;
+}
+
+interface Note {
+  note: number;
+  startTime: number;
+  endTime: number;
+  velocity: number;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  color: string;
+  isActive: boolean;
+}
+
+@Component({
+  selector: 'app-midi-falling-tiles',
+  imports: [],
+  providers: [WebsocketService],
+  templateUrl: './midi-falling-tiles.component.html',
+  styleUrls: ['./midi-falling-tiles.component.css']
+})
+export class MidiFallingTilesComponent implements OnInit, OnDestroy {
+  @ViewChild('canvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
+  @Input() midiData: MidiEvent[] = [];
+  
+  private ctx!: CanvasRenderingContext2D;
+  private animationFrameId: number = 0;
+  private notes: Note[] = [];
+  private activeNotes = new Set<number>();
+  
+  // Subscriptions
+  private subscriptions: Subscription[] = [];
+  
+  // Component state
+  isConnected = false;
+  playerState: 'stopped' | 'playing' | 'paused' = 'stopped';
+  currentTime = 0;
+  totalDuration = 0;
+  progressPercentage = 0;
+  
+  // Canvas properties
+  canvasWidth = 1200;
+  canvasHeight = 800;
+  
+  // Piano roll properties
+  private readonly PIANO_HEIGHT = 100;
+  private readonly NOTE_WIDTH = 14;
+  private readonly WHITE_KEYS = [0, 2, 4, 5, 7, 9, 11];
+  private readonly BLACK_KEYS = [1, 3, 6, 8, 10];
+  private readonly OCTAVES = 8;
+  private readonly LOWEST_NOTE = 21;
+  private readonly HIGHEST_NOTE = 108;
+  
+  // Animation properties
+  private readonly PIXELS_PER_SECOND = 150;
+  private readonly LOOKAHEAD_TIME = 8000;
+
+  constructor(
+    private socketService: WebsocketService
+  ) {}
+
+  ngOnInit() {
+    this.initCanvas();
+    this.initSocketSubscriptions();
+    this.processNotes();
+    this.startAnimation();
+  }
+
+  ngOnDestroy() {
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
+    
+    // Unsubscribe from all subscriptions
+    this.subscriptions.forEach(sub => sub.unsubscribe());
+  }
+
+  private initCanvas() {
+    const canvas = this.canvasRef.nativeElement;
+    this.ctx = canvas.getContext('2d')!;
+    
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    this.ctx.scale(dpr, dpr);
+    
+    this.canvasWidth = rect.width;
+    this.canvasHeight = rect.height;
+  }
+
+  private initSocketSubscriptions() {
+    // Initialize the websocket connection to update the current time
+    this.socketService.fromEvent('setTime').subscribe((time: number) => {
+      this.currentTime = time;
+      this.updateProgress();
+    });
+  }
+
+  private updateProgress() {
+    if (this.totalDuration > 0) {
+      this.progressPercentage = (this.currentTime / this.totalDuration) * 100;
+    }
+  }
+
+  private processNotes() {
+    const noteMap = new Map<number, { startTime: number, velocity: number }>();
+    const processedNotes: Note[] = [];
+    
+    this.midiData.forEach(event => {
+      const note = event.note || this.simulateNoteFromEvent(event);
+      
+      if (event.type === 'note_on' && event.velocity > 0) {
+        noteMap.set(note, {
+          startTime: event.timestamp,
+          velocity: event.velocity
+        });
+      } else if (event.type === 'note_off' || (event.type === 'note_on' && event.velocity === 0)) {
+        const noteStart = noteMap.get(note);
+        if (noteStart) {
+          const processedNote: Note = {
+            note: note,
+            startTime: noteStart.startTime,
+            endTime: event.timestamp,
+            velocity: noteStart.velocity,
+            x: this.getNoteX(note),
+            y: 0,
+            width: this.getNoteWidth(note),
+            height: 0,
+            color: this.getNoteColor(note, noteStart.velocity),
+            isActive: false
+          };
+          processedNotes.push(processedNote);
+          noteMap.delete(note);
+        }
+      }
+    });
+    
+    this.notes = processedNotes;
+    this.totalDuration = Math.max(...this.notes.map(n => n.endTime));
+  }
+
+  private simulateNoteFromEvent(event: MidiEvent): number {
+    const baseNote = 60;
+    const noteIndex = Math.floor(event.timestamp / 169.4915) % 12;
+    return baseNote + noteIndex;
+  }
+
+  private getNoteX(note: number): number {
+    const octave = Math.floor((note - this.LOWEST_NOTE) / 12);
+    const noteInOctave = (note - this.LOWEST_NOTE) % 12;
+    
+    if (this.WHITE_KEYS.includes(noteInOctave)) {
+      const whiteKeyIndex = this.WHITE_KEYS.indexOf(noteInOctave);
+      return octave * (this.NOTE_WIDTH * 7) + whiteKeyIndex * this.NOTE_WIDTH;
+    } else {
+      const blackKeyPositions = [0.5, 1.5, 3.5, 4.5, 5.5];
+      const blackKeyIndex = this.BLACK_KEYS.indexOf(noteInOctave);
+      return octave * (this.NOTE_WIDTH * 7) + blackKeyPositions[blackKeyIndex] * this.NOTE_WIDTH;
+    }
+  }
+
+  private getNoteWidth(note: number): number {
+    const noteInOctave = (note - this.LOWEST_NOTE) % 12;
+    return this.WHITE_KEYS.includes(noteInOctave) ? this.NOTE_WIDTH : this.NOTE_WIDTH * 0.6;
+  }
+
+  private getNoteColor(note: number, velocity: number): string {
+    const noteInOctave = (note - this.LOWEST_NOTE) % 12;
+    const intensity = Math.floor((velocity / 127) * 255);
+    
+    if (this.WHITE_KEYS.includes(noteInOctave)) {
+      return `rgba(${intensity}, ${intensity}, 255, 0.8)`;
+    } else {
+      return `rgba(255, ${intensity}, ${intensity}, 0.8)`;
+    }
+  }
+
+  private startAnimation() {
+    const animate = () => {
+      this.draw();
+      this.animationFrameId = requestAnimationFrame(animate);
+    };
+    animate();
+  }
+
+  private draw() {
+    this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+    
+    this.drawPianoKeys();
+    this.drawNotes();
+    this.drawTimeLine();
+    this.drawActiveNoteHighlights();
+  }
+
+  private drawPianoKeys() {
+    const pianoY = this.canvasHeight - this.PIANO_HEIGHT;
+    
+    // Draw white keys
+    for (let octave = 0; octave < this.OCTAVES; octave++) {
+      for (let i = 0; i < this.WHITE_KEYS.length; i++) {
+        const x = octave * (this.NOTE_WIDTH * 7) + i * this.NOTE_WIDTH;
+        const note = this.LOWEST_NOTE + octave * 12 + this.WHITE_KEYS[i];
+        
+        // Create gradient for white keys
+        const gradient = this.ctx.createLinearGradient(x, pianoY, x, pianoY + this.PIANO_HEIGHT);
+        if (this.activeNotes.has(note)) {
+          gradient.addColorStop(0, '#ffff88');
+          gradient.addColorStop(1, '#ffff44');
+        } else {
+          gradient.addColorStop(0, '#ffffff');
+          gradient.addColorStop(1, '#f0f0f0');
+        }
+        
+        this.ctx.fillStyle = gradient;
+        this.ctx.fillRect(x, pianoY, this.NOTE_WIDTH - 1, this.PIANO_HEIGHT);
+        
+        this.ctx.strokeStyle = '#000000';
+        this.ctx.lineWidth = 1;
+        this.ctx.strokeRect(x, pianoY, this.NOTE_WIDTH - 1, this.PIANO_HEIGHT);
+      }
+    }
+    
+    // Draw black keys
+    for (let octave = 0; octave < this.OCTAVES; octave++) {
+      const blackKeyPositions = [0.5, 1.5, 3.5, 4.5, 5.5];
+      for (let i = 0; i < blackKeyPositions.length; i++) {
+        const x = octave * (this.NOTE_WIDTH * 7) + blackKeyPositions[i] * this.NOTE_WIDTH;
+        const blackKeyWidth = this.NOTE_WIDTH * 0.6;
+        const note = this.LOWEST_NOTE + octave * 12 + this.BLACK_KEYS[i];
+        
+        // Create gradient for black keys
+        const gradient = this.ctx.createLinearGradient(
+          x - blackKeyWidth/2, pianoY, 
+          x - blackKeyWidth/2, pianoY + this.PIANO_HEIGHT * 0.6
+        );
+        
+        if (this.activeNotes.has(note)) {
+          gradient.addColorStop(0, '#ffaa00');
+          gradient.addColorStop(1, '#ff8800');
+        } else {
+          gradient.addColorStop(0, '#333333');
+          gradient.addColorStop(1, '#000000');
+        }
+        
+        this.ctx.fillStyle = gradient;
+        this.ctx.fillRect(x - blackKeyWidth/2, pianoY, blackKeyWidth, this.PIANO_HEIGHT * 0.6);
+      }
+    }
+  }
+
+  private drawNotes() {
+    const pianoY = this.canvasHeight - this.PIANO_HEIGHT;
+    
+    this.notes.forEach(note => {
+      const noteStartY = pianoY - ((note.startTime - this.currentTime) / 1000) * this.PIXELS_PER_SECOND;
+      const noteEndY = pianoY - ((note.endTime - this.currentTime) / 1000) * this.PIXELS_PER_SECOND;
+      
+      if (noteEndY > -50 && noteStartY < this.canvasHeight + 50) {
+        const noteHeight = Math.max(noteStartY - noteEndY, 2);
+        
+        // Check if note is currently active
+        const isCurrentlyActive = this.currentTime >= note.startTime && this.currentTime <= note.endTime;
+        let color = note.color;
+        
+        if (isCurrentlyActive || this.activeNotes.has(note.note)) {
+          color = color.replace('0.8)', '1.0)');
+          // Add glow effect for active notes
+          this.ctx.shadowColor = color;
+          this.ctx.shadowBlur = 15;
+        } else {
+          this.ctx.shadowBlur = 0;
+        }
+        
+        // Create gradient for note
+        const gradient = this.ctx.createLinearGradient(note.x, noteEndY, note.x + note.width, noteEndY);
+        gradient.addColorStop(0, color);
+        gradient.addColorStop(1, color.replace('0.8)', '0.6)'));
+        
+        this.ctx.fillStyle = gradient;
+        this.ctx.fillRect(note.x, noteEndY, note.width, noteHeight);
+        
+        // Add border
+        this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+        this.ctx.lineWidth = 1;
+        this.ctx.strokeRect(note.x, noteEndY, note.width, noteHeight);
+        
+        this.ctx.shadowBlur = 0;
+      }
+    });
+  }
+
+  private drawTimeLine() {
+    const pianoY = this.canvasHeight - this.PIANO_HEIGHT;
+    
+    // Create gradient for the timeline
+    const gradient = this.ctx.createLinearGradient(0, pianoY - 5, 0, pianoY + 5);
+    gradient.addColorStop(0, 'rgba(255, 0, 0, 0.8)');
+    gradient.addColorStop(0.5, '#ff0000');
+    gradient.addColorStop(1, 'rgba(255, 0, 0, 0.8)');
+    
+    this.ctx.strokeStyle = gradient;
+    this.ctx.lineWidth = 4;
+    this.ctx.beginPath();
+    this.ctx.moveTo(0, pianoY);
+    this.ctx.lineTo(this.canvasWidth, pianoY);
+    this.ctx.stroke();
+    
+    // Add timeline shadow
+    this.ctx.shadowColor = '#ff0000';
+    this.ctx.shadowBlur = 5;
+    this.ctx.stroke();
+    this.ctx.shadowBlur = 0;
+  }
+
+  private drawActiveNoteHighlights() {
+    this.activeNotes.forEach(note => {
+      const x = this.getNoteX(note);
+      const width = this.getNoteWidth(note);
+      const pianoY = this.canvasHeight - this.PIANO_HEIGHT;
+      
+      // Draw a bright line above the piano key
+      this.ctx.strokeStyle = '#ffff00';
+      this.ctx.lineWidth = 4;
+      this.ctx.shadowColor = '#ffff00';
+      this.ctx.shadowBlur = 8;
+      this.ctx.beginPath();
+      this.ctx.moveTo(x, pianoY - 5);
+      this.ctx.lineTo(x + width, pianoY - 5);
+      this.ctx.stroke();
+      this.ctx.shadowBlur = 0;
+    });
+  }
+
+  formatTime(timeMs: number): string {
+    const seconds = Math.floor(timeMs / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+  }
+}
