@@ -9,8 +9,8 @@ from alsa_midi import SequencerClient, NoteOnEvent, NoteOffEvent, ControlChangeE
 import time
 from flask_cors import CORS
 from threading import Thread
-from .app.parsers.midi_parser import MidiParser
-from .app.utils.instruments import GeneralMidiInstrument
+import midi_parser as MidiParser
+from instruments import GeneralMidiInstrument
 
 app = Flask(__name__)
 
