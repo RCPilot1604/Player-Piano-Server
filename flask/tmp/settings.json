@@ -1,0 +1,13 @@
+{
+  "midi_json_file_path": "./tmp/midi_data.json",
+  "lowest_note": 21,
+  "highest_note": 108,
+  "activation_duration": 50,
+  "deactivation_duration": 75,
+  "bounceback_velocity": 127,
+  "bounce_back_startup_duration": 20,
+  "bounce_back_velocity_duration": 10,
+  "bounce_back_hold_duration": 0,
+  "max_notes": 10,
+  "bounce_back_duration": 30
+}

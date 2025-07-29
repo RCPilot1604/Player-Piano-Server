@@ -1,0 +1,9774 @@
+[
+  {
+    "timestamp": 0.0,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 169.4915,
+    "deltaT": 169.4915,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 169.4915,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 338.983,
+    "deltaT": 169.4915,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 338.983,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 508.4744999999999,
+    "deltaT": 169.49149999999992,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 508.4744999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 677.966,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 677.966,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 847.4574999999999,
+    "deltaT": 169.49149999999986,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 847.4574999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1016.9489999999998,
+    "deltaT": 169.49149999999997,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1016.9489999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1016.9489999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1186.4404999999997,
+    "deltaT": 169.49149999999986,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1186.4404999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1355.932,
+    "deltaT": 169.49150000000031,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1355.932,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1355.932,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1355.932,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1525.4234999999999,
+    "deltaT": 169.49149999999986,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1525.4234999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1694.9149999999997,
+    "deltaT": 169.49149999999986,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1694.9149999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1694.9149999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1694.9149999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1864.4064999999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 1864.4064999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2033.8979999999997,
+    "deltaT": 169.49149999999986,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2033.8979999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2033.8979999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2033.8979999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2203.3894999999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2203.3894999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2372.8809999999994,
+    "deltaT": 169.49149999999963,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2372.8809999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2372.8809999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2372.8809999999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2542.3725,
+    "deltaT": 169.49150000000054,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2542.3725,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2711.864,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2711.864,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2711.864,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2711.864,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2881.3554999999997,
+    "deltaT": 169.49149999999963,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 2881.3554999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 3050.8469999999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 3050.8469999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 3220.3384999999994,
+    "deltaT": 169.49149999999963,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 3220.3384999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 3389.8299999999995,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 3389.8299999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 3389.8299999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 3559.3215,
+    "deltaT": 169.49150000000054,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 3559.3215,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 3728.8129999999996,
+    "deltaT": 169.49149999999963,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 3728.8129999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 3728.8129999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 3898.3044999999997,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 3898.3044999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4067.7959999999994,
+    "deltaT": 169.49149999999963,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4067.7959999999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4067.7959999999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4067.7959999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4237.287499999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4237.287499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4406.7789999999995,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4406.7789999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4406.7789999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4406.7789999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4576.2705,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4576.2705,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4745.761999999999,
+    "deltaT": 169.49149999999918,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4745.761999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4745.761999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4745.761999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4915.2535,
+    "deltaT": 169.491500000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 4915.2535,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 5084.745,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 5084.745,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 5254.236499999999,
+    "deltaT": 169.49149999999918,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 5254.236499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 5423.728,
+    "deltaT": 169.491500000001,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 5423.728,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 5423.728,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 5423.728,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 5593.219499999999,
+    "deltaT": 169.49149999999918,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 5593.219499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 5762.710999999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 5762.710999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 5932.202499999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 5932.202499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6101.6939999999995,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6101.6939999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6101.6939999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6271.1855,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6271.1855,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6440.676999999999,
+    "deltaT": 169.49149999999918,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6440.676999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6440.676999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6610.1685,
+    "deltaT": 169.491500000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6610.1685,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6779.659999999999,
+    "deltaT": 169.49149999999918,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6779.659999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6779.659999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6779.659999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6949.151499999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 6949.151499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7118.643,
+    "deltaT": 169.491500000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7118.643,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7118.643,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7118.643,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7288.134499999999,
+    "deltaT": 169.49149999999918,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7288.134499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7457.625999999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7457.625999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7457.625999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7457.625999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7627.1174999999985,
+    "deltaT": 169.49149999999918,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7627.1174999999985,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7796.6089999999995,
+    "deltaT": 169.491500000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7796.6089999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7966.1005,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 7966.1005,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8135.591999999999,
+    "deltaT": 169.49149999999918,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8135.591999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8135.591999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8135.591999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8305.083499999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8305.083499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8474.574999999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8474.574999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8644.066499999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8644.066499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8813.557999999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8813.557999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8813.557999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8983.0495,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 8983.0495,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9152.541,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9152.541,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9152.541,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9322.0325,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9322.0325,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9491.523999999998,
+    "deltaT": 169.49149999999827,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9491.523999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9491.523999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9491.523999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9661.0155,
+    "deltaT": 169.4915000000019,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9661.0155,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9830.507,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9830.507,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9830.507,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9830.507,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9999.998499999998,
+    "deltaT": 169.49149999999827,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 9999.998499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 10169.49,
+    "deltaT": 169.4915000000019,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 10169.49,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 10169.49,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 10169.49,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 10338.9815,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 10338.9815,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 10508.472999999998,
+    "deltaT": 169.49149999999827,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 10508.472999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 10508.472999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 10508.472999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 10677.964499999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 10677.964499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 10847.456,
+    "deltaT": 169.4915000000019,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 10847.456,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11016.947499999998,
+    "deltaT": 169.49149999999827,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11016.947499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11016.947499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11016.947499999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11186.438999999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11186.438999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11186.438999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11186.438999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11355.930499999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11355.930499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11525.421999999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11525.421999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11694.913499999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11694.913499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11864.404999999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11864.404999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11864.404999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 11864.404999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12033.896499999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12033.896499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12203.387999999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12203.387999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12203.387999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12203.387999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12203.387999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12372.879499999997,
+    "deltaT": 169.49149999999827,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12372.879499999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12372.879499999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12372.879499999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12542.371,
+    "deltaT": 169.4915000000019,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12542.371,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12542.371,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12542.371,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12542.371,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12542.371,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12711.8625,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12711.8625,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12711.8625,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12711.8625,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12881.353999999998,
+    "deltaT": 169.49149999999827,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12881.353999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12881.353999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12881.353999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12881.353999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 12881.353999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13050.8455,
+    "deltaT": 169.4915000000019,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13050.8455,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13050.8455,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13050.8455,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13220.337,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13220.337,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13220.337,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13220.337,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13220.337,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13220.337,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13389.828499999998,
+    "deltaT": 169.49149999999827,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13389.828499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13389.828499999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13389.828499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 76,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13559.319999999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13559.319999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13559.319999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13559.319999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13559.319999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13559.319999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13728.8115,
+    "deltaT": 169.4915000000019,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13728.8115,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13728.8115,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13898.302999999998,
+    "deltaT": 169.49149999999827,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13898.302999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 13898.302999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14067.794499999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14067.794499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14067.794499999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14237.286,
+    "deltaT": 169.4915000000019,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14237.286,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14237.286,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14237.286,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14406.777499999998,
+    "deltaT": 169.49149999999827,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14406.777499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14406.777499999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14576.268999999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14576.268999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14576.268999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14576.268999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14745.760499999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14745.760499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14745.760499999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14915.251999999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14915.251999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14915.251999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14915.251999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14915.251999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 14915.251999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15084.743499999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15084.743499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15084.743499999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15254.234999999997,
+    "deltaT": 169.49149999999827,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15254.234999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15254.234999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15254.234999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15254.234999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15254.234999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15254.234999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15423.726499999999,
+    "deltaT": 169.4915000000019,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15423.726499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15423.726499999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15593.217999999999,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15593.217999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15593.217999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15593.217999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15593.217999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15593.217999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15593.217999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15762.709499999997,
+    "deltaT": 169.49149999999827,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15762.709499999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15762.709499999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15932.201,
+    "deltaT": 169.4915000000019,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15932.201,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 15932.201,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16101.6925,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16101.6925,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16101.6925,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16271.183999999997,
+    "deltaT": 169.49149999999827,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16271.183999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16271.183999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16271.183999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16271.183999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16271.183999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16271.183999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 86,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16440.675499999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16440.675499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16440.675499999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16610.166999999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16610.166999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16610.166999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16779.6585,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16779.6585,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16779.6585,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16949.149999999998,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16949.149999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16949.149999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16949.149999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 16949.149999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17118.641499999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17118.641499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17118.641499999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17288.132999999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17288.132999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17288.132999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17288.132999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17457.624499999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17457.624499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17457.624499999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17627.115999999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17627.115999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17627.115999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17627.115999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17627.115999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17796.6075,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17796.6075,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17796.6075,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17966.099,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17966.099,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17966.099,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17966.099,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 17966.099,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18135.5905,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18135.5905,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18135.5905,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18305.082,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18305.082,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18305.082,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18305.082,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18305.082,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18474.5735,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18474.5735,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18474.5735,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18644.065,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18644.065,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18644.065,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18813.5565,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18813.5565,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18813.5565,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18983.047999999995,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18983.047999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18983.047999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18983.047999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18983.047999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 18983.047999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19152.5395,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19152.5395,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19152.5395,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19322.031,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19322.031,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19322.031,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19491.5225,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19491.5225,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19491.5225,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19661.014,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19661.014,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19661.014,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19661.014,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19661.014,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19830.505499999996,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19830.505499999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19830.505499999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19999.996999999996,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19999.996999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19999.996999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 19999.996999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20169.488499999996,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20169.488499999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 87,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20169.488499999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20338.98,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 90,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20338.98,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 90,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20338.98,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20338.98,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 90,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20338.98,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 90,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20338.98,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 90,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20338.98,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20677.963,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20677.963,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20677.963,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20677.963,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20677.963,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20677.963,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 90,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20847.454499999996,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 20847.454499999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 90,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 21186.437499999996,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 90,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 21186.437499999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 21525.4205,
+    "deltaT": 338.9830000000038,
+    "type": "note_on",
+    "velocity": 90,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 21525.4205,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 21694.912,
+    "deltaT": 169.4915000000001,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 21694.912,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 21694.912,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 21694.912,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22033.894999999997,
+    "deltaT": 338.98299999999654,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22033.894999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22033.894999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22033.894999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22203.386499999997,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22203.386499999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22203.386499999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22203.386499999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22542.369499999997,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22542.369499999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22542.369499999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22542.369499999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22711.860999999997,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22711.860999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22711.860999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 22711.860999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23050.843999999997,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23050.843999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23050.843999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23050.843999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23220.335499999997,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23220.335499999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23220.335499999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23220.335499999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23559.318499999998,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23559.318499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23559.318499999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23559.318499999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23728.809999999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23728.809999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23728.809999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23728.809999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23728.809999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23898.301499999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 23898.301499999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24067.792999999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24067.792999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24067.792999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24067.792999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24067.792999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24067.792999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24067.792999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24067.792999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24237.284499999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24237.284499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24406.775999999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24406.775999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24406.775999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24406.775999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24406.775999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24406.775999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24406.775999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24406.775999999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24745.758999999995,
+    "deltaT": 338.98299999999654,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24745.758999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24745.758999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24745.758999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24745.758999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24915.2505,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24915.2505,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24915.2505,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24915.2505,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 24915.2505,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25254.2335,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25254.2335,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25254.2335,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25254.2335,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25254.2335,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25423.725,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25423.725,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25423.725,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25423.725,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25423.725,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25762.707999999995,
+    "deltaT": 338.98299999999654,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25762.707999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25762.707999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25762.707999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25762.707999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25932.199499999995,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25932.199499999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25932.199499999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25932.199499999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 25932.199499999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26271.1825,
+    "deltaT": 338.9830000000038,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26271.1825,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26271.1825,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26271.1825,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26271.1825,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26440.674,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26440.674,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26440.674,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26440.674,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26440.674,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26779.656999999996,
+    "deltaT": 338.98299999999654,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26779.656999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26779.656999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26779.656999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26779.656999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26779.656999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26779.656999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 26779.656999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 80,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27118.639999999996,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27118.639999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27118.639999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27118.639999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27118.639999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27118.639999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27288.1315,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27372.877249999998,
+    "deltaT": 84.74574999999822,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27457.623,
+    "deltaT": 84.74575000000186,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27457.623,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27457.623,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27542.368749999998,
+    "deltaT": 84.74574999999822,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27627.114499999996,
+    "deltaT": 84.74574999999822,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27627.114499999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27627.114499999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27627.114499999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27711.860249999998,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27966.097499999996,
+    "deltaT": 254.2372499999983,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27966.097499999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27966.097499999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27966.097499999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 27966.097499999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 28135.588999999996,
+    "deltaT": 169.4915000000001,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 28220.334749999995,
+    "deltaT": 84.74574999999822,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 28305.080499999996,
+    "deltaT": 84.74575000000186,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 28305.080499999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 28474.572,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 28474.572,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 28644.063499999997,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 28644.063499999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 28813.554999999997,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 28813.554999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 28813.554999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 28983.046499999997,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 29152.537999999997,
+    "deltaT": 169.4915000000001,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 29152.537999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 29322.029499999997,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 29322.029499999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 29491.520999999997,
+    "deltaT": 169.4915000000001,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 29491.520999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 29491.520999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 29491.520999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 29830.503999999997,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 29830.503999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 29830.503999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 29830.503999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 29999.995499999997,
+    "deltaT": 169.4915000000001,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 30169.486999999997,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 30169.486999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 30169.486999999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 30169.486999999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 30338.978499999997,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 30338.978499999997,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 30338.978499999997,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 30677.961499999998,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 30677.961499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 30677.961499999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 30677.961499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 30847.452999999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 30847.452999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 31016.944499999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 31016.944499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 31186.435999999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 31186.435999999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 31355.927499999998,
+    "deltaT": 169.4915000000001,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 31525.418999999994,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 31525.418999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 31525.418999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 31525.418999999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 31694.910499999994,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 31694.910499999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 31694.910499999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 32033.8935,
+    "deltaT": 338.9830000000038,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 32033.8935,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 32203.385,
+    "deltaT": 169.4915000000001,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 32203.385,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 32203.385,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 32542.367999999995,
+    "deltaT": 338.98299999999654,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 32542.367999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 32542.367999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 32711.859499999995,
+    "deltaT": 169.4915000000001,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 32881.350999999995,
+    "deltaT": 169.4915000000001,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 32881.350999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 32881.350999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 32881.350999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33050.84249999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33050.84249999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33050.84249999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33050.84249999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33389.82549999999,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33389.82549999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33389.82549999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33389.82549999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33389.82549999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33559.317,
+    "deltaT": 169.491500000011,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33559.317,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33728.8085,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33728.8085,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33898.299999999996,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 33898.299999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34067.7915,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34237.282999999996,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34237.282999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34237.282999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34237.282999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34406.7745,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34406.7745,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34406.7745,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34406.7745,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34745.7575,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34745.7575,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34745.7575,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34745.7575,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34915.248999999996,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 34915.248999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 35084.74049999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 35254.231999999996,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 35254.231999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 35423.72349999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 35593.215,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 35593.215,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 35593.215,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 35593.215,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 35762.70649999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 35932.198,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 35932.198,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 36101.6895,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 36101.6895,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 36271.181,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 36271.181,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 36610.164,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 84,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 36610.164,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 36610.164,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 84,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 36610.164,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 84,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 36610.164,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 36610.164,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 37288.13,
+    "deltaT": 677.9660000000003,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 37288.13,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 37457.621499999994,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 37457.621499999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 37457.621499999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 37457.621499999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 37457.621499999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 37627.113,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 37627.113,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 37796.604499999994,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 37966.09599999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 37966.09599999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 37966.09599999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 37966.09599999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38135.587499999994,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38220.333249999996,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38305.079,
+    "deltaT": 84.74575000000186,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38305.079,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38305.079,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38389.82474999999,
+    "deltaT": 84.74574999999459,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38474.5705,
+    "deltaT": 84.74575000000914,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38474.5705,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38474.5705,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38559.316249999996,
+    "deltaT": 84.74574999999459,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38813.553499999995,
+    "deltaT": 254.2372499999983,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38813.553499999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38813.553499999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38813.553499999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 38983.045,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 39067.79074999999,
+    "deltaT": 84.74574999999459,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 39152.536499999995,
+    "deltaT": 84.74575000000186,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 39152.536499999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 39322.028,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 39322.028,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 39491.519499999995,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 39491.519499999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 39661.01099999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 39661.01099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 39661.01099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 39830.502499999995,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 39999.99399999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 39999.99399999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 40169.485499999995,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 40169.485499999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 40338.97699999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 40338.97699999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 40338.97699999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 40338.97699999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 40677.96,
+    "deltaT": 338.98300000000745,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 40677.96,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 40677.96,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 40677.96,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 40847.451499999996,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 40932.19725,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41016.943,
+    "deltaT": 84.74575000000186,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41016.943,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41016.943,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41101.688749999994,
+    "deltaT": 84.74574999999459,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41186.434499999996,
+    "deltaT": 84.74575000000186,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41186.434499999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41186.434499999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41271.18024999999,
+    "deltaT": 84.74574999999459,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41525.417499999996,
+    "deltaT": 254.2372500000056,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41525.417499999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41525.417499999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41525.417499999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41694.90899999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41779.65475,
+    "deltaT": 84.74575000000914,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41864.400499999996,
+    "deltaT": 84.74574999999459,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 41864.400499999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42033.89199999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42033.89199999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42033.89199999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42033.89199999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42203.383499999996,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42288.12925,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42372.87499999999,
+    "deltaT": 84.74574999999459,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42457.620749999995,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42542.3665,
+    "deltaT": 84.74575000000186,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42627.11225,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42711.85799999999,
+    "deltaT": 84.74574999999459,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42711.85799999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42881.3495,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42881.3495,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42881.3495,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 42881.3495,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 43050.841,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 43135.586749999995,
+    "deltaT": 84.74574999999459,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 43220.3325,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 43220.3325,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 43389.824,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 43389.824,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 43559.3155,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 43644.06124999999,
+    "deltaT": 84.74574999999459,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 43728.80699999999,
+    "deltaT": 84.74575000000186,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 43728.80699999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 43813.552749999995,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 43898.2985,
+    "deltaT": 84.74575000000186,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 43983.04425,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 44237.2815,
+    "deltaT": 254.2372499999983,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 44237.2815,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 44406.772999999994,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 44406.772999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 44491.518749999996,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 44745.755999999994,
+    "deltaT": 254.2372499999983,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 44745.755999999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 44745.755999999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 44745.755999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 44915.24749999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45084.738999999994,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45084.738999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45084.738999999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45084.738999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45254.2305,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45254.2305,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45254.2305,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45593.2135,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45593.2135,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45593.2135,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45593.2135,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45762.704999999994,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45762.704999999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45932.1965,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 45932.1965,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 46101.687999999995,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 46101.687999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 46271.1795,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 46355.92525,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 46440.670999999995,
+    "deltaT": 84.74574999999459,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 46440.670999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 46525.41675,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 46610.16249999999,
+    "deltaT": 84.74574999999459,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 46694.90825,
+    "deltaT": 84.74575000000914,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 46949.14549999999,
+    "deltaT": 254.23724999999104,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 46949.14549999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 47118.636999999995,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 47203.38275,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 47457.619999999995,
+    "deltaT": 254.2372499999983,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 47457.619999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 47627.1115,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 47796.602999999996,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 47796.602999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 47966.0945,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 48135.585999999996,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 48135.585999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 48135.585999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 48474.568999999996,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 48474.568999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 48474.568999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 48474.568999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 48813.551999999996,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 48813.551999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 48813.551999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 48813.551999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 48813.551999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49152.534999999996,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49152.534999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49322.02649999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49322.02649999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49322.02649999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49322.02649999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49322.02649999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49491.51799999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49491.51799999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49491.51799999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49661.00949999999,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49661.00949999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49830.501,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49830.501,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49830.501,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49999.9925,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 49999.9925,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 50169.484,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 50169.484,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 50169.484,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 50508.467,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 50508.467,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 50677.95849999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 50677.95849999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 50677.95849999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 50847.45,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 50847.45,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 50847.45,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 50847.45,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 50847.45,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 51186.433,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 51186.433,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 51186.433,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 51186.433,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 51525.41599999999,
+    "deltaT": 338.9829999999929,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 51525.41599999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 51525.41599999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 51525.41599999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 51864.39899999999,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 51864.39899999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52033.890499999994,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52033.890499999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52033.890499999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52033.890499999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52033.890499999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52203.382,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52203.382,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52203.382,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52372.873499999994,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52372.873499999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52542.365,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52542.365,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52542.365,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52711.856499999994,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52711.856499999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52881.348,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52881.348,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 52881.348,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 53389.822499999995,
+    "deltaT": 508.4744999999966,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 53389.822499999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 53389.822499999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 53559.31399999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 53559.31399999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 53559.31399999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 53559.31399999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 53559.31399999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 53898.29699999999,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 53898.29699999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 53898.29699999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54237.27999999999,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54237.27999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54237.27999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54237.27999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54237.27999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54576.263,
+    "deltaT": 338.98300000000745,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54576.263,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54745.754499999995,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54745.754499999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54745.754499999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54745.754499999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54745.754499999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54915.246,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54915.246,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 54915.246,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 55084.737499999996,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 55084.737499999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 55254.22899999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 55254.22899999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 55254.22899999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 55423.720499999996,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 55423.720499999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 55593.21199999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 55593.21199999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 55593.21199999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 55932.19499999999,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 55932.19499999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56101.68649999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56101.68649999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56101.68649999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56271.17799999999,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56271.17799999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56271.17799999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56271.17799999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56271.17799999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56610.16099999999,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56610.16099999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56610.16099999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56610.16099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56610.16099999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56949.144,
+    "deltaT": 338.98300000000745,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56949.144,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56949.144,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 56949.144,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 57118.6355,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 57203.38124999999,
+    "deltaT": 84.74574999999459,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 57288.12699999999,
+    "deltaT": 84.74575000000186,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 57372.872749999995,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 57457.6185,
+    "deltaT": 84.74575000000186,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 57542.36424999999,
+    "deltaT": 84.74574999999459,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 57627.10999999999,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 57796.6015,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 57796.6015,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 57966.09299999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 58050.838749999995,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 58305.075999999994,
+    "deltaT": 254.2372499999983,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 58305.075999999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 58305.075999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 58474.56749999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 58559.31324999999,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 58644.058999999994,
+    "deltaT": 84.74575000000186,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 58644.058999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 58644.058999999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 58728.804749999996,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 58813.55049999999,
+    "deltaT": 84.74574999999459,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 58898.29624999999,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 58983.041999999994,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 58983.041999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 59152.5335,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 59152.5335,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 59322.024999999994,
+    "deltaT": 169.49149999999645,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 59322.024999999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 59322.024999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 59406.770749999996,
+    "deltaT": 84.74575000000186,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 59661.007999999994,
+    "deltaT": 254.2372499999983,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 59661.007999999994,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 59661.007999999994,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 59999.990999999995,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 59999.990999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 59999.990999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 59999.990999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 59999.990999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 60338.973999999995,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 60338.973999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 60338.973999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 60338.973999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 60677.956999999995,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 60677.956999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 60677.956999999995,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 60677.956999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 60677.956999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 61016.93999999999,
+    "deltaT": 338.9829999999929,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 61016.93999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 61016.93999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 61016.93999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 61016.93999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 61016.93999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 61355.922999999995,
+    "deltaT": 338.98300000000745,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 61355.922999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 61694.905999999995,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 61694.905999999995,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 62033.888999999996,
+    "deltaT": 338.9830000000002,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 62033.888999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 62033.888999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 62033.888999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 62372.871999999996,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 62372.871999999996,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 62372.871999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 62372.871999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 62542.36349999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 62542.36349999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 62711.854999999996,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 62711.854999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 62711.854999999996,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63050.83799999999,
+    "deltaT": 338.9829999999929,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63050.83799999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63050.83799999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63050.83799999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63050.83799999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63220.32949999999,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63220.32949999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63389.82099999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63389.82099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63389.82099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63389.82099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63389.82099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63728.804,
+    "deltaT": 338.98300000000745,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63728.804,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63728.804,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63728.804,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63728.804,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63728.804,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63728.804,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63898.29549999999,
+    "deltaT": 169.49149999999645,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 63898.29549999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64067.787,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64067.787,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64067.787,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64067.787,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64067.787,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64067.787,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64067.787,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64406.77,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64406.77,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64406.77,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64406.77,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64406.77,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64406.77,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64406.77,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64576.261499999986,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64576.261499999986,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64745.753,
+    "deltaT": 169.491500000011,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64745.753,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 64745.753,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65084.73599999999,
+    "deltaT": 338.9829999999929,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65084.73599999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65084.73599999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65084.73599999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65084.73599999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65084.73599999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65084.73599999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65254.2275,
+    "deltaT": 169.491500000011,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65254.2275,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65423.71899999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65423.71899999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65423.71899999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65762.70199999999,
+    "deltaT": 338.9830000000002,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65762.70199999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65762.70199999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65762.70199999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65762.70199999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65932.1935,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 65932.1935,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66101.68499999998,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66101.68499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66101.68499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66101.68499999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66440.66799999999,
+    "deltaT": 338.98300000000745,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66440.66799999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66440.66799999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66440.66799999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66440.66799999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66440.66799999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66610.1595,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66610.1595,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66779.65099999998,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66779.65099999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66779.65099999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66779.65099999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66779.65099999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 66779.65099999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67118.634,
+    "deltaT": 338.983000000022,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67118.634,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67118.634,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67118.634,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67118.634,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67288.1255,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67288.1255,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67457.617,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67457.617,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67457.617,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67796.59999999999,
+    "deltaT": 338.9829999999929,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67796.59999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67796.59999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67796.59999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67796.59999999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67796.59999999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67966.0915,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 67966.0915,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68135.583,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68135.583,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68135.583,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68474.56599999999,
+    "deltaT": 338.9829999999929,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68474.56599999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68474.56599999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68474.56599999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68474.56599999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68644.0575,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68644.0575,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68813.549,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68813.549,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68813.549,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68813.549,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 68813.549,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69152.53199999999,
+    "deltaT": 338.9829999999929,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69152.53199999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69152.53199999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69152.53199999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69152.53199999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69152.53199999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69152.53199999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69322.02349999998,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69322.02349999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69491.515,
+    "deltaT": 169.49150000001828,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69491.515,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69491.515,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69491.515,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69491.515,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69491.515,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69830.49799999999,
+    "deltaT": 338.9829999999929,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69830.49799999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69830.49799999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69830.49799999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69830.49799999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69999.9895,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 69999.9895,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70169.48099999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70169.48099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70169.48099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70169.48099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70169.48099999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70508.46399999999,
+    "deltaT": 338.98300000000745,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70508.46399999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70508.46399999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70677.9555,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70677.9555,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70677.9555,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70677.9555,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70847.44699999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70847.44699999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70847.44699999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70847.44699999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 70847.44699999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71186.43,
+    "deltaT": 338.98300000000745,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71186.43,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71186.43,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71186.43,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71355.9215,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71355.9215,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71525.41299999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71525.41299999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71525.41299999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71525.41299999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71864.396,
+    "deltaT": 338.98300000000745,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71864.396,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71864.396,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71864.396,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 71864.396,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72033.8875,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72033.8875,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72203.379,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72203.379,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72203.379,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72203.379,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72203.379,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72542.362,
+    "deltaT": 338.9829999999929,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72542.362,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72542.362,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72542.362,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72542.362,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72711.85349999998,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72711.85349999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72881.345,
+    "deltaT": 169.49150000001828,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72881.345,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72881.345,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72881.345,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 72881.345,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73220.328,
+    "deltaT": 338.9829999999929,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73220.328,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73220.328,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73220.328,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73220.328,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73220.328,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73389.81949999998,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73389.81949999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73559.31099999999,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73559.31099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73559.31099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73898.294,
+    "deltaT": 338.98300000000745,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73898.294,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73898.294,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73898.294,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 73898.294,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74067.7855,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74067.7855,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74237.27699999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74237.27699999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74237.27699999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74237.27699999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74237.27699999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74576.26,
+    "deltaT": 338.98300000000745,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74576.26,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74576.26,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74576.26,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74576.26,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74576.26,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74576.26,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74745.7515,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74745.7515,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74915.24299999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74915.24299999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74915.24299999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74915.24299999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74915.24299999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74915.24299999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 74915.24299999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75254.226,
+    "deltaT": 338.98300000000745,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75254.226,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75254.226,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75254.226,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75254.226,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75254.226,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75254.226,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75423.7175,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75423.7175,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75593.20899999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75593.20899999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75593.20899999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75932.19199999998,
+    "deltaT": 338.9829999999929,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75932.19199999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75932.19199999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75932.19199999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75932.19199999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75932.19199999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 75932.19199999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76101.6835,
+    "deltaT": 169.49150000001828,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76101.6835,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76271.17499999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76271.17499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76271.17499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76610.158,
+    "deltaT": 338.98300000000745,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76610.158,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76610.158,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76610.158,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76610.158,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76779.64949999998,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76779.64949999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76949.141,
+    "deltaT": 169.49150000001828,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76949.141,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76949.141,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 76949.141,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77288.124,
+    "deltaT": 338.9829999999929,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77288.124,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77288.124,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77288.124,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77288.124,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77288.124,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77457.61549999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77457.61549999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77627.10699999999,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77627.10699999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77627.10699999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77627.10699999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77627.10699999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77627.10699999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77966.09,
+    "deltaT": 338.98300000000745,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77966.09,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77966.09,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77966.09,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 77966.09,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78135.58149999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78135.58149999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78305.07299999999,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78305.07299999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78305.07299999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78644.056,
+    "deltaT": 338.98300000000745,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78644.056,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78644.056,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78644.056,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78644.056,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78644.056,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78813.5475,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78813.5475,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78983.03899999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78983.03899999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 78983.03899999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79322.02199999998,
+    "deltaT": 338.9829999999929,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79322.02199999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79322.02199999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79322.02199999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79322.02199999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79491.5135,
+    "deltaT": 169.49150000001828,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79491.5135,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79661.00499999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79661.00499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79661.00499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79661.00499999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79999.98799999998,
+    "deltaT": 338.9829999999929,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79999.98799999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79999.98799999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79999.98799999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 79999.98799999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80169.4795,
+    "deltaT": 169.49150000001828,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80169.4795,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80338.97099999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80338.97099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80338.97099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80338.97099999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80338.97099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80508.4625,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80508.4625,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80677.95399999998,
+    "deltaT": 169.49149999998917,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80677.95399999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80677.95399999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80847.44549999999,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80847.44549999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80847.44549999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 80847.44549999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81016.937,
+    "deltaT": 169.49150000001828,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81016.937,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81016.937,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81186.4285,
+    "deltaT": 169.49149999998917,
+    "type": "note_on",
+    "velocity": 95,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81186.4285,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81355.92,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81355.92,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81355.92,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81355.92,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81355.92,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81355.92,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81694.90299999999,
+    "deltaT": 338.9829999999929,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81694.90299999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81694.90299999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81694.90299999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81864.3945,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81864.3945,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81864.3945,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 81864.3945,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82203.37749999999,
+    "deltaT": 338.9829999999929,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82203.37749999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82203.37749999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82203.37749999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82372.86899999999,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82372.86899999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82372.86899999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82372.86899999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82711.852,
+    "deltaT": 338.98300000000745,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82711.852,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82711.852,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82711.852,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82881.34349999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82881.34349999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82881.34349999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 82881.34349999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83220.32649999998,
+    "deltaT": 338.9829999999929,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83220.32649999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83220.32649999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83220.32649999998,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83389.81799999998,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83389.81799999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83389.81799999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83389.81799999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83389.81799999998,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 73,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83559.3095,
+    "deltaT": 169.49150000001828,
+    "type": "note_on",
+    "velocity": 73,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83559.3095,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83728.80099999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83728.80099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83728.80099999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83728.80099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83728.80099999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83728.80099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83728.80099999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 73,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83728.80099999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83898.2925,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 73,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 83898.2925,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84067.78399999999,
+    "deltaT": 169.49149999998917,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84067.78399999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84067.78399999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84067.78399999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84067.78399999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84067.78399999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84067.78399999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 107,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84067.78399999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84406.76699999999,
+    "deltaT": 338.98300000000745,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84406.76699999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84406.76699999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84406.76699999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84406.76699999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84576.2585,
+    "deltaT": 169.49150000000373,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84576.2585,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84576.2585,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84576.2585,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84576.2585,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 107,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84915.24149999999,
+    "deltaT": 338.9829999999929,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84915.24149999999,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84915.24149999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84915.24149999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 84915.24149999999,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 85084.733,
+    "deltaT": 169.49150000000373,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 85084.733,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 85084.733,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 85084.733,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 85084.733,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 97,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 85084.733,
+    "deltaT": 0.0,
+    "type": "note_on",
+    "velocity": 107,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 86779.648,
+    "deltaT": 1694.9150000000081,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 86779.648,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 86779.648,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 86779.648,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  },
+  {
+    "timestamp": 86779.648,
+    "deltaT": 0.0,
+    "type": "note_off",
+    "velocity": 64,
+    "isBounceBack": false
+  }
+]
