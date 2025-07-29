@@ -89,7 +89,7 @@ class MidiPlayerGateway:
             self.position = 0
             self.stop_event = True
             self.pause_event = True
-            self.total_duration = self.parser.get_total_duration()  # Get total duration in ms
+            self.total_duration = self.parser._calculate_duration()  # Get total duration in ms
             
             # Update the checkboxes to select tracks
             with open('./tmp/tracks.json', 'r') as f:
