@@ -10,7 +10,7 @@ from alsa_midi import SequencerClient, NoteOnEvent, NoteOffEvent, ControlChangeE
 import time
 from flask_cors import CORS
 from threading import Thread
-import midi_parser as MidiParser
+from midi_parser import MidiParser
 from instruments import GeneralMidiInstrument
 
 app = Flask(__name__)
@@ -82,7 +82,7 @@ class MidiPlayerGateway:
             self.current_events = self.parser._convert_events(sanitized_events) # Convert to MidiEvent objects
             self.parser._export_to_json(self.current_events)
             self.total_duration = self.parser._calculate_duration(self.current_events)  # Get total duration in ms
-            self.player_thread = Thread(target=self.player_thread_function, args=(self.socketio,))
+            self.player_thread = Thread(target=self.player_thread_function, args=(self.socket,))
             self.stop_event = False
             self.pause_event = True
             self.midi_idx = 0
@@ -90,7 +90,7 @@ class MidiPlayerGateway:
             return True
         except Exception as e:
             logger.error(f"Error parsing MIDI file: {e}")
-            self.socketio.emit('error', {'message': f'Failed to parse MIDI file: {str(e)}'})
+            self.socket.emit('error', {'message': f'Failed to parse MIDI file: {str(e)}'})
             return False
         
     def load_song(self, song_path: str, song_data: dict = None):
@@ -113,12 +113,12 @@ class MidiPlayerGateway:
                 data = file_data.items()
                 print(data)
                 instrument_names = [{"id": i, "channel": i[0], "name": GeneralMidiInstrument.get_instrument_name(i[1])} for i in data]
-                self.socketio.emit('instruments', instrument_names, room='midi_players')
+                self.socket.emit('instruments', instrument_names, room='midi_players')
 
             return True
         except Exception as e:
             logger.error(f"Error loading song: {e}")
-            self.socketio.emit('error', {'message': f'Failed to load song: {str(e)}'})
+            self.socket.emit('error', {'message': f'Failed to load song: {str(e)}'})
             return False
     
     def play(self):
