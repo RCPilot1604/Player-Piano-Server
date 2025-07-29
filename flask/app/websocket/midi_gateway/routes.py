@@ -66,6 +66,7 @@ class MidiPlayerGateway:
                 client.event_output(event_to_send)
                 self.midi_idx += 1
                 emit('timeUpdate', (event.timestamp / self.total_duration) * 100, room='midi_players')
+                print("Heartbeat: ", event.timestamp, "DeltaT: ", event.deltaT)
                 time.sleep(event.deltaT / 1000.0)  # Convert deltaT to seconds
 
     def parse_song(self, tracks_to_play):
