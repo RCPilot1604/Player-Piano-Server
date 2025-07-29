@@ -209,8 +209,8 @@ class MidiParser:
         """Calculate total duration of MIDI file in seconds"""
         if not events:
             return 0.0
-        last_event = max(events, key=lambda x: x.time_ms)
-        return last_event.time_ms / 1000.0  # Convert to seconds
+        last_event = max(events, key=lambda x: x.timestamp)
+        return last_event.timestamp / 1000.0  # Convert to seconds
     
     def _convert_events(self, events: List[List[MidiEvent]]) -> List[MidiEvent]:
         """Convert sanitized events back to a flat list of MidiEvent objects"""
