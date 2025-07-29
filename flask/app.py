@@ -5,6 +5,7 @@ import os
 from datetime import datetime
 import logging
 import flask_socketio
+from flask_socketio import join_room, leave_room
 from alsa_midi import SequencerClient, NoteOnEvent, NoteOffEvent, ControlChangeEvent
 import time
 from flask_cors import CORS
@@ -781,10 +782,10 @@ def register_websocket_events(socketio):
     """Register all WebSocket event handlers"""
     
     @socketio.on('connect')
-    def handle_connect():
+    def handle_connect(auth=None):
         """Handle client connection"""
         logger.info('Client connected')
-        socketio.join_room('midi_players')
+        join_room('midi_players')
         socketio.emit('connected', {'status': 'Connected to MIDI Player'})
         socketio.emit('player_status', gateway.get_status())
     
@@ -792,7 +793,7 @@ def register_websocket_events(socketio):
     def handle_disconnect():
         """Handle client disconnection"""
         logger.info('Client disconnected')
-        socketio.leave_room('midi_players')
+        leave_room('midi_players')
     
     @socketio.on('loadMidi')
     def handle_load_midi(song_data):
