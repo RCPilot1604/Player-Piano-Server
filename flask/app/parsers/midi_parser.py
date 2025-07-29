@@ -205,11 +205,11 @@ class MidiParser:
         seconds_per_tick = seconds_per_beat / self.ticks_per_beat
         
         return ticks * seconds_per_tick * 1000  # Convert to milliseconds
-    def _calculate_duration(self) -> float:
+    def _calculate_duration(self, events: List[MidiEvent]) -> float:
         """Calculate total duration of MIDI file in seconds"""
-        if not self.events:
+        if not events:
             return 0.0
-        last_event = max(self.events, key=lambda x: x.time_ms)
+        last_event = max(events, key=lambda x: x.time_ms)
         return last_event.time_ms / 1000.0  # Convert to seconds
     def _convert_events(self, events: List[List[MidiEvent]]) -> List[MidiEvent]:
         """Convert sanitized events back to a flat list of MidiEvent objects"""
