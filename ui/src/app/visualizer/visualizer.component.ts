@@ -28,9 +28,8 @@ interface Note {
 @Component({
   selector: 'app-midi-falling-tiles',
   imports: [],
-  providers: [WebsocketService],
-  templateUrl: './midi-falling-tiles.component.html',
-  styleUrls: ['./midi-falling-tiles.component.css']
+  templateUrl: './visualizer.component.html',
+  styleUrls: ['./visualizer.component.css']
 })
 export class MidiFallingTilesComponent implements OnInit, OnDestroy {
   @ViewChild('canvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;

@@ -1,7 +1,7 @@
 <div class="midi-player-container">
-    <canvas #canvas [width]="canvasWidth" [height]="canvasHeight" class="midi-canvas" (click)="onCanvasClick($event)">
+    <canvas #canvas [width]="canvasWidth" [height]="canvasHeight" class="midi-canvas">
     </canvas>
-    <div class="progress-bar" (click)="onProgressClick($event)">
+    <div class="progress-bar">
         <div class="progress-fill" [style.width.%]="progressPercentage"></div>
         <div class="progress-handle" [style.left.%]="progressPercentage"></div>
     </div>
