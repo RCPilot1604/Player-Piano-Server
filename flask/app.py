@@ -47,17 +47,20 @@ class MidiPlayerGateway:
     def player_thread_function(self, socketio):
         """Thread function to handle playback logic"""
         client = SequencerClient("Player Piano")
+        print("Starting player thread")
         while True:
             if self.stop_event: 
                 self.midi_idx = 0
-                self.socket.emit('playback_finished', room='midi_players')
+                self.socket.emit('timeUpdate', 0, room='midi_players')
+                print("Exiting Player Thread")
                 break
             while self.pause_event:
+                print("Player thread paused")
                 pass # Do nothing; halt the execution
             if self.midi_idx >= len(self.current_events):
                 self.pause_event = True
                 self.midi_idx = 0
-                self.socket.emit('playback_finished', room='midi_players')
+                self.socket.emit('timeUpdate', 0, room='midi_players')
                 break
             event = self.current_events[self.midi_idx]
             # Playback logic here
@@ -103,7 +106,6 @@ class MidiPlayerGateway:
             self.parser = MidiParser(song_path)
             self.parser._load_midi()
             self.current_song = song_data
-            self.pause_event = True
                         
             # Update the checkboxes to select tracks
             with open('./tmp/tracks.json', 'r') as f:
