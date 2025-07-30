@@ -96,6 +96,7 @@ class MidiPlayerGateway:
         # Clear the current running player thread 
         if self.player_thread and self.player_thread.is_alive():
             self.stop_event = True
+            self.pause_event = False
             self.player_thread.join()
         # Parse MIDI file into ./tmp/midi_events.json which merely serves as staging ground 
         try:
@@ -469,11 +470,7 @@ def register_websocket_events(socketio):
             gateway.pause()
             
             # Emit events that frontend expects
-            socketio.emit('playUpdate', False, room='midi_players')
-            socketio.emit('playback_paused', {
-                'position': gateway.position
-            }, room='midi_players')
-            
+            socketio.emit('playUpdate', False, room='midi_players')          
             logger.info('Playback paused')
         except Exception as e:
             logger.error(f"Error pausing playback: {e}")
@@ -485,7 +482,6 @@ def register_websocket_events(socketio):
         try:
             gateway.pause()
             gateway.seek(0)
-            gateway.position = 0
             
             socketio.emit('playback_stopped', room='midi_players')
             logger.info('Playback stopped')
