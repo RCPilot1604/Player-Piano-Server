@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy, inject } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { SongEntry } from '../song-entry';
 import { NgIf, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,10 +13,10 @@ import { WebsocketService } from '../services/websocket.service';
   templateUrl: './current-song.component.html',
   styleUrls: ['./current-song.component.css']
 })
-export class CurrentSongComponent implements OnInit, OnDestroy {
+export class CurrentSongComponent implements OnInit, OnDestroy{
   @Input() song: SongEntry | null = null;
+  @Input() currentTime: number = 0;
   isPlaying = false;
-  currentTime = 0;
   duration = 100; // Initialize duration to 0
   volume = 100;
   constructor(private socket: WebsocketService) { }
@@ -62,7 +62,6 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
 
   instruments: { id: number, channel: number, name: string }[] = [];
   selectedInstrumentIds: number[] = [];
-
   ngOnInit() {
     this.socket.fromEvent('connected').subscribe(() => {
       console.log('Connected to server');
@@ -70,19 +69,14 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.socket.fromEvent('connect_error').subscribe((err) => {
       console.log('Error connecting to server: ', err);
     });
-    this.socket.fromEvent('timeUpdate').subscribe((data) => {
-      this.currentTime = data;
-    });
     this.socket.fromEvent('playUpdate').subscribe((data) => {
       this.isPlaying = Boolean(data);
     });
     this.socket.fromEvent('volumeUpdate').subscribe((data) => {
       this.volume = data;
     });
-    this.socket.fromEvent('seekUpdate').subscribe((data) => {
-      this.currentTime = data;
-    });
     this.socket.fromEvent('instruments').subscribe((data: { id: number, channel: number, name: string }[]) => {
+      console.log('Received instruments:', data);
       this.instruments = data;
     });
   }

@@ -17,7 +17,8 @@ import { WebsocketService } from './services/websocket.service';
 })
 export class AppComponent {
   title = 'ui';
-  constructor(public dialog: MatDialog) {}
+  currentTime = 0;
+  constructor(public dialog: MatDialog, private socket: WebsocketService) {}
 
   openAddSongDialog(): void {
     const dialogRef = this.dialog.open(AddSongDialogComponent, {
@@ -26,6 +27,12 @@ export class AppComponent {
 
   openAddCategoryDialog(): void {
     const dialogRef = this.dialog.open(AddCategoryDialogComponent, {
+    });
+  }
+
+  ngOnInit() {
+    this.socket.fromEvent('timeUpdate').subscribe((data) => {
+      this.currentTime = data;
     });
   }
 }

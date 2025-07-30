@@ -1,4 +1,4 @@
-import { Component, inject, Output } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { SongEntry } from '../song-entry';
 import { SongComponent } from '../song/song.component';
 import { SongsService } from '../services/songs.service';
@@ -24,6 +24,7 @@ import {MatDivider, MatDividerModule} from '@angular/material/divider';
   styleUrl: './song-list.component.css'
 })
 export class SongListComponent {
+  @Input() currentTime: number = 0;
   songs: SongEntry[] = [];
   filteredSongs: SongEntry[] = [];
   songsService: SongsService = inject(SongsService);
@@ -32,7 +33,6 @@ export class SongListComponent {
   categories: string[] = [];
   selectedCategory: string = 'All';
   searchText: string = '';
-  
   constructor(private categoryService: CategoryService,
               private websocket: WebsocketService) {
     this.songs = [];
