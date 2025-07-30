@@ -12,6 +12,7 @@ from flask_cors import CORS
 from threading import Thread
 from midi_parser import MidiParser
 from instruments import GeneralMidiInstrument
+import atexit
 
 app = Flask(__name__)
 
@@ -83,11 +84,6 @@ class MidiPlayerGateway:
             self.current_events = self.parser._convert_events(sanitized_events) # Convert to MidiEvent objects
             self.parser._export_to_json(self.current_events)
             self.total_duration = self.parser._calculate_duration(self.current_events)  # Get total duration in ms
-            self.player_thread = Thread(target=self.player_thread_function, args=(self.socket,))
-            self.stop_event = False
-            self.pause_event = True
-            self.midi_idx = 0
-            self.player_thread.start() #start the player thread whenever 
             return True
         except Exception as e:
             logger.error(f"Error parsing MIDI file: {e}")
@@ -96,11 +92,6 @@ class MidiPlayerGateway:
         
     def load_song(self, song_path: str, song_data: dict = None):
         """Load a MIDI song for playback"""
-        # Clear the current running player thread 
-        if self.player_thread and self.player_thread.is_alive():
-            self.stop_event = True
-            self.pause_event = False
-            self.player_thread.join()
         # Parse MIDI file into ./tmp/midi_events.json which merely serves as staging ground 
         try:
             self.parser = MidiParser(song_path)
@@ -175,7 +166,13 @@ socket = flask_socketio.SocketIO(app)
 
 gateway = MidiPlayerGateway(socket)
 
+def cleanup():
+    if gateway.player_thread and gateway.player_thread.is_alive():
+        gateway.stop_event = True
+        gateway.pause_event = False
+        gateway.player_thread.join()
 
+atexit.register(cleanup)
 
 @app.route('/')
 def home():
@@ -562,4 +559,9 @@ if __name__ == '__main__':
 
     # Register WebSocket events
     register_websocket_events(socket)
+    gateway.stop_event = False
+    gateway.pause_event = True  # Start in paused state
+    gateway.midi_idx = 0
+    gateway.player_thread = Thread(target=gateway.player_thread_function, args=(socket,))
+    gateway.player_thread.start()
     socket.run(app, host='0.0.0.0', port=5000)
