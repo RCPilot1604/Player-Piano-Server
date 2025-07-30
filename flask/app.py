@@ -23,7 +23,6 @@ class MidiPlayerGateway:
     def __init__(self, socket):
         self.current_song = None
         self.volume = 100
-        self.position = 0
         self.playback_start_time = None
         self.current_events = []
         self.playback_thread = None
@@ -103,7 +102,6 @@ class MidiPlayerGateway:
             self.parser = MidiParser(song_path)
             self.parser._load_midi()
             self.current_song = song_data
-            self.position = 0
             self.pause_event = True
                         
             # Update the checkboxes to select tracks
@@ -133,6 +131,7 @@ class MidiPlayerGateway:
         position_ms = (position / 100) * self.total_duration  # Convert percentage to ms
         closest_event = min(self.current_events, key=lambda e: abs(e.time_ms - position_ms))
         self.midi_idx = self.current_events.index(closest_event)
+        socket.emit('timeUpdate', position, room='midi_players')
 
     def close(self):
         if self.alsa_player:
@@ -143,12 +142,7 @@ class MidiPlayerGateway:
     def set_volume(self, volume: int):
         """Set playback volume"""
         self.volume = max(0, min(100, volume))
-        # Don't emit here, let the WebSocket handler emit the event
-    
-    def update_position(self, position: int):
-        """Update current playback position and emit to clients"""
-        self.position = position
-        socket.emit('timeUpdate', position, room='midi_players')
+        # Don't emit here, let the WebSocket handler emit the event        
     
     def get_status(self):
         """Get current player status"""
@@ -156,7 +150,6 @@ class MidiPlayerGateway:
             'isPlaying': self.pause_event is False,
             'currentSong': self.current_song,
             'volume': self.volume,
-            'position': self.position,
         }
     
     def log_event(self, event_data):
@@ -504,15 +497,8 @@ def register_websocket_events(socketio):
     def handle_seek(seek_position):
         """Seek to position (matches frontend expectation)"""
         try:
-            tick = int(seek_position) if isinstance(seek_position, (int, str)) else seek_position.get('tick', 0)
-            gateway.seek(tick)
-            gateway.position = tick
-            
-            # Emit events that frontend expects
-            socketio.emit('seekUpdate', tick, room='midi_players')
-            socketio.emit('timeUpdate', tick, room='midi_players')
-            
-            logger.info(f'Seeked to position: {tick}')
+            gateway.seek(seek_position)
+            logger.info(f'Seeked to position: {seek_position}%')
         except Exception as e:
             logger.error(f"Error seeking: {e}")
             socketio.emit('error', {'message': str(e)})
