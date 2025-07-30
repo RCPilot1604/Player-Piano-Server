@@ -56,7 +56,6 @@ class MidiPlayerGateway:
                 print("Exiting Player Thread")
                 break
             while self.pause_event:
-                print("Player thread paused")
                 pass # Do nothing; halt the execution
             if self.midi_idx >= len(self.current_events):
                 self.pause_event = True
