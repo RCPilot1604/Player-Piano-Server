@@ -78,8 +78,12 @@ class MidiParser:
         sanitized_events = [[] for _ in range(88)] # sanitized events
         note_idx = 0
         for note_number in events:
-            sanitized_events[note_idx].append(event)
+            isFirstEvent = True
             for event in note_number:
+                if isFirstEvent: # If this is the first event for this note, we can just add it to the sanitized events
+                    sanitized_events[note_idx].append(event)
+                    isFirstEvent = False
+                    continue
                 lastEvent = sanitized_events[note_idx][-1]
                 assert lastEvent is not None, "Last event should not be None when processing subsequent events"
                 isLastOn = lastEvent.type == 'note_on' and lastEvent.velocity > 0
