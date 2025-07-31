@@ -70,7 +70,7 @@ class MidiPlayerGateway:
             # Playback logic here
             event_to_send = None
             if(event.isBounceBack):
-                event_to_send = ControlChangeEvent(controller=110, value=event.note, channel=0)
+                event_to_send = ControlChangeEvent(controller=110, value=event.note, channel=0, param=0)
             else:
                 event_to_send = NoteOnEvent(note=event.note, velocity=event.velocity) if event.type == 'note_on' else NoteOffEvent(note=event.note, velocity=event.velocity)
             if event_to_send:
