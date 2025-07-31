@@ -82,6 +82,7 @@ class MidiParser:
             for event in note_number:
                 if evt_idx == 0: # If this is the first event for this note, we can just add it to the sanitized events
                     sanitized_events[note_idx].append(event)
+                    evt_idx += 1
                     continue
                 lastEvent = sanitized_events[note_idx][-1]
                 assert lastEvent is not None, "Last event should not be None when processing subsequent events"
@@ -93,6 +94,7 @@ class MidiParser:
                     if isOn: # And now the new command is to turn the note on again
                         if isLastBB:
                             if deltaT < self.settings.settings['bounce_back_duration']: # If the time between the last event and this event is less than the bounce back duration, we can ignore this event
+                                evt_idx += 1
                                 continue # There is no time for the bounceback to happen. Simply disregard this event
                             else: 
                                 # Then schedule a bounceback
@@ -114,6 +116,7 @@ class MidiParser:
                                 sanitized_events[note_idx][-1] = lastEvent # Update the last event to be a bounce back event
                                 sanitized_events[note_idx].append(event) # Schedule the event normally
                             else: # There is no time to schedule a bounceback, so we can just ignore this event
+                                evt_idx += 1
                                 continue
                     else: # If the last event was to turn the note on, and now the new command is to turn the note off
                         if deltaT < self.settings.settings['bounce_back_duration']:
@@ -125,6 +128,7 @@ class MidiParser:
                     if isOn: # And now the new command is to turn the note on
                         if isLastBB: # If the last event was a bounce back event
                             if deltaT < self.settings.settings['bounce_back_duration']: # If the time between the last event and this event is less than the bounce back duration, we can ignore this event
+                                evt_idx += 1
                                 continue # Do nothing because a bounce back will not finish in time
                             else:
                                 sanitized_events[note_idx].append(event) # Schedule the note to turn on after the bounceback
@@ -139,6 +143,7 @@ class MidiParser:
                             else: # If there is sufficient time to schedule a note off and note on
                                 sanitized_events[note_idx].append(event) # Schedule the note to turn on normally
                     else: # If the last event was to turn the note off, and now the new command is to turn the note off
+                        evt_idx += 1
                         continue # Do nothing because the note is already off
                 evt_idx += 1
             note_idx += 1
