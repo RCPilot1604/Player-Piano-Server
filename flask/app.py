@@ -13,15 +13,18 @@ from threading import Thread
 from midi_parser import MidiParser
 from instruments import GeneralMidiInstrument
 import atexit
+from settings import Settings
 
 app = Flask(__name__)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+settings = Settings() # Global settings instance
 
 class MidiPlayerGateway:
 
-    def __init__(self, socket):
+    def __init__(self, socket, settings):
+        self.settings = settings
         self.current_song = None
         self.volume = 100
         self.playback_start_time = None
@@ -33,6 +36,7 @@ class MidiPlayerGateway:
         self.alsa_player = None
         self.track_names = None
         self.tracks_to_play = []
+        self.tiles_to_play = None
         self.total_duration = 0.0 # Total duration of the MIDI file in ms
         # Player thread
         self.player_thread = None
@@ -80,7 +84,8 @@ class MidiPlayerGateway:
         try:
             parsed_events = self.parser._parse_to_events(tracks_to_play) # Parse raw MIDI file
             sanitized_events = self.parser._sanitize_events(parsed_events) # Sanitize events
-            self.current_events = self.parser._convert_events(sanitized_events) # Convert to MidiEvent objects
+            self.parser._generate_tile_data(sanitized_events) # Generate tile data for rendering
+            self.parser._convert_events(sanitized_events) # Convert to MidiEvent objects
             self.parser._export_to_json(self.current_events)
             self.total_duration = self.parser._calculate_duration(self.current_events)  # Get total duration in ms
             return True
@@ -93,7 +98,7 @@ class MidiPlayerGateway:
         """Load a MIDI song for playback"""
         # Parse MIDI file into ./tmp/midi_events.json which merely serves as staging ground 
         try:
-            self.parser = MidiParser(song_path)
+            self.parser = MidiParser(song_path, self.settings)
             self.parser._load_midi()
             self.current_song = song_data
                         
@@ -109,7 +114,7 @@ class MidiPlayerGateway:
             logger.error(f"Error loading song: {e}")
             self.socket.emit('error', {'message': f'Failed to load song: {str(e)}'})
             return False
-    
+
     def play(self):
         self.pause_event = False
     
@@ -163,7 +168,7 @@ class MidiPlayerGateway:
 socket = flask_socketio.SocketIO(app)
 # Global gateway instance
 
-gateway = MidiPlayerGateway(socket)
+gateway = MidiPlayerGateway(socket, settings)
 
 def cleanup():
     if gateway.player_thread and gateway.player_thread.is_alive():
@@ -176,6 +181,16 @@ atexit.register(cleanup)
 @app.route('/')
 def home():
     return 'Hello, Flask!'
+
+@app.route('/api/tiles/', methods=['GET'])
+def get_tiles():
+    try:
+        tiles = None
+        with open(settings.settings['midi_tile_data_file_path'], 'r') as f:
+            tiles = json.load(f)
+        return jsonify(tiles), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/api/categories/', methods=['GET'])
 def get_categories():
@@ -394,6 +409,8 @@ def register_websocket_events(socketio):
         join_room('midi_players')
         socketio.emit('connected', {'status': 'Connected to MIDI Player'})
         socketio.emit('player_status', gateway.get_status())
+        if gateway.tiles_to_play is not None:
+            socketio.emit('tilesToPlay', gateway.tiles_to_play, room='midi_players')
     
     @socketio.on('disconnect')
     def handle_disconnect():

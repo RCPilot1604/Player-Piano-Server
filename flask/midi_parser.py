@@ -2,8 +2,6 @@ import mido
 import json
 from typing import List
 from midi_events import MidiEvent, ConvertedEvent
-from settings import Settings
-import os 
 
 """
 This module provides functionality for parsing MIDI files using the mido library.
@@ -45,12 +43,12 @@ EventList [
 """
 
 class MidiParser:
-    def __init__(self, midi_file: str):
+    def __init__(self, midi_file: str, settings):
         self.mid = mido.MidiFile(midi_file)
         self.midi_file = midi_file
         self.ticks_per_beat = self.mid.ticks_per_beat
         self.tempo = 500000  # Default tempo (120 BPM)
-        self.settings = Settings()
+        self.settings = settings
 
     def _load_midi(self):
         """Load MIDI file and update the checkboxes for showing the instruments to be selected"""
@@ -146,6 +144,56 @@ class MidiParser:
             note_idx += 1
         return events
     # When parse to events is called we would already know the channels that we want to play
+    def _generate_tile_data(self, events: List[List[MidiEvent]]) -> List[List[MidiEvent]]:
+        """
+        Generate tile data for the MIDI events
+        The structure of tile_data is as follows:
+        tile_data = {
+            'note_number': {
+                'Tile': {
+                    'start': start_time_ms,
+                    'end': end_time_ms
+                    'velocity': velocity,
+                    'track': track_idx,  # Track index for the event
+                }
+            }
+        }
+        """
+        # This function is used to generate the tile data for the MIDI events.
+        midi_tile_data = [[] for _ in range(self.settings.settings['highest_note'] - self.settings.settings['lowest_note'] + 1)] # Initialize a list of lists for each note
+        note_index = 0
+        for note_events in events: 
+            onLastTime = -1 
+            for event in events: 
+                if event.isBounceBack:
+                    midi_tile_data.append({
+                        'start': event.time_ms,
+                        'end': event.time_ms + self.settings.settings['bounce_back_duration'],
+                        'velocity': event.velocity,
+                        'track': event.track
+                    })
+                    onLastTime = -1 # Reset onLastTime for bounce back events
+                    continue
+                if event.type == 'note_on' and event.velocity > 0:
+                    if onLastTime != -1:
+                        print(f"Error: Found a note on event after another note on event without a note off in between. This is not allowed in MIDI.")
+                    onLastTime = event.time_ms
+                elif event.type == 'note_off':
+                    if onLastTime == -1:
+                        print(f"Error: Found a note off event without a note on event before it. This is not allowed in MIDI.")
+                    else:
+                        midi_tile_data[note_index].append({
+                            'start': onLastTime,
+                            'end': event.time_ms,
+                            'velocity': event.velocity,
+                            'track': event.track
+                        })
+                        onLastTime = -1
+            note_index += 1
+        with open(self.settings.settings['midi_tile_data_file_path'], 'w') as f:
+            json.dump(midi_tile_data, f, indent=2)
+        return 
+        return events
     def _parse_to_events(self, tracks_to_play) -> List[List[MidiEvent]]: #We pass in an array of programs (instruments) to play
         """Parse MIDI file into lists of MidiEvent objects per track"""
         print(tracks_to_play)
@@ -169,7 +217,8 @@ class MidiParser:
                         time_ms=ms,
                         type=msg.type,
                         velocity=velocity,
-                        isBounceBack=False
+                        isBounceBack=False,
+                        track=track_idx
                     )
                     try:
                         all_notes_all_events[note_number - self.settings.settings["lowest_note"]].append(event) if note_number is not None else None

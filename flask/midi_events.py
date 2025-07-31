@@ -13,6 +13,7 @@ class MidiEvent:
     velocity: int = 0
     time_ms: float = 0.0
     isBounceBack: bool = False
+    track: int = -1
 
     def to_dict(self) -> Dict[str, Any]:
         return {

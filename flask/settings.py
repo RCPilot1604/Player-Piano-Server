@@ -6,6 +6,7 @@ class Settings:
     def __init__(self):
         self.settings = {
             'midi_json_file_path': './tmp/midi_data.json',
+            'midi_tile_data_file_path': './tmp/midi_tile_data.json',
             'lowest_note': 21,  # A0
             'highest_note': 108,  # C8
             'activation_duration': 50, # milliseconds
