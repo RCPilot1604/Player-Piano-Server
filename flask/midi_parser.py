@@ -112,6 +112,7 @@ class MidiParser:
                                 sanitized_events[note_idx].append(event) # Schedule the event normally
                             elif deltaT >= self.settings.settings['bounce_back_duration']: # If there is time to schedule a bounceback
                                 lastEvent.isBounceBack = True # Change the last event to a bounce back event
+                                lastEvent.type = 'note_off' # Change the type of the last event to note off
                                 sanitized_events[note_idx][-1] = lastEvent # Update the last event to be a bounce back event
                                 sanitized_events[note_idx].append(event) # Schedule the event normally
                             else: # There is no time to schedule a bounceback, so we can just ignore this event
@@ -121,7 +122,9 @@ class MidiParser:
                             del sanitized_events[note_idx][-1] #delete the activation event because there will be no time
                         else:
                             lastEvent.isBounceBack = True
+                            lastEvent.type = 'note_off' # Change the type of the last event to note off
                             sanitized_events[note_idx][-1] = lastEvent # Update the last event to be a bounce back event
+                        sanitized_events[note_idx].append(event)
                 else: # If the last event was to turn the note off
                     if isOn: # And now the new command is to turn the note on
                         if isLastBB: # If the last event was a bounce back event
@@ -132,13 +135,12 @@ class MidiParser:
                         else: # If the last event was not a bounce back event
                             if deltaT < self.settings.settings['deactivation_duration']:
                                 lastEvent.isBounceBack = True
+                                lastEvent.type = 'note_off' # Change the type of the last event to note off
                                 sanitized_events[note_idx][-1] = lastEvent # Update the last event to be a bounce back event
                                 # We signify a bounceback using an unused control change event. In this case we use 0xB0 0x6E 0x_ _ (Control Change, Channel 1, Controller 110 [0x6E], Note number __ )
                                 # For now we simply modify the isBounceBack attribute of the last event to True. 
                                 # We implement the CC event in our player
-                                sanitized_events[note_idx].append(event) # Schedule the note to turn on after the bounceback
-                            else: # If there is sufficient time to schedule a note off and note on
-                                sanitized_events[note_idx].append(event) # Schedule the note to turn on normally
+                            sanitized_events[note_idx].append(event)
                     else: # If the last event was to turn the note off, and now the new command is to turn the note off
                         continue # Do nothing because the note is already off
             note_idx += 1
