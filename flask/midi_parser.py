@@ -177,11 +177,11 @@ class MidiParser:
                     continue
                 if event.type == 'note_on' and event.velocity > 0:
                     if onLastTime != -1:
-                        print(f"Error: Found a note on event after another note on event without a note off in between. This is not allowed in MIDI.")
+                        print(f"Error: Note on after note on at {onLastTime} ms for note {note_index}. This is not allowed in MIDI.")
                     onLastTime = event.time_ms
                 elif event.type == 'note_off':
                     if onLastTime == -1:
-                        print(f"Error: Found a note off event without a note on event before it. This is not allowed in MIDI.")
+                        print(f"Error: Note off without note on at {event.time_ms} ms for note {note_index}. This is not allowed in MIDI.")
                     else:
                         midi_tile_data.append({
                             'note_number': note_index,
