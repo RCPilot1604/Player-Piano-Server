@@ -81,14 +81,14 @@ class MidiParser:
             evt_idx = 0
             for event in note_number:
                 if evt_idx == 0: # If this is the first event for this note, we can just add it to the sanitized events
-                    sanitized_events.append(event)
+                    sanitized_events[note_idx].append(event)
                     continue
                 lastEvent = sanitized_events[note_idx][-1]
                 assert lastEvent is not None, "Last event should not be None when processing subsequent events"
                 isLastOn = lastEvent.type == 'note_on' and lastEvent.velocity > 0
                 isLastBB = lastEvent.isBounceBack
                 isOn = event.type == 'note_on' and event.velocity > 0
-                deltaT = event.time_ms - note_number[evt_idx - 1].time_ms
+                deltaT = event.time_ms - lastEvent.time_ms
                 if isLastOn: # If the last event was to turn the note on
                     if isOn: # And now the new command is to turn the note on again
                         if isLastBB:
