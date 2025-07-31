@@ -184,6 +184,7 @@ class MidiParser:
                         print(f"Error: Found a note off event without a note on event before it. This is not allowed in MIDI.")
                     else:
                         midi_tile_data[note_index].append({
+                            'note_number': note_index,
                             'start': onLastTime,
                             'end': event.time_ms,
                             'velocity': event.velocity,
