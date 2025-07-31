@@ -85,11 +85,12 @@ class MidiPlayerGateway:
             parsed_events = self.parser._parse_to_events(tracks_to_play) # Parse raw MIDI file
             print(f"Length of parsed events: {len(parsed_events)}")
             sanitized_events = self.parser._sanitize_events(parsed_events) # Sanitize events
+            self.parser._export_to_json_2D(self.sanitized_events) # Export to JSON for debugging
             print(f"Length of sanitized events: {len(sanitized_events)}")
             self.parser._generate_tile_data(sanitized_events) # Generate tile data for rendering
             self.socket.emit('tileUpdate', room='midi_players') # Notify frontend to update tiles
             self.current_events = self.parser._convert_events(sanitized_events) # Convert to MidiEvent objects
-            self.parser._export_to_json(self.current_events)
+            self.parser._export_to_json_flatlist(self.current_events)
             self.total_duration = self.parser._calculate_duration(self.current_events)  # Get total duration in ms
             return True
         except Exception as e:

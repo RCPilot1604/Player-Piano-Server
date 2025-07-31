@@ -296,7 +296,19 @@ class MidiParser:
             if not earliest_event:  # If no earliest event was found, break the loop
                 break
         return converted_events
-    def _export_to_json(self, events: list) -> bool:
+    def _export_to_json_2D(self, events: List[List[MidiEvent]]) -> bool:
+        """Export parsed MIDI data to JSON file"""
+        try:
+            # Convert each event to a dict
+            serializable_events = [[e.to_dict() for e in note_events] for note_events in events]
+            with open('./tmp/midi_sanitized_unconverted.json', 'w') as f:
+                json.dump(serializable_events, f, indent=2)
+            return True
+        except Exception as e:
+            print(f"Error exporting to JSON: {e}")
+            return False
+        
+    def _export_to_json_flatlist(self, events: list) -> bool:
         """Export parsed MIDI data to JSON file"""
         try:
             # Convert each event to a dict
