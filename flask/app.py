@@ -186,7 +186,7 @@ atexit.register(cleanup)
 def home():
     return 'Hello, Flask!'
 
-@app.route('/api/tiles/', methods=['GET'])
+@app.route('/api/tiles', methods=['GET'])
 def get_tiles():
     try:
         tiles = None
@@ -196,7 +196,7 @@ def get_tiles():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/api/categories/', methods=['GET'])
+@app.route('/api/categories', methods=['GET'])
 def get_categories():
     """Get all categories from database"""
     try:
@@ -209,7 +209,7 @@ def get_categories():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/api/categories/', methods=['POST'])
+@app.route('/api/categories', methods=['POST'])
 def create_category():
     """Create a new category"""
     try:
@@ -254,7 +254,7 @@ def create_category():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/api/crud/', methods=['GET'])
+@app.route('/api/crud', methods=['GET'])
 def get_songs():
     try:
         assets_folder = current_app.config.get('ASSETS_FOLDER')
@@ -266,7 +266,7 @@ def get_songs():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/api/crud/', methods=['POST'])
+@app.route('/api/crud', methods=['POST'])
 def create_song():
     """Create a new song entry"""
     try:
@@ -305,7 +305,7 @@ def create_song():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/api/crud/<int:song_id>/', methods=['DELETE'])
+@app.route('/api/crud/<int:song_id>', methods=['DELETE'])
 def delete_song(song_id):
     """Delete a song"""
     try:

@@ -12,6 +12,7 @@ import { WebsocketService } from './services/websocket.service';
 import { MidiFallingTilesComponent } from './visualizer/visualizer.component';
 import { MidiEvent } from './models/midi-event.model';
 import { TileEvent } from './models/tile-event.model';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -46,7 +47,7 @@ export class AppComponent {
     });
     this.socket.fromEvent('tileUpdate').subscribe(() => {
       console.log('Received tile update');
-      fetch('httpApi/tiles')
+      fetch(`${environment.httpApi}/tiles`)
         .then(response => {
           if (response.status === 500) {
             console.error('Server error: 500');
