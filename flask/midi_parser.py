@@ -117,7 +117,6 @@ class MidiParser:
                             lastEvent.isBounceBack = True
                             lastEvent.type = 'note_off' # Change the type of the last event to note off
                             sanitized_events[note_idx][-1] = lastEvent # Update the last event to be a bounce back event
-                        sanitized_events[note_idx].append(event)
                 else: # If the last event was to turn the note off
                     if isOn: # And now the new command is to turn the note on
                         if isLastBB: # If the last event was a bounce back event
