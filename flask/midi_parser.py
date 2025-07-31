@@ -300,7 +300,10 @@ class MidiParser:
         """Export parsed MIDI data to JSON file"""
         try:
             # Convert each event to a dict
-            serializable_events = [[{"note" : i, "data" : e.to_dict()} for i, e in note_events] for note_events in events]
+            serializable_events = [
+                [{"note": note_idx, "data": e.to_dict()} for e in note_events]
+                for note_idx, note_events in enumerate(events)
+            ]
             with open('./tmp/midi_sanitized_unconverted.json', 'w') as f:
                 json.dump(serializable_events, f, indent=2)
             return True
