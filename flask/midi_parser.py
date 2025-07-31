@@ -160,13 +160,14 @@ class MidiParser:
         }
         """
         # This function is used to generate the tile data for the MIDI events.
-        midi_tile_data = [[] for _ in range(self.settings.settings['highest_note'] - self.settings.settings['lowest_note'] + 1)] # Initialize a list of lists for each note
+        midi_tile_data = [] # Initialize a list of lists for each note
         note_index = 0
         for note_events in events: 
             onLastTime = -1 
             for event in note_events: 
                 if event.isBounceBack:
                     midi_tile_data.append({
+                        'note_number': note_index,
                         'start': event.time_ms,
                         'end': event.time_ms + self.settings.settings['bounce_back_duration'],
                         'velocity': event.velocity,

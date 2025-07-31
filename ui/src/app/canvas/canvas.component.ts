@@ -15,13 +15,13 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
   @ViewChild('viewport', { static: true }) viewportRef!: ElementRef<HTMLDivElement>;
   @ViewChild('canvasContainer', { static: true }) containerRef!: ElementRef<HTMLDivElement>;
   @Input() MidiData: MidiEvent[] = [];
-  @Input() TileData: TileEvent[][] = [];
+  @Input() TileData: TileEvent[] = [];
 
   @Input() currentTime: number = 0;
 
   private ctx!: CanvasRenderingContext2D;
   private animationId: number = 0;
-  
+
   playbackMultiplier: number = 1; // Speed multiplier for playback
   basePixelsPerSecond: number = 200; // Pixels to scroll per second
 
@@ -92,7 +92,7 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
     this.drawGrid();
 
     // Draw piano tiles (example)
-    if(this.TileData.length > 0) { // Do not draw tiles if there are no tiles
+    if (this.TileData.length > 0) { // Do not draw tiles if there are no tiles
       this.drawPianoTiles();
     }
   }
@@ -134,18 +134,14 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
     // Example falling piano tiles (vertical bars)
     //{ key: 40, startY: 100, length: 200, color: '#4CAF50', velocity: 80 },  // Middle C area
     const tiles = [];
-    let noteIndex = 0;
-    for (const note of this.TileData) {
-      for (const tile of note) {
-        tiles.push({
-          key: noteIndex,
-          startY: Math.round(tile.start / 1000 * this.basePixelsPerSecond * this.playbackMultiplier),
-          length: Math.round((tile.end - tile.start) / 1000 * this.basePixelsPerSecond * this.playbackMultiplier),
-          color: this.colourPalette[tile.track % this.colourPalette.length],
-          velocity: tile.velocity
-        })
-      }
-      noteIndex++;
+    for (const tile of this.TileData) {
+      tiles.push({
+        key: tile.note_number,
+        startY: Math.round(tile.start / 1000 * this.basePixelsPerSecond * this.playbackMultiplier),
+        length: Math.round((tile.end - tile.start) / 1000 * this.basePixelsPerSecond * this.playbackMultiplier),
+        color: this.colourPalette[tile.track % this.colourPalette.length],
+        velocity: tile.velocity
+      });
     }
 
     tiles.forEach(tile => {
