@@ -38,6 +38,7 @@ class ConvertedEvent:
         return {
             'timestamp': self.timestamp,
             'deltaT': self.deltaT,
+            'note': self.note,
             'type': self.type,
             'velocity': self.velocity,
             'isBounceBack': self.isBounceBack
