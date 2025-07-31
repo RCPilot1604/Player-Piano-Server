@@ -1,16 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef, Input } from '@angular/core';
 import { WebsocketService } from '../services/websocket.service';
 import { Subscription } from 'rxjs';
-
-interface MidiEvent {
-  timestamp: number;
-  deltaT: number;
-  type: 'note_on' | 'note_off';
-  velocity: number;
-  isBounceBack: boolean;
-  note?: number;
-  channel?: number;
-}
+import { MidiEvent } from '../models/midi-event.model';
 
 interface Note {
   note: number;
@@ -26,7 +17,7 @@ interface Note {
 }
 
 @Component({
-  selector: 'app-midi-falling-tiles',
+  selector: 'midi-falling-tiles',
   imports: [],
   templateUrl: './visualizer.component.html',
   styleUrls: ['./visualizer.component.css']
@@ -34,7 +25,7 @@ interface Note {
 export class MidiFallingTilesComponent implements OnInit, OnDestroy {
   @ViewChild('canvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
   @Input() midiData: MidiEvent[] = [];
-  
+  @Input() currentTime: number = 0;
   private ctx!: CanvasRenderingContext2D;
   private animationFrameId: number = 0;
   private notes: Note[] = [];
@@ -45,10 +36,6 @@ export class MidiFallingTilesComponent implements OnInit, OnDestroy {
   
   // Component state
   isConnected = false;
-  playerState: 'stopped' | 'playing' | 'paused' = 'stopped';
-  currentTime = 0;
-  totalDuration = 0;
-  progressPercentage = 0;
   
   // Canvas properties
   canvasWidth = 1200;
@@ -73,7 +60,6 @@ export class MidiFallingTilesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.initCanvas();
-    this.initSocketSubscriptions();
     this.processNotes();
     this.startAnimation();
   }
@@ -100,20 +86,6 @@ export class MidiFallingTilesComponent implements OnInit, OnDestroy {
     
     this.canvasWidth = rect.width;
     this.canvasHeight = rect.height;
-  }
-
-  private initSocketSubscriptions() {
-    // Initialize the websocket connection to update the current time
-    this.socketService.fromEvent('setTime').subscribe((time: number) => {
-      this.currentTime = time;
-      this.updateProgress();
-    });
-  }
-
-  private updateProgress() {
-    if (this.totalDuration > 0) {
-      this.progressPercentage = (this.currentTime / this.totalDuration) * 100;
-    }
   }
 
   private processNotes() {
@@ -150,7 +122,6 @@ export class MidiFallingTilesComponent implements OnInit, OnDestroy {
     });
     
     this.notes = processedNotes;
-    this.totalDuration = Math.max(...this.notes.map(n => n.endTime));
   }
 
   private simulateNoteFromEvent(event: MidiEvent): number {
@@ -199,10 +170,8 @@ export class MidiFallingTilesComponent implements OnInit, OnDestroy {
 
   private draw() {
     this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-    
     this.drawPianoKeys();
     this.drawNotes();
-    this.drawTimeLine();
     this.drawActiveNoteHighlights();
   }
 
@@ -303,28 +272,7 @@ export class MidiFallingTilesComponent implements OnInit, OnDestroy {
     });
   }
 
-  private drawTimeLine() {
-    const pianoY = this.canvasHeight - this.PIANO_HEIGHT;
-    
-    // Create gradient for the timeline
-    const gradient = this.ctx.createLinearGradient(0, pianoY - 5, 0, pianoY + 5);
-    gradient.addColorStop(0, 'rgba(255, 0, 0, 0.8)');
-    gradient.addColorStop(0.5, '#ff0000');
-    gradient.addColorStop(1, 'rgba(255, 0, 0, 0.8)');
-    
-    this.ctx.strokeStyle = gradient;
-    this.ctx.lineWidth = 4;
-    this.ctx.beginPath();
-    this.ctx.moveTo(0, pianoY);
-    this.ctx.lineTo(this.canvasWidth, pianoY);
-    this.ctx.stroke();
-    
-    // Add timeline shadow
-    this.ctx.shadowColor = '#ff0000';
-    this.ctx.shadowBlur = 5;
-    this.ctx.stroke();
-    this.ctx.shadowBlur = 0;
-  }
+  // Removed: drawTimeLine (progress bar/timeline)
 
   private drawActiveNoteHighlights() {
     this.activeNotes.forEach(note => {

@@ -1,8 +1,5 @@
 <div class="midi-player-container">
-    <canvas #canvas [width]="canvasWidth" [height]="canvasHeight" class="midi-canvas">
-    </canvas>
-    <div class="progress-bar">
-        <div class="progress-fill" [style.width.%]="progressPercentage"></div>
-        <div class="progress-handle" [style.left.%]="progressPercentage"></div>
+    <div class="piano-viewport">
+        <canvas #canvas [width]="canvasWidth" [height]="canvasHeight" class="midi-canvas"></canvas>
     </div>
 </div>
