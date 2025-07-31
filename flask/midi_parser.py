@@ -142,7 +142,7 @@ class MidiParser:
                     else: # If the last event was to turn the note off, and now the new command is to turn the note off
                         continue # Do nothing because the note is already off
             note_idx += 1
-        return events
+        return sanitized_events
     # When parse to events is called we would already know the channels that we want to play
     def _generate_tile_data(self, events: List[List[MidiEvent]]) -> List[List[MidiEvent]]:
         """
