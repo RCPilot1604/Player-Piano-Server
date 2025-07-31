@@ -164,7 +164,7 @@ class MidiParser:
         note_index = 0
         for note_events in events: 
             onLastTime = -1 
-            for event in events: 
+            for event in note_events: 
                 if event.isBounceBack:
                     midi_tile_data.append({
                         'start': event.time_ms,
