@@ -47,7 +47,7 @@ export class AppComponent {
     });
     this.socket.fromEvent('tileUpdate').subscribe(() => {
       console.log('Received tile update');
-      fetch(`${environment.httpApi}/tiles`)
+      fetch(`${environment.httpApi}/api/tiles`)
         .then(response => {
           if (response.status === 500) {
             console.error('Server error: 500');

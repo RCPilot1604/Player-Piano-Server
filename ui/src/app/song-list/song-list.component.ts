@@ -6,7 +6,7 @@ import { NgForOf } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { FormsModule, FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CurrentSongComponent } from '../current-song/current-song.component';
-import { CategoryService } from '../services/categories.service';
+import { Category, CategoryService } from '../services/categories.service';
 import { WebsocketService } from '../services/websocket.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOption } from '@angular/material/core';
 import { MatList } from '@angular/material/list';
 import {MatDivider, MatDividerModule} from '@angular/material/divider';
+
 @Component({
   selector: 'app-song-list',
   imports: [CurrentSongComponent, SongComponent, NgForOf, FormsModule, ReactiveFormsModule, MatFormFieldModule, 
@@ -30,7 +31,7 @@ export class SongListComponent {
   songsService: SongsService = inject(SongsService);
   currentSong: SongEntry | null = null;
   dialog: MatDialog = inject(MatDialog);
-  categories: string[] = [];
+  categories: Category[] = [];
   selectedCategory: string = 'All';
   searchText: string = '';
   constructor(private categoryService: CategoryService,
@@ -60,7 +61,7 @@ export class SongListComponent {
     }
   }
   refreshCategories(){
-    this.categoryService.getCategories().subscribe(data => {
+    this.categoryService.getCategories().subscribe((data: Category[]) => {
       this.categories = data;
     });
   }

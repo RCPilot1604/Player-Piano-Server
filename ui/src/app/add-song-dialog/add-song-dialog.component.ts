@@ -11,6 +11,7 @@ import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
 import { MatDialogContent, MatDialogActions } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButton } from '@angular/material/button';
+import { Category } from '../services/categories.service'
 
 @Component({
   selector: 'app-add-song-dialog',
@@ -72,7 +73,7 @@ export class AddSongDialogComponent {
     }
   )
 
-  categories: string[] = [];
+  categories: Category[] = [];
   fileName = '';
   formData = new FormData(); 
   selectedFile: File | null = null;
