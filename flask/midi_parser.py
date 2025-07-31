@@ -92,31 +92,24 @@ class MidiParser:
                 deltaT = event.time_ms - lastEvent.time_ms
                 if isLastOn: # If the last event was to turn the note on
                     if isOn: # And now the new command is to turn the note on again
-                        if isLastBB:
-                            if deltaT < self.settings.settings['bounce_back_duration']: # If the time between the last event and this event is less than the bounce back duration, we can ignore this event
-                                continue # There is no time for the bounceback to happen. Simply disregard this event
-                            else: 
-                                # Then schedule a bounceback
-                                event.isBounceBack = True # Change the last event to a bounce back event
-                                sanitized_events[note_idx].append(event) # Schedule normal on
-                        else: # if the last scheduled event was not a bounce back event
-                            if deltaT >= self.settings.settings['activation_duration'] + self.settings.settings['deactivation_duration']: # There is sufficient time to schedule a traditional note on and note off
-                                noteOffEvent = MidiEvent(
-                                    tick=lastEvent.tick + self._milliseconds_to_ticks(self.settings.settings['activation_duration']),
-                                    time_ms=lastEvent.time_ms + self.settings.settings['activation_duration'],
-                                    type='note_off',
-                                    velocity=0,
-                                    isBounceBack=False
-                                )
-                                sanitized_events[note_idx].append(noteOffEvent) # Schedule a note off event
-                                sanitized_events[note_idx].append(event) # Schedule the event normally
-                            elif deltaT >= self.settings.settings['bounce_back_duration']: # If there is time to schedule a bounceback
-                                lastEvent.isBounceBack = True # Change the last event to a bounce back event
-                                lastEvent.type = 'note_off' # Change the type of the last event to note off
-                                sanitized_events[note_idx][-1] = lastEvent # Update the last event to be a bounce back event
-                                sanitized_events[note_idx].append(event) # Schedule the event normally
-                            else: # There is no time to schedule a bounceback, so we can just ignore this event
-                                continue
+                        assert not isLastBB, "Last event should not be a bounce back when processing a note on event"
+                        if deltaT >= self.settings.settings['activation_duration'] + self.settings.settings['deactivation_duration']: # There is sufficient time to schedule a traditional note on and note off
+                            noteOffEvent = MidiEvent(
+                                tick=lastEvent.tick + self._milliseconds_to_ticks(self.settings.settings['activation_duration']),
+                                time_ms=lastEvent.time_ms + self.settings.settings['activation_duration'],
+                                type='note_off',
+                                velocity=0,
+                                isBounceBack=False
+                            )
+                            sanitized_events[note_idx].append(noteOffEvent) # Schedule a note off event
+                            sanitized_events[note_idx].append(event) # Schedule the event normally
+                        elif deltaT >= self.settings.settings['bounce_back_duration']: # If there is time to schedule a bounceback
+                            lastEvent.isBounceBack = True # Change the last event to a bounce back event
+                            lastEvent.type = 'note_off' # Change the type of the last event to note off
+                            sanitized_events[note_idx][-1] = lastEvent # Update the last event to be a bounce back event
+                            sanitized_events[note_idx].append(event) # Schedule the event normally
+                        else: # There is no time to schedule a bounceback, so we can just ignore this event
+                            continue
                     else: # If the last event was to turn the note on, and now the new command is to turn the note off
                         if deltaT < self.settings.settings['bounce_back_duration']:
                             del sanitized_events[note_idx][-1] #delete the activation event because there will be no time
