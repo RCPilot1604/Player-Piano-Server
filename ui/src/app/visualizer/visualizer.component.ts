@@ -170,65 +170,8 @@ export class MidiFallingTilesComponent implements OnInit, OnDestroy {
 
   private draw() {
     this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-    this.drawPianoKeys();
     this.drawNotes();
     this.drawActiveNoteHighlights();
-  }
-
-  private drawPianoKeys() {
-    const pianoY = this.canvasHeight - this.PIANO_HEIGHT;
-    
-    // Draw white keys
-    for (let octave = 0; octave < this.OCTAVES; octave++) {
-      for (let i = 0; i < this.WHITE_KEYS.length; i++) {
-        const x = octave * (this.NOTE_WIDTH * 7) + i * this.NOTE_WIDTH;
-        const note = this.LOWEST_NOTE + octave * 12 + this.WHITE_KEYS[i];
-        
-        // Create gradient for white keys
-        const gradient = this.ctx.createLinearGradient(x, pianoY, x, pianoY + this.PIANO_HEIGHT);
-        if (this.activeNotes.has(note)) {
-          gradient.addColorStop(0, '#ffff88');
-          gradient.addColorStop(1, '#ffff44');
-        } else {
-          gradient.addColorStop(0, '#ffffff');
-          gradient.addColorStop(1, '#f0f0f0');
-        }
-        
-        this.ctx.fillStyle = gradient;
-        this.ctx.fillRect(x, pianoY, this.NOTE_WIDTH - 1, this.PIANO_HEIGHT);
-        
-        this.ctx.strokeStyle = '#000000';
-        this.ctx.lineWidth = 1;
-        this.ctx.strokeRect(x, pianoY, this.NOTE_WIDTH - 1, this.PIANO_HEIGHT);
-      }
-    }
-    
-    // Draw black keys
-    for (let octave = 0; octave < this.OCTAVES; octave++) {
-      const blackKeyPositions = [0.5, 1.5, 3.5, 4.5, 5.5];
-      for (let i = 0; i < blackKeyPositions.length; i++) {
-        const x = octave * (this.NOTE_WIDTH * 7) + blackKeyPositions[i] * this.NOTE_WIDTH;
-        const blackKeyWidth = this.NOTE_WIDTH * 0.6;
-        const note = this.LOWEST_NOTE + octave * 12 + this.BLACK_KEYS[i];
-        
-        // Create gradient for black keys
-        const gradient = this.ctx.createLinearGradient(
-          x - blackKeyWidth/2, pianoY, 
-          x - blackKeyWidth/2, pianoY + this.PIANO_HEIGHT * 0.6
-        );
-        
-        if (this.activeNotes.has(note)) {
-          gradient.addColorStop(0, '#ffaa00');
-          gradient.addColorStop(1, '#ff8800');
-        } else {
-          gradient.addColorStop(0, '#333333');
-          gradient.addColorStop(1, '#000000');
-        }
-        
-        this.ctx.fillStyle = gradient;
-        this.ctx.fillRect(x - blackKeyWidth/2, pianoY, blackKeyWidth, this.PIANO_HEIGHT * 0.6);
-      }
-    }
   }
 
   private drawNotes() {
