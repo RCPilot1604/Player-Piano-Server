@@ -11,7 +11,7 @@ export interface Category {
 })
 export class CategoryService {
   private apiUrl = `${environment.httpApi}/api/categories`;
-
+  
   constructor(private http: HttpClient) { }
 
   getCategories(): Observable<Category[]> {
