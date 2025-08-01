@@ -192,7 +192,7 @@ atexit.register(cleanup)
 def home():
     return 'Hello, Flask!'
 
-@app.route('/api/tiles', methods=['GET'])
+@app.route('/api/tiles/', methods=['GET'])
 def get_tiles():
     try:
         tiles = None
