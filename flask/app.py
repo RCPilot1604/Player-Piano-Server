@@ -67,7 +67,7 @@ class MidiPlayerGateway:
                 break
             while self.pause_event:
                 pass
-            self.current_time += self.settings.settings['clock_period']
+            self.current_time += self.settings.settings['clock_period'] * 1000  # Convert to milliseconds
             socketio.emit('timeUpdate', self.current_time, room='midi_players')
             time.sleep(self.settings.settings['clock_period'])
 
@@ -152,7 +152,7 @@ class MidiPlayerGateway:
         position_ms = (position / 100) * self.total_duration  # Convert percentage to ms
         closest_event = min(self.current_events, key=lambda e: abs(e.time_ms - position_ms))
         self.midi_idx = self.current_events.index(closest_event)
-        socket.emit('timeUpdate', position, room='midi_players')
+        socket.emit('playerbarUpdate', position, room='midi_players')
 
     def close(self):
         if self.alsa_player:
