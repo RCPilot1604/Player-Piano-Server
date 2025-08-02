@@ -1,6 +1,6 @@
 <main>
   <mat-toolbar-row class="header">
-    <span class = "logo">
+    <span class="logo">
       <mat-icon id="piano-icon">piano</mat-icon>
       <h2 id="name">Player Piano Control Webapp</h2>
     </span>
@@ -19,6 +19,21 @@
     </mat-menu>
   </mat-toolbar-row>
   <app-song-list [currentTime]="currentTime"></app-song-list>
-  <midi-falling-tiles [midiData]="midiData" [currentTime]="currentTime"></midi-falling-tiles>
+  <div class="playback-speed-control">
+    <mat-slider
+        class="playback-slider"
+        [disabled]="false"
+        [max]="2"
+        [min]="0.5"
+        [step]="0.1"
+        [discrete]="false"
+        [showTickMarks]="true">
+      <input matSliderThumb [(ngModel)]="playbackMultiplier" #slider>
+    </mat-slider>
+    <span style="margin-left: 12px; padding: 4px 8px; border: 1px solid #ccc; border-radius: 4px;">
+      {{ slider.value }}x
+    </span>
+  </div>
+  <tile-canvas [currentTime]="currentTime" [MidiData]="midiData" [TileData]="tileData" [playbackMultiplier]="playbackMultiplier"></tile-canvas>
   <router-outlet />
 </main>

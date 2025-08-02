@@ -1,10 +1,10 @@
-import { Component, ElementRef, Input, ViewChild, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, OnInit, OnDestroy, AfterViewInit, EventEmitter, Output } from '@angular/core';
 import { OnChanges, SimpleChanges } from '@angular/core';
 import { MidiEvent } from '../models/midi-event.model';
 import { TileEvent } from '../models/tile-event.model';
 
 @Component({
-  selector: 'canvas',
+  selector: 'tile-canvas',
   imports: [],
   templateUrl: './canvas.component.html',
   styleUrl: './canvas.component.css'
@@ -14,15 +14,15 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
   @ViewChild('canvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
   @ViewChild('viewport', { static: true }) viewportRef!: ElementRef<HTMLDivElement>;
   @ViewChild('canvasContainer', { static: true }) containerRef!: ElementRef<HTMLDivElement>;
+
   @Input() MidiData: MidiEvent[] = [];
   @Input() TileData: TileEvent[] = [];
-
   @Input() currentTime: number = 0;
+  @Input() playbackMultiplier: number = 1; // Speed multiplier for playback
 
   private ctx!: CanvasRenderingContext2D;
   private animationId: number = 0;
 
-  playbackMultiplier: number = 1; // Speed multiplier for playback
   basePixelsPerSecond: number = 200; // Pixels to scroll per second
 
   private colourPalette = [
@@ -74,7 +74,7 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
       this.scrollTo(this.currentTime);
     }
   }
-
+  
   private initCanvas() {
     const canvas = this.canvasRef.nativeElement;
     this.ctx = canvas.getContext('2d')!;
@@ -83,8 +83,17 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
     canvas.width = this.canvasWidth;
     canvas.height = this.canvasHeight;
   }
-
+  private hexToRgb(hex: string): { r: number, g: number, b: number } {
+    hex = hex.replace('#', '');
+    const bigint = parseInt(hex, 16);
+    return {
+      r: (bigint >> 16) & 255,
+      g: (bigint >> 8) & 255,
+      b: bigint & 255
+    };
+  }
   private drawContent() {
+    if (!this.ctx) return; // Prevent errors if context is not ready
     const ctx = this.ctx;
     ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 
@@ -135,6 +144,22 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
     //{ key: 40, startY: 100, length: 200, color: '#4CAF50', velocity: 80 },  // Middle C area
     const tiles = [];
     for (const tile of this.TileData) {
+      if (tile.note_number == undefined || tile.note_number < 0 || tile.note_number >= 88) {
+        console.warn(`Skipping tile with invalid note number: ${tile.note_number}`);
+        continue; // Skip invalid note numbers
+      }
+      if (tile.start == undefined || tile.start < 0 || tile.end < tile.start) {
+        console.warn(`Skipping tile with invalid time range: start=${tile.start}, end=${tile.end}`);
+        continue; // Skip tiles with invalid time ranges
+      }
+      if (tile.velocity == undefined || tile.velocity < 0 || tile.velocity > 127) {
+        console.warn(`Skipping tile with invalid velocity: ${tile.velocity}`);
+        continue; // Skip tiles with invalid velocity
+      }
+      if (tile.track == undefined || tile.track < 0) {
+        console.warn(`Skipping tile with invalid track: ${tile.track}`);
+        continue; // Skip tiles with invalid track
+      }
       tiles.push({
         key: tile.note_number,
         startY: Math.round(tile.start / 1000 * this.basePixelsPerSecond * this.playbackMultiplier),
@@ -147,12 +172,14 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
     tiles.forEach(tile => {
       const x = tile.key * keyWidth;
       const width = keyWidth - 2; // Small gap between keys
-
+      //console.log(`Drawing tile at key ${tile.key}, startY ${tile.startY}, length ${tile.length}, color ${tile.color}, velocity ${tile.velocity}`);
       // Create gradient based on velocity (louder = brighter)
       const alpha = tile.velocity / 127;
       const gradient = ctx.createLinearGradient(x, tile.startY, x, tile.startY + tile.length);
-      gradient.addColorStop(0, tile.color + Math.floor(alpha * 255).toString(16).padStart(2, '0'));
-      gradient.addColorStop(1, tile.color + '40'); // Fade out at bottom
+      const rgb = this.hexToRgb(tile.color);
+      gradient.addColorStop(0, `rgba(${rgb.r},${rgb.g},${rgb.b},${alpha})`);
+      // Fade out at bottom using RGB and alpha
+      gradient.addColorStop(1, `rgba(${rgb.r},${rgb.g},${rgb.b},0.25)`);
 
       // Draw the falling tile (vertical bar)
       ctx.fillStyle = gradient;

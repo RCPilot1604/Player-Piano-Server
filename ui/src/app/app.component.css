@@ -29,3 +29,36 @@ h2 {
         display: none;
     }
 }
+.playback-speed-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  width: 100%;
+  background-color: transparent;
+}
+.playback-slider {
+  width: 50%;
+  background: transparent !important;
+}
+
+.playback-value {
+  margin-top: 8px;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  font-weight: bold;
+}
+
+/* Remove blue background from mat-slider */
+.mat-slider-track-background {
+  background: transparent !important;
+}
+
+@media (max-width: 600px) {
+  .playback-slider {
+    width: 90%;
+  }
+}

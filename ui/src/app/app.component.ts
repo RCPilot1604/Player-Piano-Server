@@ -9,14 +9,17 @@ import { AddSongDialogComponent } from './add-song-dialog/add-song-dialog.compon
 import { MatDialog } from '@angular/material/dialog';
 import { AddCategoryDialogComponent } from './add-category-dialog/add-category-dialog/add-category-dialog.component';
 import { WebsocketService } from './services/websocket.service';
-import { MidiFallingTilesComponent } from './visualizer/visualizer.component';
+import { ScrollableCanvasComponent } from './canvas/canvas.component';
 import { MidiEvent } from './models/midi-event.model';
 import { TileEvent } from './models/tile-event.model';
 import { environment } from '../environments/environment';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SongListComponent, MatToolbarRow, MatIconModule, MatButtonModule, MatMenuModule, MidiFallingTilesComponent],
+  imports: [RouterOutlet, SongListComponent, MatToolbarRow, MatIconModule, MatButtonModule, MatMenuModule, ScrollableCanvasComponent, MatSliderModule, MatInputModule, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -25,6 +28,7 @@ export class AppComponent {
   currentTime = 0;
   midiData: MidiEvent[] = [];
   tileData: TileEvent[] = [];
+  playbackMultiplier: number = 1; // Speed multiplier for playback
   constructor(public dialog: MatDialog, private socket: WebsocketService) { }
 
   openAddSongDialog(): void {
