@@ -209,6 +209,7 @@ class MidiParser:
                 if channel not in tracks_to_play: # If the channel is not to be played, skip from here onwards
                     continue
                 ms = self._ticks_to_milliseconds(current_tick, current_tempo)
+                print(f"Processing message: {msg} at tick {current_tick}, time {ms} ms, channel {channel}, track {track_idx}")
                 if not msg.is_meta:
                     # Handle note events
                     note_number = getattr(msg, 'note', None)
