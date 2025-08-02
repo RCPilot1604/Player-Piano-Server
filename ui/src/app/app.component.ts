@@ -10,7 +10,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddCategoryDialogComponent } from './add-category-dialog/add-category-dialog/add-category-dialog.component';
 import { WebsocketService } from './services/websocket.service';
 import { ScrollableCanvasComponent } from './canvas/canvas.component';
-import { MidiEvent } from './models/midi-event.model';
 import { TileEvent } from './models/tile-event.model';
 import { environment } from '../environments/environment';
 import { MatSliderModule } from '@angular/material/slider';
@@ -23,10 +22,12 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
   title = 'ui';
   currentTime = 0;
-  midiData: MidiEvent[] = [];
+  totalTime = 0;
+  playbarTime = 0; // Time for the playbar
   tileData: TileEvent[] = [];
   playbackMultiplier: number = 1; // Speed multiplier for playback
   constructor(public dialog: MatDialog, private socket: WebsocketService) { }
@@ -44,10 +45,9 @@ export class AppComponent {
   ngOnInit() {
     this.socket.fromEvent('timeUpdate').subscribe((data) => {
       this.currentTime = data;
-    });
-    this.socket.fromEvent('midiData').subscribe((data) => {
-      console.log('Received MIDI data:', data);
-      this.midiData = data;
+      if (this.totalTime > 0) {
+        this.playbarTime = this.currentTime / this.totalTime * 100; // Update playbar time as a percentage
+      }
     });
     this.socket.fromEvent('tileUpdate').subscribe(() => {
       console.log('Received tile update');
@@ -63,6 +63,7 @@ export class AppComponent {
         .then(json => {
           if (json) {
             this.tileData = json;
+            this.totalTime = Math.max(...this.tileData.map(tile => tile.end));
           }
         });
     });

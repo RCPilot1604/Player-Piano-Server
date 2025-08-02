@@ -18,7 +18,7 @@
       </button>
     </mat-menu>
   </mat-toolbar-row>
-  <app-song-list [currentTime]="currentTime"></app-song-list>
+  <app-song-list [currentTime]="playbarTime"></app-song-list>
   <div class="playback-speed-control">
     <mat-slider
         class="playback-slider"
@@ -35,7 +35,7 @@
     </span>
   </div>
   <div class="canvas-parent-container">
-    <tile-canvas [currentTime]="currentTime" [MidiData]="midiData" [TileData]="tileData" [playbackMultiplier]="playbackMultiplier"></tile-canvas>
+    <tile-canvas [currentTime]="currentTime" [TileData]="tileData" [playbackMultiplier]="playbackMultiplier"></tile-canvas>
   </div>
   <router-outlet />
 </main>

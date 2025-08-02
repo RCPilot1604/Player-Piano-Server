@@ -15,7 +15,6 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
   @ViewChild('viewport', { static: true }) viewportRef!: ElementRef<HTMLDivElement>;
   @ViewChild('canvasContainer', { static: true }) containerRef!: ElementRef<HTMLDivElement>;
 
-  @Input() MidiData: MidiEvent[] = [];
   @Input() TileData: TileEvent[] = [];
   @Input() currentTime: number = 0;
   @Input() playbackMultiplier: number = 1; // Speed multiplier for playback
