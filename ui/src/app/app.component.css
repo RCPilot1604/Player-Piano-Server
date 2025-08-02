@@ -1,4 +1,10 @@
 @import 'styles/custom-theme.css';
+html, body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 .logo {
     display: inline-flex;
     align-items: center;
@@ -36,7 +42,7 @@ h2 {
   justify-content: center;
   margin-top: 16px;
   width: 100%;
-  background-color: transparent;
+  background-color: transparent !important;
 }
 .playback-slider {
   width: 50%;
@@ -56,7 +62,12 @@ h2 {
 .mat-slider-track-background {
   background: transparent !important;
 }
-
+.canvas-parent-container {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
 @media (max-width: 600px) {
   .playback-slider {
     width: 90%;

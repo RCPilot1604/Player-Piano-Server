@@ -41,21 +41,15 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
   // Current scroll position
   offsetX = 0;
   offsetY = 0;
-
-  // Panning state
-  private isPanning = false;
-  private lastMouseX = 0;
-  private lastMouseY = 0;
-
   // Auto-scroll state
   isAutoScrolling = false;
   private autoScrollSpeed = 2; // pixels per frame
 
   ngOnInit() {
-    // Check for midi data stored in localStorage
     this.viewportWidth = window.innerWidth;
     this.viewportHeight = window.innerHeight;
     this.canvasWidth = this.viewportWidth;
+    this.canvasHeight = this.viewportHeight;
   }
 
   ngAfterViewInit() {
@@ -67,11 +61,8 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['TileData']) {
+    if (changes['TileData'] || changes['currentTime']) {
       this.drawContent(); // Redraw content when TileData changes
-    }
-    if (changes['currentTime']) {
-      this.scrollTo(this.currentTime);
     }
   }
   
@@ -95,10 +86,14 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
   private drawContent() {
     if (!this.ctx) return; // Prevent errors if context is not ready
     const ctx = this.ctx;
+
     ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 
     // Draw piano roll background grid
     this.drawGrid();
+
+    this.ctx.fillStyle = 'red';
+    this.ctx.fillRect(10, 10, 100, 100);
 
     // Draw piano tiles (example)
     if (this.TileData.length > 0) { // Do not draw tiles if there are no tiles
@@ -136,13 +131,15 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
     return pattern[Math.floor(keyIndex) % 12] === 1;
   }
 
-  private drawPianoTiles() {
+  private drawPianoTiles() { 
+    // This function draws the piano tiles based on the currentTime
     const ctx = this.ctx;
     const keyWidth = this.canvasWidth / 88; // 88 piano keys
 
     // Example falling piano tiles (vertical bars)
     //{ key: 40, startY: 100, length: 200, color: '#4CAF50', velocity: 80 },  // Middle C area
     const tiles = [];
+    const window_ms = this.canvasHeight / (this.basePixelsPerSecond * this.playbackMultiplier) * 1000; // Window size in milliseconds
     for (const tile of this.TileData) {
       if (tile.note_number == undefined || tile.note_number < 0 || tile.note_number >= 88) {
         console.warn(`Skipping tile with invalid note number: ${tile.note_number}`);
@@ -160,10 +157,25 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
         console.warn(`Skipping tile with invalid track: ${tile.track}`);
         continue; // Skip tiles with invalid track
       }
+      // Current time is the line onto which the tiles fall
+      //  --- (start of tile occurs when tile.start + window_ms < this.currentTime)
+      
+      //gap = this.window_ms large
+    
+      // ---------------------------------- (end of tile passes the line: tile.end > this.currentTime)
+      if (tile.start + window_ms < this.currentTime || tile.end > this.currentTime) {
+        continue; // Skip tiles that are not currently active
+      }
+      const startY = Math.round((this.currentTime - tile.start) / 1000 * this.basePixelsPerSecond * this.playbackMultiplier);
+      if (startY < 0 || startY > this.canvasHeight) {
+        console.error(`Error: Skipping tile with out-of-bounds startY: ${startY}`);
+        continue; // Skip tiles that would be drawn out of bounds
+      }
+
       tiles.push({
         key: tile.note_number,
-        startY: Math.round(tile.start / 1000 * this.basePixelsPerSecond * this.playbackMultiplier),
-        length: Math.round((tile.end - tile.start) / 1000 * this.basePixelsPerSecond * this.playbackMultiplier),
+        startY: startY,
+        length: -Math.round((tile.end - tile.start) / 1000 * this.basePixelsPerSecond * this.playbackMultiplier), //negative so that the tile is drawn upwards
         color: this.colourPalette[tile.track % this.colourPalette.length],
         velocity: tile.velocity
       });
@@ -194,41 +206,5 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
       ctx.fillStyle = '#ffffff80';
       ctx.fillRect(x, tile.startY, width, 3);
     });
-  }
-
-  // Scrolling methods
-  scrollTo(time: number) {
-    const targetY = time / 1000 * this.basePixelsPerSecond * this.playbackMultiplier;
-    this.offsetY = Math.min(0, -targetY);
-    this.drawContent();
-  }
-
-  resetView() {
-    this.offsetX = 0;
-    this.offsetY = 0;
-  }
-
-  // Method to add new falling piano tile
-  addFallingTile(keyIndex: number, startY: number, length: number, color: string, velocity: number = 80) {
-    const keyWidth = this.canvasWidth / 88;
-    const x = keyIndex * keyWidth;
-    const width = keyWidth - 2;
-
-    // Create gradient based on velocity
-    const alpha = velocity / 127;
-    const gradient = this.ctx.createLinearGradient(x, startY, x, startY + length);
-    gradient.addColorStop(0, color + Math.floor(alpha * 255).toString(16).padStart(2, '0'));
-    gradient.addColorStop(1, color + '40');
-
-    this.ctx.fillStyle = gradient;
-    this.ctx.fillRect(x, startY, width, length);
-
-    this.ctx.strokeStyle = '#fff';
-    this.ctx.lineWidth = 1;
-    this.ctx.strokeRect(x, startY, width, length);
-
-    // Highlight at top
-    this.ctx.fillStyle = '#ffffff80';
-    this.ctx.fillRect(x, startY, width, 3);
   }
 }

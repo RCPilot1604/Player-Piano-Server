@@ -34,6 +34,8 @@
       {{ slider.value }}x
     </span>
   </div>
-  <tile-canvas [currentTime]="currentTime" [MidiData]="midiData" [TileData]="tileData" [playbackMultiplier]="playbackMultiplier"></tile-canvas>
+  <div class="canvas-parent-container">
+    <tile-canvas [currentTime]="currentTime" [MidiData]="midiData" [TileData]="tileData" [playbackMultiplier]="playbackMultiplier"></tile-canvas>
+  </div>
   <router-outlet />
 </main>
