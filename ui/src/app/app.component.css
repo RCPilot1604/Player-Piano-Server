@@ -1,75 +1,97 @@
 @import 'styles/custom-theme.css';
-html, body {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+
+html,
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
+
 .logo {
     display: inline-flex;
     align-items: center;
 }
-.header{
+
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #d0d1da;
 }
+
 h2 {
     margin: 0;
     padding: 0;
     font-size: 30px;
 }
-#side-menu{
+
+#side-menu {
     font-size: 24px;
 }
-#piano-icon{
+
+#piano-icon {
     margin-right: 1px;
-    font-size: 48px; /* Adjust the size as needed */
-    width: 48px;     /* Adjust the width as needed */
-    height: 48px;    /* Adjust the height as needed */
+    font-size: 48px;
+    /* Adjust the size as needed */
+    width: 48px;
+    /* Adjust the width as needed */
+    height: 48px;
+    /* Adjust the height as needed */
 }
+
 @media (max-width: 550px) {
-    #name{
+    #name {
         display: none;
     }
 }
+
 .playback-speed-control {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 16px;
-  width: 100%;
-  background-color: transparent !important;
+    display: flex;
+    flex-direction: row; /* horizontal alignment */
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    width: 100%;
+    background-color: transparent !important;
 }
+
 .playback-slider {
-  width: 50%;
-  background: transparent !important;
+    width: 50%;
+    background: transparent !important;
+}
+
+.playback-readout {
+    margin-left: 12px;
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .playback-value {
-  margin-top: 8px;
-  padding: 4px 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: #fff;
-  font-weight: bold;
+    margin-top: 8px;
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    font-weight: bold;
 }
 
 /* Remove blue background from mat-slider */
 .mat-slider-track-background {
-  background: transparent !important;
+    background: transparent !important;
 }
+
 .canvas-parent-container {
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
 }
+
 @media (max-width: 600px) {
-  .playback-slider {
-    width: 90%;
-  }
+    .playback-slider {
+        width: 90%;
+    }
 }

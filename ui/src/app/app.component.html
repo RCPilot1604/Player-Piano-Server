@@ -30,7 +30,7 @@
         [showTickMarks]="true">
       <input matSliderThumb [(ngModel)]="playbackMultiplier" #slider>
     </mat-slider>
-    <span style="margin-left: 12px; padding: 4px 8px; border: 1px solid #ccc; border-radius: 4px;">
+    <span class="playback-readout">
       {{ slider.value }}x
     </span>
   </div>
