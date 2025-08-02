@@ -99,6 +99,7 @@ class MidiParser:
                                 time_ms=lastEvent.time_ms + self.settings.settings['activation_duration'],
                                 type='note_off',
                                 velocity=0,
+                                track=lastEvent.track,
                                 isBounceBack=False
                             )
                             sanitized_events[note_idx].append(noteOffEvent) # Schedule a note off event
@@ -143,13 +144,12 @@ class MidiParser:
         Generate tile data for the MIDI events
         The structure of tile_data is as follows:
         tile_data = {
-            'note_number': {
-                'Tile': {
-                    'start': start_time_ms,
-                    'end': end_time_ms
-                    'velocity': velocity,
-                    'track': track_idx,  # Track index for the event
-                }
+            'Tile': {
+                'note_number': note_index,  # The note number (0-88)
+                'start': start_time_ms,
+                'end': end_time_ms
+                'velocity': velocity,
+                'track': track_idx,  # Track index for the event
             }
         }
         """
@@ -230,6 +230,7 @@ class MidiParser:
         for note_events in all_notes_all_events:
             note_events.sort(key=lambda x: x.time_ms)
         return all_notes_all_events
+    
     def _milliseconds_to_ticks(self, milliseconds: float, tempo: int = None) -> int:
         """Convert milliseconds to MIDI ticks"""
         if tempo is None:
