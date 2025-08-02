@@ -84,7 +84,6 @@ class MidiPlayerGateway:
             if self.midi_idx >= len(self.current_events):
                 self.pause_event = True
                 self.midi_idx = 0
-                self.socket.emit('timeUpdate', 0, room='midi_players')
                 break
             event = self.current_events[self.midi_idx]
             # Playback logic here
@@ -96,7 +95,6 @@ class MidiPlayerGateway:
             if event_to_send:
                 client.event_output(event_to_send)
                 self.midi_idx += 1
-                self.socket.emit('timeUpdate', (event.timestamp / self.total_duration) * 100, room='midi_players')
                 time.sleep(event.deltaT / 1000.0)  # Convert deltaT to seconds
 
     def parse_song(self, tracks_to_play):
