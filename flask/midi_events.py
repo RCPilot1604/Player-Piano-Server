@@ -17,6 +17,7 @@ class MidiEvent:
 
     def to_dict(self) -> Dict[str, Any]:
         return {
+            'track': self.track,
             'tick': self.tick,
             'timeMs': self.time_ms,
             'type': self.type,
