@@ -103,8 +103,9 @@ class MidiPlayerGateway:
         try:
             parsed_events = self.parser._parse_to_events(tracks_to_play) # Parse raw MIDI file
             # print(f"Length of parsed events: {len(parsed_events)}")
+            self.parser._export_to_json_2D(parsed_events, './tmp/midi_parsed.json') # Export to JSON for debugging
             sanitized_events = self.parser._sanitize_events(parsed_events) # Sanitize events
-            self.parser._export_to_json_2D(sanitized_events) # Export to JSON for debugging
+            self.parser._export_to_json_2D(sanitized_events, './tmp/midi_sanitized.json') # Export to JSON for debugging
             # print(f"Length of sanitized events: {len(sanitized_events)}")
             self.parser._generate_tile_data(sanitized_events) # Generate tile data for rendering
             self.socket.emit('tileUpdate', room='midi_players') # Notify frontend to update tiles
