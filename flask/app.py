@@ -45,6 +45,8 @@ class MidiPlayerGateway:
         self.port = None  # ALSA port for MIDI output
         self.midi_idx = None  # Current position in the MIDI file
         self.socket = socket
+        # Clock thread
+        self.current_time = 0
         # For logging MIDI events
         self.midi_log_path = None
     
@@ -55,6 +57,19 @@ class MidiPlayerGateway:
             'isPlaying': not self.pause_event,
         }
 
+    def clock_thread_function(self, socketio):
+        """Thread function to handle clock updates"""
+        while True:
+            if self.stop_event: 
+                socketio.emit('timeUpdate', 0, room='midi_players')
+                self.current_time = 0
+                print("Exiting Clock Thread")
+                break
+            if not self.pause_event:
+                self.current_time += self.settings.settings['clock_period']
+                socketio.emit('timeUpdate', self.current_time, room='midi_players')
+            time.sleep(self.settings.settings['clock_period'])
+
     def player_thread_function(self, socketio):
         """Thread function to handle playback logic"""
         client = SequencerClient("Player Piano")
@@ -62,7 +77,6 @@ class MidiPlayerGateway:
         while True:
             if self.stop_event: 
                 self.midi_idx = 0
-                self.socket.emit('timeUpdate', 0, room='midi_players')
                 print("Exiting Player Thread")
                 break
             while self.pause_event:
@@ -588,5 +602,7 @@ if __name__ == '__main__':
     gateway.pause_event = True  # Start in paused state
     gateway.midi_idx = 0
     gateway.player_thread = Thread(target=gateway.player_thread_function, args=(socket,))
+    gateway.clock_thread = Thread(target=gateway.clock_thread_function, args=(socket,))
     gateway.player_thread.start()
+    gateway.clock_thread.start()
     socket.run(app, host='0.0.0.0', port=5000)
