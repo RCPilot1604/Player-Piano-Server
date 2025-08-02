@@ -40,5 +40,8 @@ class Settings:
     def save_settings(self, file_path):
         """Save settings to a JSON file."""
         import json
+        dir_path = os.path.dirname(file_path)
+        if not os.path.exists(dir_path):
+            os.makedirs(dir_path, exist_ok=True)
         with open(file_path, 'w') as f:
             json.dump(self.settings, f, indent=2)
