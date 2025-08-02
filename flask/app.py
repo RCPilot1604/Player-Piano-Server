@@ -65,7 +65,7 @@ class MidiPlayerGateway:
                 self.current_time = 0
                 print("Exiting Clock Thread")
                 break
-            while self.paused_event:
+            while self.pause_event:
                 pass
             self.current_time += self.settings.settings['clock_period']
             socketio.emit('timeUpdate', self.current_time, room='midi_players')
