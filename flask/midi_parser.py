@@ -68,8 +68,13 @@ class MidiParser:
                         print(f"Adding program {program} for channel {channel}")
                     except Exception as e:
                         print(f"Error writing to ./instruments.json: {e}")
+                elif msg.type == 'set_tempo':
+                    # Update tempo if set_tempo message is found
+                    self.tempo = msg.tempo
+                    print(f"Set Tempo Meta Event - Track: {track_idx}, Tempo: {self.tempo}")
         with open(programs_path, 'w') as f:
             json.dump(programs, f, indent=2)
+        print(f"Ticks per beat: {self.ticks_per_beat}, Tempo: {self.tempo}")
 
     # This function employs the sanitation algorithm that was initially implemented on the ESP32 to check and modify midi commands that were impossible
     def _sanitize_events(self, events: List[List[MidiEvent]]) -> List[List[MidiEvent]]:
@@ -244,7 +249,6 @@ class MidiParser:
         """Convert MIDI ticks to milliseconds"""
         if tempo is None:
             tempo = self.tempo
-        
         # Calculate time per tick in seconds
         seconds_per_beat = tempo / 1_000_000  # Tempo is in microseconds per beat
         seconds_per_tick = seconds_per_beat / self.ticks_per_beat
