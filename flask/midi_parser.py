@@ -110,6 +110,7 @@ class MidiParser:
                             sanitized_events[note_idx].append(noteOffEvent) # Schedule a note off event
                             sanitized_events[note_idx].append(event) # Schedule the event normally
                         elif deltaT >= self.settings.settings['bounce_back_duration']: # If there is time to schedule a bounceback
+                            print(f"Scheduling a bounceback. deltaT: {deltaT}, bounce_back_duration: {self.settings.settings['bounce_back_duration']}")
                             lastEvent.isBounceBack = True # Change the last event to a bounce back event
                             lastEvent.type = 'note_off' # Change the type of the last event to note off
                             sanitized_events[note_idx][-1] = lastEvent # Update the last event to be a bounce back event
@@ -120,6 +121,7 @@ class MidiParser:
                         if deltaT < self.settings.settings['bounce_back_duration']:
                             del sanitized_events[note_idx][-1] #delete the activation event because there will be no time
                         else:
+                            print(f"Scheduling a bounceback. deltaT: {deltaT}, bounce_back_duration: {self.settings.settings['bounce_back_duration']}")
                             lastEvent.isBounceBack = True
                             lastEvent.type = 'note_off' # Change the type of the last event to note off
                             sanitized_events[note_idx][-1] = lastEvent # Update the last event to be a bounce back event
@@ -132,6 +134,7 @@ class MidiParser:
                                 sanitized_events[note_idx].append(event) # Schedule the note to turn on after the bounceback
                         else: # If the last event was not a bounce back event
                             if deltaT < self.settings.settings['deactivation_duration']:
+                                print(f"Scheduling a bounceback. deltaT: {deltaT}, deactivation_duration: {self.settings.settings['deactivation_duration']}")
                                 lastEvent.isBounceBack = True
                                 lastEvent.type = 'note_off' # Change the type of the last event to note off
                                 sanitized_events[note_idx][-1] = lastEvent # Update the last event to be a bounce back event
@@ -209,7 +212,6 @@ class MidiParser:
                 if channel not in tracks_to_play: # If the channel is not to be played, skip from here onwards
                     continue
                 ms = self._ticks_to_milliseconds(current_tick, current_tempo)
-                print(f"Processing message: {msg} at tick {current_tick}, time {ms} ms, channel {channel}, track {track_idx}")
                 if not msg.is_meta:
                     # Handle note events
                     note_number = getattr(msg, 'note', None)
