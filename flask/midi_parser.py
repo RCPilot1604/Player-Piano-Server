@@ -85,6 +85,7 @@ class MidiParser:
         for note_number in events:
             isFirstEvent = True
             for event in note_number:
+                print(f"Settings - Activation Duration: {self.settings.settings['activation_duration']}, Deactivation Duration: {self.settings.settings['deactivation_duration']}, Bounce Back Duration: {self.settings.settings['bounce_back_duration']}")
                 if isFirstEvent: # If this is the first event for this note, we can just add it to the sanitized events
                     sanitized_events[note_idx].append(event)
                     isFirstEvent = False
@@ -98,7 +99,6 @@ class MidiParser:
                 if isLastOn: # If the last event was to turn the note on
                     if isOn: # And now the new command is to turn the note on again
                         assert not isLastBB, "Last event should not be a bounce back when processing a note on event"
-                        print(f"Settings - activation_duration: {self.settings.settings['activation_duration']}, deactivation_duration: {self.settings.settings['deactivation_duration']}")
                         if deltaT >= (self.settings.settings['activation_duration'] + self.settings.settings['deactivation_duration']): # There is sufficient time to schedule a traditional note on and note off
                             noteOffEvent = MidiEvent(
                                 tick=lastEvent.tick + self._milliseconds_to_ticks(self.settings.settings['activation_duration']),
