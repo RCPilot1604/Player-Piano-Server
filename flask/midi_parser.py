@@ -121,7 +121,7 @@ class MidiParser:
                     else: # If the last event was to turn the note on, and now the new command is to turn the note off
                         if deltaT >= self.settings.settings['activation_duration']: 
                             sanitized_events[note_idx].append(event) # Schedule the note off event normally
-                        if deltaT < self.settings.settings['bounce_back_duration']:
+                        elif deltaT < self.settings.settings['bounce_back_duration']:
                             del sanitized_events[note_idx][-1] #delete the activation event because there will be no time
                         else:
                             print(f"2 - Scheduling a bounceback. deltaT: {deltaT}, bounce_back_duration: {self.settings.settings['bounce_back_duration']}")
