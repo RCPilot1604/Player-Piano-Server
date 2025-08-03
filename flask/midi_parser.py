@@ -98,7 +98,8 @@ class MidiParser:
                 if isLastOn: # If the last event was to turn the note on
                     if isOn: # And now the new command is to turn the note on again
                         assert not isLastBB, "Last event should not be a bounce back when processing a note on event"
-                        if deltaT >= self.settings.settings['activation_duration'] + self.settings.settings['deactivation_duration']: # There is sufficient time to schedule a traditional note on and note off
+                        print(f"Settings - activation_duration: {self.settings.settings['activation_duration']}, deactivation_duration: {self.settings.settings['deactivation_duration']}")
+                        if deltaT >= (self.settings.settings['activation_duration'] + self.settings.settings['deactivation_duration']): # There is sufficient time to schedule a traditional note on and note off
                             noteOffEvent = MidiEvent(
                                 tick=lastEvent.tick + self._milliseconds_to_ticks(self.settings.settings['activation_duration']),
                                 time_ms=lastEvent.time_ms + self.settings.settings['activation_duration'],
@@ -200,7 +201,7 @@ class MidiParser:
         return events
     def _parse_to_events(self, tracks_to_play) -> List[List[MidiEvent]]: #We pass in an array of programs (instruments) to play
         """Parse MIDI file into lists of MidiEvent objects per track"""
-        print(tracks_to_play)
+        # print(tracks_to_play)
         all_notes_all_events = [[] for _ in range(self.settings.settings["highest_note"] - self.settings.settings["lowest_note"] + 1)]  # Initialize a list of lists for each note
         for track_idx, track in enumerate(self.mid.tracks):
             # Skip tracks not in the list of tracks to play
