@@ -168,7 +168,7 @@ class MidiParser:
             for event in note_events: 
                 if event.isBounceBack:
                     midi_tile_data.append({
-                        'note_number': note_index,
+                        'note_number': note_index + self.settings.settings['lowest_note'],  # Adjust note index to MIDI note number
                         'start': event.time_ms,
                         'end': event.time_ms + self.settings.settings['bounce_back_duration'],
                         'velocity': event.velocity,
