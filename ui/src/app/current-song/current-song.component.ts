@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { SongEntry } from '../song-entry';
+import { SongEntry } from '../models/song-entry.model';
 import { NgIf, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
@@ -14,10 +14,11 @@ import { WebsocketService } from '../services/websocket.service';
   styleUrls: ['./current-song.component.css']
 })
 export class CurrentSongComponent implements OnInit, OnDestroy{
-  @Input() song: SongEntry | null = null;
   @Input() currentTime: number = 0;
+  @Input() selectedInstrumentIds: number[] = [];
+  @Input() song: SongEntry | null = null;
   isPlaying = false;
-  duration = 100; // Initialize duration to 0
+  instruments: { id: number, channel: number, name: string }[] = [];
   volume = 100;
   constructor(private socket: WebsocketService) { }
   onInstrumentAction() {
@@ -59,15 +60,12 @@ export class CurrentSongComponent implements OnInit, OnDestroy{
     this.socket.emit('seek', this.currentTime);
     console.log('Seek to:', this.currentTime);
   }
-
-  instruments: { id: number, channel: number, name: string }[] = [];
-  selectedInstrumentIds: number[] = [];
   ngOnInit() {
-    this.socket.fromEvent('connected').subscribe(() => {
-      console.log('Connected to server');
+    this.socket.fromEvent('songUpdate').subscribe((data: SongEntry) => {
+      this.song = data;
     });
-    this.socket.fromEvent('connect_error').subscribe((err) => {
-      console.log('Error connecting to server: ', err);
+    this.socket.fromEvent('instrumentsUpdate').subscribe((data: { id: number, channel: number, name: string }[]) => {
+      this.instruments = data;
     });
     this.socket.fromEvent('playUpdate').subscribe((data) => {
       this.isPlaying = Boolean(data);
@@ -75,7 +73,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy{
     this.socket.fromEvent('volumeUpdate').subscribe((data) => {
       this.volume = data;
     });
-    this.socket.fromEvent('instruments').subscribe((data: { id: number, channel: number, name: string }[]) => {
+    this.socket.fromEvent('setInstruments').subscribe((data: { id: number, channel: number, name: string }[]) => {
       console.log('Received instruments:', data);
       this.instruments = data;
     });

@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { SongEntry } from '../song-entry';
+import { SongEntry } from '../models/song-entry.model';
 import { SongComponent } from '../song/song.component';
 import { SongsService } from '../services/songs.service';
 import { NgForOf } from '@angular/common';
@@ -26,10 +26,10 @@ import { ConfirmDialogComponent, ConfirmDialogData } from '../confirmation-dialo
 })
 export class SongListComponent {
   @Input() currentTime: number = 0;
+  @Input() currentSong: SongEntry | null = null;
   songs: SongEntry[] = [];
   filteredSongs: SongEntry[] = [];
   songsService: SongsService = inject(SongsService);
-  currentSong: SongEntry | null = null;
   dialog: MatDialog = inject(MatDialog);
   categories: Category[] = [];
   selectedCategory: string = 'All';

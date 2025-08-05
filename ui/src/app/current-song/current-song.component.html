@@ -24,7 +24,7 @@
       <button mat-icon-button aria-label="Play Pause Button" (click)="togglePlayPause()">
         <mat-icon>{{ isPlaying ? 'pause' : 'play_arrow' }}</mat-icon>
       </button>
-      <mat-slider class="playback-slider"><input matSliderThumb min="0" max="100" [value]="currentTime"
+      <mat-slider class="playback-slider"><input matSliderThumb min="0" max="100" [(ngModel)]="currentTime"
           (input)="seekTo()"></mat-slider>
     </div>
     <div id="volumebar">

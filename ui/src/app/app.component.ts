@@ -18,6 +18,15 @@ import { FormsModule } from '@angular/forms';
 import { DEFAULT_NOTE_COLORS } from './models/note-colors.model';
 import { KeyboardComponent } from './keyboard/keyboard.component';
 import { ViewChild } from '@angular/core';
+import { SongEntry }  from './models/song-entry.model';
+
+interface StatusEvent {
+  isPlaying: boolean;
+  currentSong: SongEntry | null;
+  volume: number;
+  instruments: string[];
+  tracksToPlay: number[];
+}
 
 @Component({
   selector: 'app-root',
@@ -34,6 +43,11 @@ export class AppComponent {
   tileData: TileEvent[] = [];
   playbackMultiplier: number = 1; // Speed multiplier for playback
   keyColors: { key: number, colour: string }[] = []; // Array to hold the colour of each of the notes
+  currentSong: SongEntry | null = null; // Current song being played
+  isPlaying = false; // Whether the player is currently playing
+  volume = 100; // Volume level (0-100)
+  instruments: string[] = []; // List of instruments available
+  tracksToPlay: number[] = []; // Tracks that are currently set to play
   constructor(public dialog: MatDialog, private socket: WebsocketService) { }
 
   @ViewChild(SongListComponent) songListComponent!: SongListComponent;
@@ -70,6 +84,18 @@ export class AppComponent {
     console.log(`Key pressed: ${keyId}`);
   }
   ngOnInit() {
+    this.socket.fromEvent('player_status').subscribe((status: StatusEvent) => {
+      console.log('Received player status:', status);
+    });
+    this.socket.fromEvent('connected').subscribe(() => {
+      console.log('Connected to server');
+      this.keyColors = [];
+    });
+    this.socket.fromEvent('getStatus').subscribe((data: { currentTime: number, totalTime: number, playbarTime: number }) => {
+      console.log('Received status update:', data);
+      this.currentTime = data.currentTime;
+
+    });
     this.socket.fromEvent('timeUpdate').subscribe((data) => {
       this.currentTime = data;
       if (this.totalTime > 0) {
@@ -81,8 +107,9 @@ export class AppComponent {
       this.playbarTime = data;
       this.currentTime = this.playbarTime * this.totalTime / 100; // Update current time based on playbar time
     });
-    this.socket.fromEvent('tileUpdate').subscribe(() => {
+    this.socket.fromEvent('tileUpdate').subscribe(() => { //tile update represents the successful parsing of a song
       console.log('Received tile update');
+      this.keyColors = []; // Clear key colors on tile update
       fetch(`${environment.httpApi}/api/tiles`)
         .then(response => {
           if (response.status === 500) {

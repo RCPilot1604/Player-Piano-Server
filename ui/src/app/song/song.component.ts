@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { SongEntry } from '../song-entry';
+import { SongEntry } from '../models/song-entry.model';
 import { NgIf } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatDivider } from '@angular/material/divider';

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { SongEntry } from '../song-entry';
+import { SongEntry } from '../models/song-entry.model';
 import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
