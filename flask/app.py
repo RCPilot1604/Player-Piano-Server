@@ -47,6 +47,7 @@ class MidiPlayerGateway:
         self.midi_idx = None  # Current position in the MIDI file
         self.socket = socket
         # Clock thread
+        self.clock_thread = None
         self.current_time = 0
         # For logging MIDI events
         self.midi_log_path = None
@@ -161,6 +162,18 @@ class MidiPlayerGateway:
         self.current_time = closest_event.timestamp # Update current time to the timestamp of the closest event
         socket.emit('playerbarUpdate', position, room='midi_players')
         if isPaused: self.pause_event.set() # Resume the playback if it was paused
+
+        # Restart the threads to ensure they are in sync
+        self.stop_event = True
+        if self.player_thread and self.player_thread.is_alive():
+            self.player_thread.join()
+        if self.clock_thread and self.clock_thread.is_alive():
+            self.clock_thread.join()
+        self.stop_event = False
+        self.player_thread = Thread(target=self.player_thread_function, args=(self.socket,))
+        self.player_thread.start()
+        self.clock_thread = Thread(target=self.clock_thread_function, args=(self.socket,))
+        self.clock_thread.start()
 
     def close(self):
         if self.alsa_player:
