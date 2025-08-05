@@ -14,6 +14,7 @@ from midi_parser import MidiParser
 from instruments import GeneralMidiInstrument
 import atexit
 from settings import Settings
+import traceback
 
 app = Flask(__name__)
 
@@ -308,7 +309,7 @@ def create_song():
             database = json.load(f)
         
         print(f"Database loaded: {database}")
-        
+
         # Add metadata
         data['id'] = generate_song_id(database.get('songs', []))
         
@@ -323,6 +324,7 @@ def create_song():
         
         return jsonify(data), 201
     except Exception as e:
+        print(traceback.format_exc())
         return jsonify({'error': str(e)}), 500
 
 @app.route('/api/crud/<int:song_id>/', methods=['DELETE'])
