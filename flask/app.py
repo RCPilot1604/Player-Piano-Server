@@ -609,8 +609,6 @@ if __name__ == '__main__':
     gateway.stop_event = False
     gateway.pause_event.set()  # Start in paused state
     gateway.midi_idx = 0
-    gateway.player_thread = Thread(target=gateway.player_thread_function, args=(socket,))
     gateway.clock_thread = Thread(target=gateway.clock_thread_function, args=(socket,))
-    gateway.player_thread.start()
     gateway.clock_thread.start()
     socket.run(app, host='0.0.0.0', port=5000)
