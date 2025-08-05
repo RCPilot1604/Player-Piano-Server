@@ -485,7 +485,7 @@ def register_websocket_events(socketio):
     @socketio.on('parseMidi')
     def handle_load_song(selected_tracks):
         """Parse MIDI file and prepare for playback"""
-        selected_tracks = [int(t) for t in selected_tracks]
+        gateway.tracks_to_play = [int(t) for t in selected_tracks]
         try:
             success = gateway.parse_song(selected_tracks)
             if success:

@@ -21,7 +21,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy{
   instruments: { id: number, channel: number, name: string }[] = [];
   volume = 100;
   constructor(private socket: WebsocketService) { }
-  onInstrumentAction() {
+  onParse() {
     this.socket.emit('parseMidi', this.selectedInstrumentIds);
   }
   onInstrumentToggle(id: number, event: Event) {
@@ -72,7 +72,7 @@ export class CurrentSongComponent implements OnInit, OnDestroy{
       this.instruments = data;
     });
     this.socket.fromEvent('setTracksToPlay').subscribe((data: number[]) => {
-      //console.log('Received tracks to play:', data);
+      console.log('Received tracks to play:', data);
       this.selectedInstrumentIds = data;
     });
   }
