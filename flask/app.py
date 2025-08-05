@@ -63,8 +63,6 @@ class MidiPlayerGateway:
         """Thread function to handle clock updates"""
         while True:
             if self.stop_event: 
-                socketio.emit('timeUpdate', 0, room='midi_players')
-                self.current_time = 0
                 print("Exiting Clock Thread")
                 break
             while self.pause_event.is_set():
@@ -79,7 +77,6 @@ class MidiPlayerGateway:
         print("Starting player thread")
         while True:
             if self.stop_event: 
-                self.midi_idx = 0
                 print("Exiting Player Thread")
                 break
             while self.pause_event.is_set():
