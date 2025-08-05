@@ -152,8 +152,9 @@ class MidiPlayerGateway:
             logger.warning("No MIDI events loaded for seeking")
             return
         position_ms = (position / 100) * self.total_duration  # Convert percentage to ms
-        closest_event = min(self.current_events, key=lambda e: abs(e.time_ms - position_ms))
-        self.midi_idx = self.current_events.index(closest_event)
+        closest_event = min(self.current_events, key=lambda e: abs(e.timestamp - position_ms))
+        self.midi_idx = self.current_events.index(closest_event) # Update the midi index to the closest event
+        self.current_time = closest_event.timestamp # Update current time to the timestamp of the closest event
         socket.emit('playerbarUpdate', position, room='midi_players')
 
     def close(self):
@@ -365,7 +366,8 @@ def delete_song(song_id):
             midi_path = deleted_song.get('midiPath')
             if midi_path and os.path.exists(midi_path):
                 os.remove(midi_path)
-                return jsonify({'status': 'ok'}), 200 # If the song was deleted successfully, return the updated database
+                socket.emit('songUpdate', )
+                return jsonify({'status': 'ok'}), 200 # If the song was deleted successfully
             else: 
                 return jsonify({'error': 'MIDI file not found'}), 404
         else:
