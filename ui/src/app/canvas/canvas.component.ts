@@ -30,9 +30,10 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
   @Input() playbackMultiplier: number = 1; // Speed multiplier for playback
 
   @Output() tileStateChanged = new EventEmitter<{ noteNumber: number, state: boolean, track: number }>();
-
+  
   private ctx!: CanvasRenderingContext2D;
   private TilesToDraw: TileToDraw[] = [];
+  private keyState: boolean[] = Array(88).fill(false); // Track state of each key
   basePixelsPerSecond: number = 200; // Pixels to scroll per second
 
 
@@ -204,16 +205,24 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
         continue;
       }
       if (tile_end_position < 0) { //the tile is below the active window and has been released
-        this.tileStateChanged.emit({ noteNumber: tile.note_number, state: false, track: tile.track });
+        if(this.keyState[tile.note_number-environment.lowestNote]) {
+          this.keyState[tile.note_number-environment.lowestNote] = false; // Mark key as released
+          this.tileStateChanged.emit({ noteNumber: tile.note_number, state: false, track: tile.track });
+        }
+        continue; // Skip tiles that are below the current time
       }
-      if (tile_start_position == 0) {
-        this.tileStateChanged.emit({ noteNumber: tile.note_number, state: true, track: tile.track });
-      }
-      if (tile_start_position < 0) { 
-        tile_start_position = 0; // Adjust start position if it falls before the current time
+      if (tile_start_position <= 0) {
+        if(!this.keyState[tile.note_number-environment.lowestNote]) {
+          this.keyState[tile.note_number-environment.lowestNote] = true; // Mark key as pressed
+          this.tileStateChanged.emit({ noteNumber: tile.note_number, state: true, track: tile.track });
+        }
+        if (tile_start_position <= 0) tile_start_position = 0; // Adjust start position if it falls before the current time
       }
       if (tile_end_position > window_ms) {
         tile_end_position = window_ms; // Adjust end position if it exceeds the window size
+      }
+      if (tile_start_position >= tile_end_position) {
+        continue;
       }
       const startY = Math.round(tile_start_position / 1000 * this.basePixelsPerSecond * this.playbackMultiplier);
       if (startY < 0 || startY > this.canvasHeight) {
