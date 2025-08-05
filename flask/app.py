@@ -169,10 +169,10 @@ class MidiPlayerGateway:
         """Get current player status"""
         return {
             'isPlaying': not self.pause_event.is_set(),
-            'currentSong': self.current_song,
-            'volume': self.volume,
-            'instruments': gateway.instrument_names,
-            'traksToPlay': self.tracks_to_play,
+            'currentSong': self.current_song if self.current_song else {},
+            'volume': self.volume if self.volume is not None else 100,
+            'instruments': gateway.instrument_names if gateway.instrument_names is not None else [],
+            'tracksToPlay': self.tracks_to_play if self.tracks_to_play is not None else [],
         }
     
     def log_event(self, event_data):
