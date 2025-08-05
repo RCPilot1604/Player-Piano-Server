@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { DEFAULT_NOTE_COLORS } from './models/note-colors.model';
 import { KeyboardComponent } from './keyboard/keyboard.component';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -32,11 +33,16 @@ export class AppComponent {
   playbarTime = 0; // Time for the playbar
   tileData: TileEvent[] = [];
   playbackMultiplier: number = 1; // Speed multiplier for playback
-  keyColors: { key: number, colour: string } [] = []; // Array to hold the colour of each of the notes
+  keyColors: { key: number, colour: string }[] = []; // Array to hold the colour of each of the notes
   constructor(public dialog: MatDialog, private socket: WebsocketService) { }
-  
+
+  @ViewChild(SongListComponent) songListComponent!: SongListComponent;
+
   openAddSongDialog(): void {
     const dialogRef = this.dialog.open(AddSongDialogComponent, {
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.handleSongAdded();
     });
   }
 
@@ -48,12 +54,16 @@ export class AppComponent {
     const { noteNumber, state, track } = event;
     const color = state ? DEFAULT_NOTE_COLORS[track] : ''; // Use default color or transparent if not active
     const existingIndex = this.keyColors.findIndex(k => k.key === noteNumber);
-    
+
     if (existingIndex !== -1) {
       this.keyColors[existingIndex].colour = color; // Update existing key color
     } else {
       this.keyColors.push({ key: noteNumber, colour: color }); // Add new key color
     }
+  }
+  handleSongAdded(): void {
+    console.log('Song added, refreshing song list');
+    this.songListComponent.refreshSongs(); //whenever a song is added, refresh the song list
   }
   handleKeyPressed(keyId: number): void {
     this.socket.emit('keyPressed', keyId);

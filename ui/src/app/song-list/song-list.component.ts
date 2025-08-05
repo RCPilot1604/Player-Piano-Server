@@ -14,12 +14,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOption } from '@angular/material/core';
 import { MatList } from '@angular/material/list';
-import {MatDivider, MatDividerModule} from '@angular/material/divider';
-
+import { MatDividerModule } from '@angular/material/divider';
+import { ConfirmDialogComponent, ConfirmDialogData } from '../confirmation-dialog/confirmation-dialog';
 @Component({
   selector: 'app-song-list',
-  imports: [CurrentSongComponent, SongComponent, NgForOf, FormsModule, ReactiveFormsModule, MatFormFieldModule, 
-        MatInputModule, MatSelectModule, MatOption, MatToolbarModule, MatList, MatDividerModule],
+  imports: [CurrentSongComponent, SongComponent, NgForOf, FormsModule, ReactiveFormsModule, MatFormFieldModule,
+    MatInputModule, MatSelectModule, MatOption, MatToolbarModule, MatList, MatDividerModule, ConfirmDialogComponent],
   providers: [SongsService, CategoryService],
   templateUrl: './song-list.component.html',
   styleUrl: './song-list.component.css'
@@ -35,10 +35,10 @@ export class SongListComponent {
   selectedCategory: string = 'All';
   searchText: string = '';
   constructor(private categoryService: CategoryService,
-              private websocket: WebsocketService) {
+    private websocket: WebsocketService) {
     this.songs = [];
   }
-  
+
   ngOnInit() {
     this.refreshSongs();
     this.refreshCategories();
@@ -60,7 +60,7 @@ export class SongListComponent {
       this.filteredSongs = this.filteredSongs.filter(song => song.title.toLowerCase().includes(this.searchText.toLowerCase()));
     }
   }
-  refreshCategories(){
+  refreshCategories() {
     this.categoryService.getCategories().subscribe((data: Category[]) => {
       this.categories = data;
     });
@@ -72,9 +72,21 @@ export class SongListComponent {
       this.filterSongs();
     });
   }
-  deleteSong(id: number) {
-    this.songsService.deleteSong(id).subscribe((data) => {
-      console.log(data);
+  onSongDeleted(id: number) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: {
+        title: 'Delete Song?',
+        message: 'Are you sure you want to delete this song?',
+        confirmText: 'Delete',
+        cancelText: 'Cancel'
+      } as ConfirmDialogData
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.songsService.deleteSong(id).subscribe(() => {
+          this.refreshSongs();
+        });
+      }
     });
   }
 

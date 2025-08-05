@@ -16,6 +16,6 @@ export class SongsService {
     return this.http.post(this.host, formData);
   }
   deleteSong(id: number) {
-    return this.http.delete(`${this.host}/${id}`);
+    return this.http.delete(`${this.host}${id}/`);
   }
 }
