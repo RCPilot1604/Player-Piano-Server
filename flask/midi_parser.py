@@ -162,7 +162,6 @@ class MidiParser:
         """
         # This function is used to generate the tile data for the MIDI events.
         midi_tile_data = [] # Initialize a list of lists for each note
-        print(f"note_index: {self.settings.settings['lowest_note']}")
         note_index = self.settings.settings['lowest_note'] # Start from the lowest note
         for note_events in events: 
             onLastTime = -1 

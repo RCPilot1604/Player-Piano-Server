@@ -307,10 +307,10 @@ def create_song():
         with open(db_path, 'r') as f:
             database = json.load(f)
         
+        print(f"Database loaded: {database}")
+        
         # Add metadata
         data['id'] = generate_song_id(database.get('songs', []))
-        data['createdAt'] = datetime.utcnow().isoformat()
-        data['updatedAt'] = datetime.utcnow().isoformat()
         
         # Add to database
         if 'songs' not in database:
@@ -400,21 +400,6 @@ def generate_song_id(songs):
     # Find the highest ID and add 1
     max_id = max([song.get('id', 0) for song in songs], default=0)
     return max_id + 1
-
-def generate_song_id_from_file():
-    """Generate a unique song ID by reading from file"""
-    try:
-        assets_folder = current_app.config.get('ASSETS_FOLDER')
-        db_path = os.path.join(assets_folder, 'db.json')
-        
-        with open(db_path, 'r') as f:
-            database = json.load(f)
-        
-        songs = database.get('songs', [])
-        return generate_song_id(songs)
-    except Exception as e:
-        print(f"Error generating song ID: {e}")
-        return 1
 
 def secure_filename(filename):
     """Make filename safe for filesystem"""
