@@ -7,7 +7,8 @@
       <div class="instrument-list">
         <div *ngFor="let instrument of instruments" class="instrument-item">
           <label>
-            <input type="checkbox" [value]="instrument.channel" [checked]="selectedInstrumentIds.includes(instrument.id)"
+            <input class="track-selection" type="checkbox" [value]="instrument.channel"
+              [checked]="selectedInstrumentIds.includes(+instrument.channel)"
               (change)="onInstrumentToggle(instrument.channel, $event)">
             Channel {{ instrument.channel }}: {{ instrument.name }}
           </label>

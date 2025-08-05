@@ -13,7 +13,7 @@ import { WebsocketService } from '../services/websocket.service';
   templateUrl: './current-song.component.html',
   styleUrls: ['./current-song.component.css']
 })
-export class CurrentSongComponent implements OnInit, OnDestroy{
+export class CurrentSongComponent implements OnInit, OnDestroy {
   @Input() currentTime: number = 0;
   @Input() song: SongEntry | null = null;
   selectedInstrumentIds: number[] = [];
@@ -22,16 +22,30 @@ export class CurrentSongComponent implements OnInit, OnDestroy{
   volume = 100;
   constructor(private socket: WebsocketService) { }
   onParse() {
+    const inputs = document.querySelectorAll<HTMLInputElement>('input.track-selection');
+    inputs.forEach(input => {
+      if (input.checked) {
+        console.log(`Instrument ${input.value} selected`);
+        const id = Number(input.value);
+        if (!this.selectedInstrumentIds.includes(id)) {
+          this.selectedInstrumentIds.push(id);
+        }
+      } else {
+        this.selectedInstrumentIds = this.selectedInstrumentIds.filter(i => i !== Number(input.value));
+      }
+    });
+    console.log('Parsing MIDI with selected instruments:', this.selectedInstrumentIds);
     this.socket.emit('parseMidi', this.selectedInstrumentIds);
   }
   onInstrumentToggle(id: number, event: Event) {
+    const instrumentId = typeof id === 'string' ? Number(id) : id;
     const checked = (event.target as HTMLInputElement).checked;
     if (checked) {
-      if (!this.selectedInstrumentIds.includes(id)) {
-        this.selectedInstrumentIds.push(id);
+      if (!this.selectedInstrumentIds.includes(instrumentId)) {
+        this.selectedInstrumentIds.push(instrumentId);
       }
     } else {
-      this.selectedInstrumentIds = this.selectedInstrumentIds.filter(i => i !== id);
+      this.selectedInstrumentIds = this.selectedInstrumentIds.filter(i => i !== instrumentId);
     }
   }
   getValue(event: Event): string {
@@ -72,8 +86,8 @@ export class CurrentSongComponent implements OnInit, OnDestroy{
       this.instruments = data;
     });
     this.socket.fromEvent('setTracksToPlay').subscribe((data: number[]) => {
-      console.log('Received tracks to play:', data);
-      this.selectedInstrumentIds = data;
+      this.selectedInstrumentIds = [...data];
+      console.log('Received tracks to play:', this.selectedInstrumentIds);
     });
   }
   ngOnDestroy(): void {

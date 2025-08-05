@@ -49,6 +49,7 @@ class MidiParser:
         self.ticks_per_beat = self.mid.ticks_per_beat
         self.tempo = 500000  # Default tempo (120 BPM)
         self.settings = settings
+        self.tiles_to_play = []  # List to hold tile data for playback
 
     def _load_midi(self):
         """Load MIDI file and update the checkboxes for showing the instruments to be selected"""
@@ -161,13 +162,13 @@ class MidiParser:
         }
         """
         # This function is used to generate the tile data for the MIDI events.
-        midi_tile_data = [] # Initialize a list of lists for each note
+        self.tiles_to_play = [] # Initialize a list of lists for each note
         note_index = self.settings.settings['lowest_note'] # Start from the lowest note
         for note_events in events: 
             onLastTime = -1 
             for event in note_events: 
                 if event.isBounceBack:
-                    midi_tile_data.append({
+                    self.tiles_to_play.append({
                         'note_number': note_index,
                         'start': event.time_ms,
                         'end': event.time_ms + self.settings.settings['bounce_back_duration'],
@@ -184,7 +185,7 @@ class MidiParser:
                     if onLastTime == -1:
                         print(f"Error: Note off without note on at {event.time_ms} ms for note {note_index}. This is not allowed in MIDI.")
                     else:
-                        midi_tile_data.append({
+                        self.tiles_to_play.append({
                             'note_number': note_index,
                             'start': onLastTime,
                             'end': event.time_ms,
@@ -193,8 +194,8 @@ class MidiParser:
                         })
                         onLastTime = -1
             note_index += 1
-        with open(self.settings.settings['midi_tile_data_file_path'], 'w') as f:
-            json.dump(midi_tile_data, f, indent=2)
+        with open(self.settings.settings['self.tiles_to_play_file_path'], 'w') as f:
+            json.dump(self.tiles_to_play, f, indent=2)
         return 
         return events
     def _parse_to_events(self, tracks_to_play) -> List[List[MidiEvent]]: #We pass in an array of programs (instruments) to play

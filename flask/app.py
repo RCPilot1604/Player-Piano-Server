@@ -449,7 +449,7 @@ def register_websocket_events(socketio):
             socketio.emit('playUpdate', current_status['isPlaying'], room='midi_players') # Send playback status
         if current_status['volume'] is not None:
             socketio.emit('volumeUpdate', current_status['volume'], room='midi_players') # Send current volume
-        if gateway.tiles_to_play is not None: # If there are tiles to play, send them
+        if gateway.parser.tiles_to_play is not None: # If there are tiles to play, send them
             socketio.emit('tileUpdate', room='midi_players') # Notify frontend to update tiles
 
     @socketio.on('disconnect')
