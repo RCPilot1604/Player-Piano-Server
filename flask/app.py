@@ -418,7 +418,7 @@ def generate_song_id(songs):
 def secure_filename(filename):
     """Make filename safe for filesystem"""
     import re
-    filename = re.sub(r'[^\w\s-]', '', filename).strip()
+    filename = re.sub(r'[^\w\s.-]', '', filename).strip()
     return re.sub(r'[-\s]+', '-', filename)
 
 # WebSocket Event Handlers
