@@ -167,12 +167,14 @@ class MidiPlayerGateway:
     
     def get_status(self):
         """Get current player status"""
+        tiles_exist = os.path.exists(self.settings.settings.get("midi_tile_data_file_path", ""))
         return {
             'isPlaying': not self.pause_event.is_set(),
             'currentSong': self.current_song if self.current_song else {},
             'volume': self.volume if self.volume is not None else 100,
             'instruments': gateway.instrument_names if gateway.instrument_names is not None else [],
             'tracksToPlay': self.tracks_to_play if self.tracks_to_play is not None else [],
+            'tiles_exist': tiles_exist
         }
     
     def log_event(self, event_data):
@@ -449,7 +451,7 @@ def register_websocket_events(socketio):
             socketio.emit('playUpdate', current_status['isPlaying'], room='midi_players') # Send playback status
         if current_status['volume'] is not None:
             socketio.emit('volumeUpdate', current_status['volume'], room='midi_players') # Send current volume
-        if gateway.parser.tiles_to_play is not None: # If there are tiles to play, send them
+        if current_status.tiles_exist is not None: # If there are tiles to play, send them
             socketio.emit('tileUpdate', room='midi_players') # Notify frontend to update tiles
 
     @socketio.on('disconnect')
