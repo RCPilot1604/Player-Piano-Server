@@ -61,6 +61,7 @@ class MidiPlayerGateway:
 
     def clock_thread_function(self, socketio):
         """Thread function to handle clock updates"""
+        print(f"Current value of current_time: {self.current_time}")
         while True:
             if self.stop_event: 
                 print("Exiting Clock Thread")
@@ -75,6 +76,7 @@ class MidiPlayerGateway:
         """Thread function to handle playback logic"""
         client = SequencerClient("Player Piano")
         print("Starting player thread")
+        print(f"Current values of midi_idx: {self.midi_idx}, current_events: {len(self.current_events)}, current_time: {self.current_time}")
         while True:
             if self.stop_event: 
                 print("Exiting Player Thread")
