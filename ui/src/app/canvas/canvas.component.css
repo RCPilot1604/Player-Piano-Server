@@ -1,28 +1,8 @@
-.canvas-viewport {
-    width: 800px;
-    height: 400px;
-    border: 3px solid #444;
-    overflow: hidden;
-    position: relative;
-    margin: 20px auto;
-    background: #000;
-    cursor: grab;
-}
-
-.canvas-container {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-}
-
-.canvas-container.no-transition {
-    transition: none;
-}
-
 canvas {
-    position: absolute;
+    position: block;
     left: 0;
     top: 0;
     background: #111;
+    padding-left: 10px;
+    padding-top: 10px;
 }

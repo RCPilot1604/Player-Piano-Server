@@ -1,4 +1,4 @@
-<div id="p-wrapper">
+<div id="p-wrapper " [style.width.px]="environment.pianoWidth">
     <ul id="piano">
         <li *ngFor="let pianoKey of pianoKeys">
             <div class="anchor" [style.background]="getColor(pianoKey.whiteKeyId)" (click)="keyPress(pianoKey.whiteKeyId)"></div>

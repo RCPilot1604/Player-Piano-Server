@@ -20,22 +20,22 @@
   </mat-toolbar-row>
   <app-song-list [currentTime]="playbarTime"></app-song-list>
   <div class="playback-speed-control">
-    <mat-slider
-        class="playback-slider"
-        [disabled]="false"
-        [max]="2"
-        [min]="0.5"
-        [step]="0.1"
-        [discrete]="false"
-        [showTickMarks]="true">
+    <mat-slider class="playback-slider" [disabled]="false" [max]="2" [min]="0.5" [step]="0.1" [discrete]="false"
+      [showTickMarks]="true">
       <input matSliderThumb [(ngModel)]="playbackMultiplier" #slider>
     </mat-slider>
     <span class="playback-readout">
       {{ slider.value }}x
     </span>
   </div>
-  <div class="canvas-parent-container">
-    <tile-canvas [currentTime]="currentTime" [TileData]="tileData" [playbackMultiplier]="playbackMultiplier"></tile-canvas>
+  <div class="scrollable-content">
+    <div class="canvas-parent-container">
+      <tile-canvas (tileStateChanged)="handleTileStateChanged($event)" [currentTime]="currentTime" [TileData]="tileData"
+        [playbackMultiplier]="playbackMultiplier"></tile-canvas>
+    </div>
+    <div class="keyboard-scroll-container">
+      <keyboard [keyColors]="keyColors" (keyPressed)="handleKeyPressed($event)"></keyboard>
+    </div>
   </div>
   <router-outlet />
 </main>

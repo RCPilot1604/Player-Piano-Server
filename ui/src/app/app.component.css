@@ -83,11 +83,20 @@ h2 {
     background: transparent !important;
 }
 
-.canvas-parent-container {
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
+.scrollable-content {
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  width: 100vw;
+  background: #222;
+  overflow-x: auto;
+}
+
+/* Make the keyboard itself full width */
+keyboard, #p-wrapper, ul#piano {
+  width: 100vw !important;
+  min-width: 800px;
+  display: block;
+  white-space: nowrap; /* Prevent keys from wrapping */
 }
 
 @media (max-width: 600px) {
