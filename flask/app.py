@@ -129,7 +129,11 @@ class MidiPlayerGateway:
 
     def play(self):
         self.pause_event.clear()  # Resume playback
-    
+        if not self.clock_thread or not self.clock_thread.is_alive():
+            self.stop_event = False
+            self.clock_thread = Thread(target=self.clock_thread_function, args=(self.socket,))
+            self.clock_thread.start()
+            
     def pause(self):
         self.pause_event.set() # Pause playback
 
