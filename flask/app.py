@@ -204,7 +204,7 @@ gateway = MidiPlayerGateway(socket, settings)
 def cleanup():
     if gateway.player_thread and gateway.player_thread.is_alive():
         gateway.stop_event = True
-        gateway.pause_event = False
+        gateway.pause_event.set()  # Ensure the player thread stops
         gateway.player_thread.join()
 
 atexit.register(cleanup)
@@ -612,7 +612,7 @@ if __name__ == '__main__':
     # Register WebSocket events
     register_websocket_events(socket)
     gateway.stop_event = False
-    gateway.pause_event = True  # Start in paused state
+    gateway.pause_event.set()  # Start in paused state
     gateway.midi_idx = 0
     gateway.player_thread = Thread(target=gateway.player_thread_function, args=(socket,))
     gateway.clock_thread = Thread(target=gateway.clock_thread_function, args=(socket,))
