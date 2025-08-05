@@ -15,8 +15,8 @@ import { WebsocketService } from '../services/websocket.service';
 })
 export class CurrentSongComponent implements OnInit, OnDestroy{
   @Input() currentTime: number = 0;
-  @Input() selectedInstrumentIds: number[] = [];
   @Input() song: SongEntry | null = null;
+  selectedInstrumentIds: number[] = [];
   isPlaying = false;
   instruments: { id: number, channel: number, name: string }[] = [];
   volume = 100;
@@ -61,12 +61,6 @@ export class CurrentSongComponent implements OnInit, OnDestroy{
     console.log('Seek to:', this.currentTime);
   }
   ngOnInit() {
-    this.socket.fromEvent('songUpdate').subscribe((data: SongEntry) => {
-      this.song = data;
-    });
-    this.socket.fromEvent('instrumentsUpdate').subscribe((data: { id: number, channel: number, name: string }[]) => {
-      this.instruments = data;
-    });
     this.socket.fromEvent('playUpdate').subscribe((data) => {
       this.isPlaying = Boolean(data);
     });
@@ -76,6 +70,10 @@ export class CurrentSongComponent implements OnInit, OnDestroy{
     this.socket.fromEvent('setInstruments').subscribe((data: { id: number, channel: number, name: string }[]) => {
       console.log('Received instruments:', data);
       this.instruments = data;
+    });
+    this.socket.fromEvent('setTracksToPlay').subscribe((data: number[]) => {
+      //console.log('Received tracks to play:', data);
+      this.selectedInstrumentIds = data;
     });
   }
   ngOnDestroy(): void {

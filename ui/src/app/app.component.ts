@@ -91,6 +91,10 @@ export class AppComponent {
       console.log('Connected to server');
       this.keyColors = [];
     });
+    this.socket.fromEvent('songUpdate').subscribe((data: SongEntry) => {
+      this.currentSong = data;
+      console.log('Current song updated:', this.currentSong);
+    });
     this.socket.fromEvent('getStatus').subscribe((data: { currentTime: number, totalTime: number, playbarTime: number }) => {
       console.log('Received status update:', data);
       this.currentTime = data.currentTime;

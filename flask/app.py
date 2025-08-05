@@ -442,9 +442,9 @@ def register_websocket_events(socketio):
         if current_status['currentSong'] not in (None, {}, []):
             socketio.emit('songUpdate', current_status['currentSong'], room='midi_players') # Send current song info
         if current_status['instruments'] not in (None, [], {}):
-            socketio.emit('instrumentsUpdate', current_status['instruments'], room='midi_players') # Send current instruments info
+            socketio.emit('setInstruments', current_status['instruments'], room='midi_players') # Send current instruments info
         if current_status['tracksToPlay'] not in (None, [], {}):
-            socketio.emit('setInstruments', current_status['tracksToPlay'], room='midi_players') # Send current instruments info
+            socketio.emit('setTracksToPlay', current_status['tracksToPlay'], room='midi_players') # Send current tracks to play info
         if current_status['isPlaying'] is not None:
             socketio.emit('playUpdate', current_status['isPlaying'], room='midi_players') # Send playback status
         if current_status['volume'] is not None:
@@ -474,7 +474,7 @@ def register_websocket_events(socketio):
             if success:
                 # Emit event that frontend expects
                 print(f"Song loaded successfully: {song_data}")
-                socketio.emit('loadMidiUpdate', song_data, room='midi_players')
+                socketio.emit('songUpdate', song_data, room='midi_players')
             else:
                 print(f"Failed to load song: {song_data}")
                 
