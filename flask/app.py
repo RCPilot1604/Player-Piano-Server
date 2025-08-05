@@ -439,11 +439,16 @@ def register_websocket_events(socketio):
         logger.info('Client connected')
         join_room('midi_players')
         current_status = gateway.get_status() # Get current status and update frontend
-        socketio.emit('songUpdate', current_status['currentSong'], room='midi_players') # Send current song info
-        socketio.emit('instrumentsUpdate', current_status['instruments'], room='midi_players') # Send current instruments info
-        socketio.emit('setInstruments', current_status['tracksToPlay'], room='midi_players') # Send current instruments info
-        socketio.emit('playUpdate', current_status['isPlaying'], room='midi_players') # Send playback status
-        socketio.emit('volumeUpdate', current_status['volume'], room='midi_players') # Send current volume
+        if current_status['currentSong'] not in (None, {}, []):
+            socketio.emit('songUpdate', current_status['currentSong'], room='midi_players') # Send current song info
+        if current_status['instruments'] not in (None, [], {}):
+            socketio.emit('instrumentsUpdate', current_status['instruments'], room='midi_players') # Send current instruments info
+        if current_status['tracksToPlay'] not in (None, [], {}):
+            socketio.emit('setInstruments', current_status['tracksToPlay'], room='midi_players') # Send current instruments info
+        if current_status['isPlaying'] is not None:
+            socketio.emit('playUpdate', current_status['isPlaying'], room='midi_players') # Send playback status
+        if current_status['volume'] is not None:
+            socketio.emit('volumeUpdate', current_status['volume'], room='midi_players') # Send current volume
         if gateway.tiles_to_play is not None: # If there are tiles to play, send them
             socketio.emit('tileUpdate', room='midi_players') # Notify frontend to update tiles
 
