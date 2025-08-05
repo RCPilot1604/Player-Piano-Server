@@ -198,10 +198,9 @@ socket = flask_socketio.SocketIO(app)
 gateway = MidiPlayerGateway(socket, settings)
 
 def cleanup():
-    if gateway.player_thread and gateway.player_thread.is_alive():
+    if gateway.clock_thread and gateway.clock_thread.is_alive():
         gateway.stop_event = True
-        gateway.pause_event.set()  # Ensure the player thread stops
-        gateway.player_thread.join()
+        gateway.clock_thread.join()
 
 atexit.register(cleanup)
 
