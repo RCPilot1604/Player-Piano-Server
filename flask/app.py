@@ -291,13 +291,17 @@ def get_songs():
 def create_song():
     """Create a new song entry"""
     try:
-        data = request.json
+        data = request.form.to_dict()
+        file = request.files.get('midiFile')
         if not data:
             print("No data provided for song creation")
             return jsonify({'error': 'No data provided'}), 400
+        if not file:
+            print("No MIDI file provided for song creation")
+            return jsonify({'error': 'No MIDI file provided'}), 400
         
         # Validate required fields
-        required_fields = ['title']
+        required_fields = ['title', 'composer', 'category', 'midiPath']
         for field in required_fields:
             if field not in data:
                 return jsonify({'error': f'Missing required field: {field}'}), 400
@@ -322,6 +326,11 @@ def create_song():
         
         # Save to file
         save_database_to_file(database)
+        # Save midi file
+        if not os.path.exists(os.path.join(assets_folder, 'midi')):
+            os.makedirs(os.path.join(assets_folder, 'midi'))
+        with open(os.path.join(assets_folder, 'midi', secure_filename(file.filename)), 'wb') as f:
+            file.save(f)
         
         return jsonify(data), 201
     except Exception as e:
