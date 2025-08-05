@@ -10,7 +10,7 @@ export interface Category {
   providedIn: 'root'
 })
 export class CategoryService {
-  private apiUrl = `${environment.httpApi}/api/categories`;
+  private apiUrl = `${environment.httpApi}/api/categories/`;
   
   constructor(private http: HttpClient) { }
 

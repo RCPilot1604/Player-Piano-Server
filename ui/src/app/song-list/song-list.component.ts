@@ -64,6 +64,7 @@ export class SongListComponent {
     this.categoryService.getCategories().subscribe((data: Category[]) => {
       this.categories = data;
     });
+    console.log("Categories refreshed:", this.categories);
   }
   refreshSongs() {
     this.songsService.getSong().subscribe(data => {

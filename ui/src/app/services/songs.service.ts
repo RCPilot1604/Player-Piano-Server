@@ -7,12 +7,12 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class SongsService {
-  host = `${environment.httpApi}/api/crud`;
+  host = `${environment.httpApi}/api/crud/`;
   constructor(private http: HttpClient) { }
   getSong() {
     return this.http.get<SongEntry[]>(this.host).pipe(map((res) => res));
   }
-  addSong(formData: FormData) {
+  addSong(formData: any) {
     return this.http.post(this.host, formData);
   }
   deleteSong(id: number) {

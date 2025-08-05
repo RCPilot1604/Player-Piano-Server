@@ -1,17 +1,17 @@
-import { Component,inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CategoryService } from '../../services/categories.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatDialogContent, MatDialogActions,MatDialogRef } from '@angular/material/dialog';
+import { MatDialogContent, MatDialogActions, MatDialogRef } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButton } from '@angular/material/button';
-
+import { Validators } from '@angular/forms';
 @Component({
   selector: 'app-add-category-dialog',
-  imports: [ReactiveFormsModule, MatDialogContent, MatFormFieldModule, 
-      MatInputModule, MatSelectModule, MatSnackBarModule,MatDialogActions,MatButton],
+  imports: [ReactiveFormsModule, MatDialogContent, MatFormFieldModule,
+    MatInputModule, MatSelectModule, MatSnackBarModule, MatDialogActions, MatButton],
   template: `
     <div id="dialog-title">
     <h2 mat-dialog-title>Add New Category</h2>
@@ -32,15 +32,17 @@ import { MatButton } from '@angular/material/button';
   styleUrl: './add-category-dialog.component.css'
 })
 export class AddCategoryDialogComponent {
-  constructor( private categoryService: CategoryService, private dialogRef: MatDialogRef<AddCategoryDialogComponent>) { }
+  constructor(private categoryService: CategoryService, private dialogRef: MatDialogRef<AddCategoryDialogComponent>) { }
   private _snackBar = inject(MatSnackBar);
-  newCategoryForm = new FormGroup(
-    {
-      category: new FormControl(''),
-    }
-  );
+  private notEmptyTrimmed(control: import('@angular/forms').AbstractControl) {
+    const value = control.value ?? '';
+    return typeof value === 'string' && value.trim().length > 0 ? null : { notEmptyTrimmed: true };
+  }
+  newCategoryForm = new FormGroup({
+    category: new FormControl('', [Validators.required, this.notEmptyTrimmed, Validators.minLength(2)]),
+  });
   addNewCategory(): void {
-    const category = this.newCategoryForm.value.category ?? '';
+    const category = this.newCategoryForm.value.category?.trim() ?? '';
     this.categoryService.addCategory(category).subscribe(() => {
       this.newCategoryForm.reset();
       this.dialogRef.close();

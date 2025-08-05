@@ -30,7 +30,7 @@ import { Category } from '../services/categories.service'
       <mat-form-field appearance="fill">
         <mat-label>Category</mat-label>
         <mat-select formControlName="category" id="category" (onclick)="refreshCategories()" required>
-          <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+          <mat-option *ngFor="let category of categories" [value]="category.name">{{category.name}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="fill">
@@ -95,31 +95,36 @@ export class AddSongDialogComponent {
   }
 
   refreshCategories(){
-    this.categoryService.getCategories().subscribe(data => {
+    this.categoryService.getCategories().subscribe((data: Category[]) => {
       this.categories = data;
     });
+    console.log("Categories refreshed:", this.categories);
   }
   addNewSong(): void{
     if (this.newSongForm.valid && this.selectedFile) {
       this.finalError = null; // Clear any previous error
-      this.formData.append('title', this.newSongForm.value.title ?? '');
-      this.formData.append('composer', this.newSongForm.value.composer ?? '');
-      this.formData.append('category', this.newSongForm.value.category ?? '');
-      this.formData.append('midiPath', this.fileName ?? '');
-      this.formData.append('midiFile', this.selectedFile);
-      this.songsService.addSong(this.formData).subscribe(() => {
+      const formData = new FormData();
+      formData.append('title', this.newSongForm.get('title')?.value ?? '');
+      formData.append('composer', this.newSongForm.get('composer')?.value ?? '');
+      formData.append('category', this.newSongForm.get('category')?.value ?? '');
+      formData.append('midiPath', this.fileName ?? '');
+      formData.append('midiFile', this.selectedFile);
+
+      this.songsService.addSong(formData).subscribe({
+      next: () => {
         this.snackBar.open('Song added successfully!', 'Close', {
-          duration: 3000,
+        duration: 3000,
         });
         this.songAdded.emit();
         this.dialogRef.close();
-        this.fileName = ''; //reset the file name after the song is added
-      }, error => {
+        this.fileName = ''; // Reset the file name after the song is added
+      },
+      error: (error) => {
         this.finalError = "Error adding song: " + error;
+      }
       });
-      //console.table(Object.fromEntries(this.formData));
     } else {
-      if(!this.selectedFile) this.finalError = "Please upload a .mid/.midi file.";
+      if (!this.selectedFile) this.finalError = "Please upload a .mid/.midi file.";
       else this.finalError = "Please fill out all mandatory fields.";
     }
   }

@@ -203,7 +203,6 @@ export class ScrollableCanvasComponent implements OnInit, AfterViewInit, OnDestr
       if (tile_start_position > window_ms) { //the tile is above the active window
         continue;
       }
-      if (tile_start_position > tile_end_position) continue;
       if (tile_end_position < 0) { //the tile is below the active window and has been released
         this.tileStateChanged.emit({ noteNumber: tile.note_number, state: false, track: tile.track });
       }
