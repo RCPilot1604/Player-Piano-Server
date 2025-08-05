@@ -38,6 +38,7 @@ class MidiPlayerGateway:
         self.track_names = None
         self.tracks_to_play = []
         self.tiles_to_play = None
+        self.instrument_names = None
         self.total_duration = 0.0 # Total duration of the MIDI file in ms
         # Player thread
         self.pause_event = Event() # default set to PAUSE
@@ -50,13 +51,6 @@ class MidiPlayerGateway:
         self.current_time = 0
         # For logging MIDI events
         self.midi_log_path = None
-    
-    def getPlayerStatus(self):
-        return {
-            'currentSong': self.current_song,
-            'selectedTracks': self.tracks_to_play,
-            'isPlaying': not self.pause_event,
-        }
 
     def clock_thread_function(self, socketio):
         client = SequencerClient("Player Piano")
@@ -123,8 +117,8 @@ class MidiPlayerGateway:
                 file_data = json.load(f)
                 data = file_data.items()
                 print(data)
-                instrument_names = [{"id": i, "channel": i[0], "name": GeneralMidiInstrument.get_instrument_name(i[1])} for i in data]
-                self.socket.emit('instruments', instrument_names, room='midi_players')
+                self.instrument_names = [{"id": i, "channel": i[0], "name": GeneralMidiInstrument.get_instrument_name(i[1])} for i in data]
+                self.socket.emit('setInstruments', self.instrument_names, room='midi_players')
             return True
         except Exception as e:
             logger.error(f"Error loading song: {e}")
@@ -175,6 +169,8 @@ class MidiPlayerGateway:
             'isPlaying': not self.pause_event.is_set(),
             'currentSong': self.current_song,
             'volume': self.volume,
+            'instruments': gateway.instrument_names,
+            'traksToPlay': self.tracks_to_play,
         }
     
     def log_event(self, event_data):
@@ -435,14 +431,20 @@ def register_websocket_events(socketio):
     """Register all WebSocket event handlers"""
     
     @socketio.on('connect')
-    def handle_connect(auth=None):
+    def handle_connect(auth=None): 
+    # When a client connects, we need to send over a packet that represents the entire state of the player
         """Handle client connection"""
         logger.info('Client connected')
         join_room('midi_players')
-        socketio.emit('player_status', gateway.get_status())
-        if gateway.tiles_to_play is not None:
-            socketio.emit('tilesToPlay', gateway.tiles_to_play, room='midi_players')
-    
+        current_status = gateway.get_status() # Get current status and update frontend
+        socketio.emit('songUpdate', current_status['currentSong'], room='midi_players') # Send current song info
+        socketio.emit('instrumentsUpdate', current_status['instruments'], room='midi_players') # Send current instruments info
+        socketio.emit('setInstruments', current_status['tracksToPlay'], room='midi_players') # Send current instruments info
+        socketio.emit('playUpdate', current_status['isPlaying'], room='midi_players') # Send playback status
+        socketio.emit('volumeUpdate', current_status['volume'], room='midi_players') # Send current volume
+        if gateway.tiles_to_play is not None: # If there are tiles to play, send them
+            socketio.emit('tileUpdate', room='midi_players') # Notify frontend to update tiles
+
     @socketio.on('disconnect')
     def handle_disconnect():
         """Handle client disconnection"""
@@ -569,7 +571,7 @@ def register_websocket_events(socketio):
             logger.error(f"Error setting volume: {e}")
             socketio.emit('error', {'message': str(e)})
     
-    @socketio.on('get_status')
+    @socketio.on('get_status') # Unused at the moment
     def handle_get_status():
         """Get current player status"""
         try:
