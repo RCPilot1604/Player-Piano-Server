@@ -194,7 +194,7 @@ class MidiParser:
                         })
                         onLastTime = -1
             note_index += 1
-        with open(self.settings.settings['self.tiles_to_play_file_path'], 'w') as f:
+        with open(self.settings.settings['midi_tile_data_file_path'], 'w') as f:
             json.dump(self.tiles_to_play, f, indent=2)
         return 
         return events
