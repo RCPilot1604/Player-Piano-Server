@@ -56,7 +56,9 @@ class MidiPlayerGateway:
         client = SequencerClient("Player Piano")
         print(f"Current value of current_time: {self.current_time}")
         self.midi_idx = 0  # Reset index for clock thread
-        while self.current_events[self.midi_idx].timestamp < self.current_time:
+        while not self.current_events or not self.current_time or not self.midi_idx:
+            time.sleep(0.01)
+        while self.current_events[self.midi_idx].timestamp < self.current_time and self.midi_idx < len(self.current_events) - 1:
             self.midi_idx += 1
         # Now we assert that self.midi_idx is at the first event that is greater than or equal to current_time
         while True:
