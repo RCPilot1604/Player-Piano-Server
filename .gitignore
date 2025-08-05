@@ -4,3 +4,4 @@ flask/.env
 ui/src/environments/environment.development.ts
 ui/src/environments/environment.ts
 flask/__pycache__/
+flask/tmp/
