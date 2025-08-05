@@ -9,7 +9,7 @@ from flask_socketio import join_room, leave_room
 from alsa_midi import SequencerClient, NoteOnEvent, NoteOffEvent, ControlChangeEvent
 import time
 from flask_cors import CORS
-from threading import Thread
+from threading import Thread, Event
 from midi_parser import MidiParser
 from instruments import GeneralMidiInstrument
 import atexit
@@ -41,7 +41,7 @@ class MidiPlayerGateway:
         self.total_duration = 0.0 # Total duration of the MIDI file in ms
         # Player thread
         self.player_thread = None
-        self.pause_event = True # default set to PAUSE
+        self.pause_event = Event() # default set to PAUSE
         self.stop_event = True
         self.port = None  # ALSA port for MIDI output
         self.midi_idx = None  # Current position in the MIDI file
@@ -66,8 +66,8 @@ class MidiPlayerGateway:
                 self.current_time = 0
                 print("Exiting Clock Thread")
                 break
-            while self.pause_event:
-                pass
+            while self.pause_event.is_set():
+                time.sleep(0.01)  # Yield control, avoid busy-wait
             self.current_time += self.settings.settings['clock_period'] * 1000  # Convert to milliseconds
             socketio.emit('timeUpdate', self.current_time, room='midi_players')
             time.sleep(self.settings.settings['clock_period'])
@@ -81,10 +81,10 @@ class MidiPlayerGateway:
                 self.midi_idx = 0
                 print("Exiting Player Thread")
                 break
-            while self.pause_event:
-                pass # Do nothing; halt the execution
+            while self.pause_event.is_set():
+                time.sleep(0.01)  # Yield control, avoid busy-wait
             if self.midi_idx >= len(self.current_events):
-                self.pause_event = True
+                self.pause_event.set()
                 self.midi_idx = 0
                 self.current_time = 0
                 break
@@ -142,15 +142,15 @@ class MidiPlayerGateway:
             return False
 
     def play(self):
-        self.pause_event = False
+        self.pause_event.clear()  # Resume playback
     
     def pause(self):
-        self.pause_event = True
-    
+        self.pause_event.set() # Pause playback
+
     def seek(self, position: int):
         # The idea for seek is that we find the event with the closest time_ms and set the index to that event
-        isPaused = self.pause_event
-        if isPaused: self.pause_event = True # Pause the playback to eliminate race conditions
+        isPaused = self.pause_event.is_set()
+        if isPaused: self.pause_event.clear() # Pause the playback to eliminate race conditions
         time.sleep(0.05)
         if not self.current_events:
             logger.warning("No MIDI events loaded for seeking")
@@ -160,7 +160,7 @@ class MidiPlayerGateway:
         self.midi_idx = self.current_events.index(closest_event) # Update the midi index to the closest event
         self.current_time = closest_event.timestamp # Update current time to the timestamp of the closest event
         socket.emit('playerbarUpdate', position, room='midi_players')
-        if isPaused: self.pause_event = True # Resume the playback if it was paused
+        if isPaused: self.pause_event.set() # Resume the playback if it was paused
 
     def close(self):
         if self.alsa_player:
@@ -176,7 +176,7 @@ class MidiPlayerGateway:
     def get_status(self):
         """Get current player status"""
         return {
-            'isPlaying': self.pause_event is False,
+            'isPlaying': not self.pause_event.is_set(),
             'currentSong': self.current_song,
             'volume': self.volume,
         }
