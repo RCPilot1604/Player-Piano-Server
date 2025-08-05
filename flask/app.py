@@ -86,6 +86,7 @@ class MidiPlayerGateway:
             if self.midi_idx >= len(self.current_events):
                 self.pause_event = True
                 self.midi_idx = 0
+                self.current_time = 0
                 break
             event = self.current_events[self.midi_idx]
             # Playback logic here
@@ -148,6 +149,9 @@ class MidiPlayerGateway:
     
     def seek(self, position: int):
         # The idea for seek is that we find the event with the closest time_ms and set the index to that event
+        isPaused = self.pause_event
+        if isPaused: self.pause_event = True # Pause the playback to eliminate race conditions
+        time.sleep(0.05)
         if not self.current_events:
             logger.warning("No MIDI events loaded for seeking")
             return
@@ -156,6 +160,7 @@ class MidiPlayerGateway:
         self.midi_idx = self.current_events.index(closest_event) # Update the midi index to the closest event
         self.current_time = closest_event.timestamp # Update current time to the timestamp of the closest event
         socket.emit('playerbarUpdate', position, room='midi_players')
+        if isPaused: self.pause_event = True # Resume the playback if it was paused
 
     def close(self):
         if self.alsa_player:
