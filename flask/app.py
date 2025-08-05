@@ -40,7 +40,6 @@ class MidiPlayerGateway:
         self.tiles_to_play = None
         self.total_duration = 0.0 # Total duration of the MIDI file in ms
         # Player thread
-        self.player_thread = None
         self.pause_event = Event() # default set to PAUSE
         self.stop_event = True
         self.port = None  # ALSA port for MIDI output
@@ -60,45 +59,36 @@ class MidiPlayerGateway:
         }
 
     def clock_thread_function(self, socketio):
-        """Thread function to handle clock updates"""
+        client = SequencerClient("Player Piano")
         print(f"Current value of current_time: {self.current_time}")
+        self.midi_idx = 0  # Reset index for clock thread
+        while self.current_events[self.midi_idx].timestamp < self.current_time:
+            self.midi_idx += 1
+        # Now we assert that self.midi_idx is at the first event that is greater than or equal to current_time
         while True:
             if self.stop_event: 
                 print("Exiting Clock Thread")
+                break
+            if self.midi_idx >= len(self.current_events):
+                self.pause_event.set()
+                self.midi_idx = 0
+                self.current_time = 0
+                socketio.emit('timeUpdate', self.current_time, room='midi_players')
                 break
             while self.pause_event.is_set():
                 time.sleep(0.01)  # Yield control, avoid busy-wait
             self.current_time += self.settings.settings['clock_period'] * 1000  # Convert to milliseconds
             socketio.emit('timeUpdate', self.current_time, room='midi_players')
-            time.sleep(self.settings.settings['clock_period'])
-
-    def player_thread_function(self, socketio):
-        """Thread function to handle playback logic"""
-        client = SequencerClient("Player Piano")
-        print("Starting player thread")
-        print(f"Current values of midi_idx: {self.midi_idx}, current_events: {len(self.current_events)}, current_time: {self.current_time}")
-        while True:
-            if self.stop_event: 
-                print("Exiting Player Thread")
-                break
-            while self.pause_event.is_set():
-                time.sleep(0.01)  # Yield control, avoid busy-wait
-            if self.midi_idx >= len(self.current_events):
-                self.pause_event.set()
-                self.midi_idx = 0
-                self.current_time = 0
-                break
-            event = self.current_events[self.midi_idx]
-            # Playback logic here
-            event_to_send = None
-            if(event.isBounceBack):
-                event_to_send = ControlChangeEvent(value=event.note, channel=0, param=0)
-            else:
-                event_to_send = NoteOnEvent(note=event.note, velocity=event.velocity) if event.type == 'note_on' else NoteOffEvent(note=event.note, velocity=event.velocity)
-            if event_to_send:
-                client.event_output(event_to_send)
+            if self.current_events[self.midi_idx].timestamp <= self.current_time:
+                event = self.current_events[self.midi_idx]
+                if event.isBounceBack:
+                    event_to_send = ControlChangeEvent(value=event.note, channel=0, param=0)
+                else:
+                    event_to_send = NoteOnEvent(note=event.note, velocity=event.velocity) if event.type == 'note_on' else NoteOffEvent(note=event.note, velocity=event.velocity)
+                if event_to_send:
+                    client.event_output(event_to_send)
                 self.midi_idx += 1
-                time.sleep(event.deltaT / 1000.0)  # Convert deltaT to seconds
+            time.sleep(self.settings.settings['clock_period'])
 
     def parse_song(self, tracks_to_play):
         """Parse the MIDI file and filter tracks based on selected instruments"""
@@ -156,21 +146,15 @@ class MidiPlayerGateway:
             logger.warning("No MIDI events loaded for seeking")
             return
         position_ms = (position / 100) * self.total_duration  # Convert percentage to ms
-        closest_event = min(self.current_events, key=lambda e: abs(e.timestamp - position_ms))
-        self.midi_idx = self.current_events.index(closest_event) # Update the midi index to the closest event
-        self.current_time = closest_event.timestamp # Update current time to the timestamp of the closest event
+        self.current_time = position_ms # Update current time to the timestamp of the closest event
         socket.emit('playerbarUpdate', position, room='midi_players')
         if isPaused: self.pause_event.set() # Resume the playback if it was paused
 
         # Restart the threads to ensure they are in sync
         self.stop_event = True
-        if self.player_thread and self.player_thread.is_alive():
-            self.player_thread.join()
         if self.clock_thread and self.clock_thread.is_alive():
             self.clock_thread.join()
         self.stop_event = False
-        self.player_thread = Thread(target=self.player_thread_function, args=(self.socket,))
-        self.player_thread.start()
         self.clock_thread = Thread(target=self.clock_thread_function, args=(self.socket,))
         self.clock_thread.start()
 
