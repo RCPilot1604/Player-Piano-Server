@@ -315,8 +315,6 @@ def create_song():
 
         with open(db_path, 'r') as f:
             database = json.load(f)
-        
-        print(f"Database loaded: {database}")
 
         # Add metadata
         data['id'] = generate_song_id(database.get('songs', []))
@@ -331,7 +329,7 @@ def create_song():
         # Save to file
         save_database_to_file(database)
         # Save midi file
-        with open(os.path.join(assets_folder, 'midi', secure_filename(file.filename)), 'wb') as f:
+        with open(os.path.join(midi_folder, secure_filename(file.filename)), 'wb') as f:
             file.save(f)
         
         return jsonify(data), 201
@@ -352,19 +350,28 @@ def delete_song(song_id):
         
         songs = database.get('songs', [])
         
-        # Find and remove song by ID
+        # Find and remove song by ID, updating all following IDs
         deleted_song = None
         for i, song in enumerate(songs):
             if song.get('id') == song_id:
                 deleted_song = songs.pop(i)
-                break
-        
+            if deleted_song:
+                song['id'] = i-1  # Update IDs after deletion
+
         if deleted_song:
             # Save to file
             save_database_to_file(database)
-            return jsonify(deleted_song), 200
+            # Delete the MIDI file from filesystem
+            midi_path = deleted_song.get('midiPath')
+            if midi_path and os.path.exists(midi_path):
+                os.remove(midi_path)
+                return jsonify({'status': 'ok'}), 200 # If the song was deleted successfully, return the updated database
+            else: 
+                return jsonify({'error': 'MIDI file not found'}), 404
         else:
             return jsonify({'error': 'Song not found'}), 404
+        
+        # Now go ahead and delete the file from filesystem
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
