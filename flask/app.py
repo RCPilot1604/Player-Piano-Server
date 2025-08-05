@@ -309,7 +309,10 @@ def create_song():
         # Read current database
         assets_folder = current_app.config.get('ASSETS_FOLDER')
         db_path = os.path.join(assets_folder, 'db.json')
-        
+        midi_folder = os.path.join(assets_folder, 'midi')
+        if not os.path.exists(midi_folder):
+            os.makedirs(midi_folder)
+
         with open(db_path, 'r') as f:
             database = json.load(f)
         
@@ -317,7 +320,8 @@ def create_song():
 
         # Add metadata
         data['id'] = generate_song_id(database.get('songs', []))
-        
+        data['midiPath'] = os.path.join(midi_folder, secure_filename(file.filename))
+
         # Add to database
         if 'songs' not in database:
             database['songs'] = []
@@ -327,8 +331,6 @@ def create_song():
         # Save to file
         save_database_to_file(database)
         # Save midi file
-        if not os.path.exists(os.path.join(assets_folder, 'midi')):
-            os.makedirs(os.path.join(assets_folder, 'midi'))
         with open(os.path.join(assets_folder, 'midi', secure_filename(file.filename)), 'wb') as f:
             file.save(f)
         
