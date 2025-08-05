@@ -83,8 +83,20 @@ export class SongListComponent {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.songsService.deleteSong(id).subscribe(() => {
-          this.refreshSongs();
+        this.songsService.deleteSong(id).subscribe({
+          next: () => {
+            this.refreshSongs();
+          },
+          error: (err) => {
+            this.dialog.open(ConfirmDialogComponent, {
+              data: {
+                title: 'Error',
+                message: `Failed to delete song. Server responded with status ${err.status || 'unknown'}.`,
+                confirmText: 'OK',
+                cancelText: ''
+              } as ConfirmDialogData
+            });
+          }
         });
       }
     });
