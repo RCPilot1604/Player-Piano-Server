@@ -293,6 +293,7 @@ def create_song():
     try:
         data = request.json
         if not data:
+            print("No data provided for song creation")
             return jsonify({'error': 'No data provided'}), 400
         
         # Validate required fields
