@@ -263,7 +263,7 @@ class MidiParser:
         last_event = max(events, key=lambda x: x.timestamp)
         return last_event.timestamp  # Convert to seconds
     
-    def _convert_events(self, events: List[List[MidiEvent]]) -> List[MidiEvent]:
+    def _convert_events(self, events: List[List[MidiEvent]]) -> List[ConvertedEvent]:
         """Convert sanitized events back to a flat list of MidiEvent objects"""
         # We achieve this by iterating over the first elements in the list represent each note and finding the event that happens first. 
         # Then we append that event to our converted events lists and then remove that event from the list of events for that note.
