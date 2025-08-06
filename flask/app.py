@@ -54,7 +54,7 @@ class MidiPlayerGateway:
 
     def clock_thread_function(self, socketio):
         client = SequencerClient("Player Piano")
-        client.create_port('output', caps=PortCaps.WRITE | PortCaps.SUBS_WRITE, type=PortType.MIDI_GENERIC)
+        client.create_port('output', caps=PortCaps.READ | PortCaps.SUBS_READ, type=PortType.MIDI_GENERIC)
         print(f"Current value of current_time: {self.current_time}")
         self.midi_idx = 0  # Reset index for clock thread
         while self.current_events[self.midi_idx].timestamp < self.current_time and self.midi_idx < len(self.current_events) - 1:
@@ -490,6 +490,19 @@ def register_websocket_events(socketio):
             logger.error(f"Error in loadMidi handler: {e}")
             socketio.emit('error', {'message': str(e)})
     
+    @socketio.on('refreshPorts')
+    def handle_refresh_ports():
+        """Refresh ALSA MIDI ports and send to frontend"""
+        try:
+            client = SequencerClient("Player Piano")
+            ports = client.list_ports(input=True, type=PortType.MIDI_GENERIC | PortType.HARDWARE) # Only consider the hardware ports
+            print(f"Found {len(ports)} MIDI ports: {ports}")
+            port_data = [{'name': p.name, 'id': p.id} for p in ports]
+            socketio.emit('portsUpdate', port_data, room='midi_players')
+        except Exception as e:
+            logger.error(f"Error refreshing MIDI ports: {e}")
+            socketio.emit('error', {'message': str(e)})
+            
     @socketio.on('parseMidi')
     def handle_load_song(selected_tracks):
         """Parse MIDI file and prepare for playback"""
