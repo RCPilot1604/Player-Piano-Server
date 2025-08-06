@@ -491,7 +491,7 @@ def register_websocket_events(socketio):
             socketio.emit('error', {'message': str(e)})
     
     @socketio.on('refreshPorts')
-    def handle_refresh_ports():
+    def handle_refresh_ports(placeholder=None):
         """Refresh ALSA MIDI ports and send to frontend"""
         try:
             client = SequencerClient("Player Piano")
@@ -502,7 +502,7 @@ def register_websocket_events(socketio):
         except Exception as e:
             logger.error(f"Error refreshing MIDI ports: {e}")
             socketio.emit('error', {'message': str(e)})
-            
+
     @socketio.on('parseMidi')
     def handle_load_song(selected_tracks):
         """Parse MIDI file and prepare for playback"""
