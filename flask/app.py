@@ -6,7 +6,7 @@ from datetime import datetime
 import logging
 import flask_socketio
 from flask_socketio import join_room, leave_room
-from alsa_midi import SequencerClient, NoteOnEvent, NoteOffEvent, ControlChangeEvent
+from alsa_midi import SequencerClient, NoteOnEvent, NoteOffEvent, ControlChangeEvent, PortCaps, PortType
 import time
 from flask_cors import CORS
 from threading import Thread, Event
@@ -54,7 +54,7 @@ class MidiPlayerGateway:
 
     def clock_thread_function(self, socketio):
         client = SequencerClient("Player Piano")
-        client.create_port('output', caps=SequencerClient.PortCaps.WRITE | SequencerClient.PortCaps.SUBS_WRITE, type=SequencerClient.PortType.MIDI_GENERIC)
+        client.create_port('output', caps=PortCaps.WRITE | PortCaps.SUBS_WRITE, type=PortType.MIDI_GENERIC)
         print(f"Current value of current_time: {self.current_time}")
         self.midi_idx = 0  # Reset index for clock thread
         while self.current_events[self.midi_idx].timestamp < self.current_time and self.midi_idx < len(self.current_events) - 1:
