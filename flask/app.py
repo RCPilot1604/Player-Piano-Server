@@ -204,6 +204,8 @@ def cleanup():
     if gateway.clock_thread and gateway.clock_thread.is_alive():
         gateway.stop_event = True
         gateway.clock_thread.join()
+    if os.exists(settings.settings['midi_tile_data_file_path']):
+        os.remove(settings.settings['midi_tile_data_file_path']) # Remove the tile data file on exit
 
 atexit.register(cleanup)
 
