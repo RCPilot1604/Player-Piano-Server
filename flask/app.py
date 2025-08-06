@@ -54,6 +54,7 @@ class MidiPlayerGateway:
 
     def clock_thread_function(self, socketio):
         client = SequencerClient("Player Piano")
+        client.create_port('output', caps=SequencerClient.PortCaps.WRITE | SequencerClient.PortCaps.SUBS_WRITE, type=SequencerClient.PortType.MIDI_GENERIC)
         print(f"Current value of current_time: {self.current_time}")
         self.midi_idx = 0  # Reset index for clock thread
         while self.current_events[self.midi_idx].timestamp < self.current_time and self.midi_idx < len(self.current_events) - 1:
