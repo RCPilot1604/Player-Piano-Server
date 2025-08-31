@@ -8,8 +8,8 @@
       <mat-form-field class="midi-port-field">
         <mat-label>MIDI Port</mat-label>
         <mat-select [(value)]="selectedMidiPort" (selectionChange)="onMidiPortChange()">
-          <mat-option *ngFor="let port of midiPorts" [value]="port.id">
-            {{ port.name }}
+          <mat-option *ngFor="let port of midiPorts" [value]="port.idx">
+            {{ port.full_address }} : {{ port.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
