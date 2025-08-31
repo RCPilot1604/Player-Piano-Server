@@ -21,6 +21,7 @@ import { KeyboardComponent } from './keyboard/keyboard.component';
 import { ViewChild } from '@angular/core';
 import { SongEntry }  from './models/song-entry.model';
 import { MidiPort } from './models/port-data.model';
+import { ChangeDetectorRef } from '@angular/core';
 
 interface StatusEvent {
   isPlaying: boolean;
@@ -52,7 +53,7 @@ export class AppComponent {
   tracksToPlay: number[] = []; // Tracks that are currently set to play
   midiPorts: MidiPort[] = []; // List of available ports
   selectedMidiPort: number | null = null; // Currently selected MIDI port
-  constructor(public dialog: MatDialog, private socket: WebsocketService) { }
+  constructor(public dialog: MatDialog, private socket: WebsocketService, private cdr: ChangeDetectorRef) { }
 
   @ViewChild(SongListComponent) songListComponent!: SongListComponent;
   onMidiPortChange() {
@@ -145,6 +146,7 @@ export class AppComponent {
     this.socket.fromEvent('portsUpdate').subscribe((data: MidiPort[]) => {
       this.midiPorts = data;
       console.log('MIDI ports updated:', this.midiPorts);
+      this.cdr.detectChanges();
     });
     this.refreshMidiPorts();
   }

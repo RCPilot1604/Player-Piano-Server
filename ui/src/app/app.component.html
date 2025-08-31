@@ -9,7 +9,7 @@
         <mat-label>MIDI Port</mat-label>
         <mat-select [(value)]="selectedMidiPort" (selectionChange)="onMidiPortChange()">
           <mat-option *ngFor="let port of midiPorts" [value]="port.idx">
-            {{ port.full_address }} : {{ port.name }}
+            {{ port.full_address }} : {{ port.name }} &#64; {{ port.client_name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
