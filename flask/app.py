@@ -118,7 +118,6 @@ class MidiPlayerGateway:
                 print("Port does not have attr connections")
         except Exception as e:
             logger.error(f"Error getting connected ALSA port: {e}")
-            return None
 
     def connect_to_output_port(self, port_idx):
         """Connect to a specific output port."""
@@ -538,6 +537,7 @@ def register_websocket_events(socketio):
             socketio.emit('volumeUpdate', current_status['volume'], room='midi_players') # Send current volume
         if os.path.exists(settings.settings.get("midi_tile_data_file_path", "")):
             socketio.emit('tileUpdate', room='midi_players') # Notify frontend to update tiles
+        gateway.get_connected_port() # Send connected port info
 
     @socketio.on('disconnect')
     def handle_disconnect():
