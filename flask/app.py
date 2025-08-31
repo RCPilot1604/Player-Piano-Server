@@ -51,10 +51,10 @@ class MidiPlayerGateway:
         self.current_time = 0
         # For logging MIDI events
         self.midi_log_path = None
+        self.client = SequencerClient("Player Piano")
 
     def clock_thread_function(self, socketio):
-        client = SequencerClient("Player Piano")
-        client.create_port('output', caps=PortCaps.READ | PortCaps.SUBS_READ, type=PortType.MIDI_GENERIC)
+        self.client.create_port('output', caps=PortCaps.READ | PortCaps.SUBS_READ, type=PortType.MIDI_GENERIC)
         print(f"Current value of current_time: {self.current_time}")
         self.midi_idx = 0  # Reset index for clock thread
         while self.current_events[self.midi_idx].timestamp < self.current_time and self.midi_idx < len(self.current_events) - 1:
@@ -82,7 +82,7 @@ class MidiPlayerGateway:
                     event_to_send = NoteOnEvent(note=event.note, velocity=event.velocity) if event.type == 'note_on' else NoteOffEvent(note=event.note, velocity=event.velocity)
                 if event_to_send:
                     try:
-                        client.event_output(event_to_send)
+                        self.client.event_output(event_to_send)
                     except Exception as e:
                         logger.error(f"Failed to send MIDI event: {event_to_send}, error: {e}")
                 self.midi_idx += 1
@@ -494,8 +494,7 @@ def register_websocket_events(socketio):
     def handle_refresh_ports(placeholder=None):
         """Refresh ALSA MIDI ports and send to frontend"""
         try:
-            client = SequencerClient("Player Piano")
-            ports = client.list_ports(input=True, type=PortType.MIDI_GENERIC | PortType.HARDWARE) # Only consider the hardware ports
+            ports = gateway.client.list_ports(input=True, type=PortType.MIDI_GENERIC) # Only consider the hardware ports
             print(f"Found {len(ports)} MIDI ports: {ports}")
             port_data = [{'name': p.name, 'id': p.id} for p in ports]
             socketio.emit('portsUpdate', port_data, room='midi_players')
