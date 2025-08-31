@@ -294,6 +294,9 @@ def cleanup():
         gateway.port.close()  # Close the port
     except:
         pass
+    atexit.register(cleanup)
+
+@app.route('/')
 def home():
     return 'Hello, Flask!'
 
