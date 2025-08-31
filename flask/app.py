@@ -283,8 +283,13 @@ def cleanup():
     if gateway.clock_thread and gateway.clock_thread.is_alive():
         gateway.stop_event = True
         gateway.clock_thread.join()
-    if os.path.exists(settings.settings['midi_tile_data_file_path']):
-        os.remove(settings.settings['midi_tile_data_file_path']) # Remove the tile data file on exit
+    # Get the directory of the current file
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    tile_data_path = os.path.join(current_dir, settings.settings['midi_tile_data_file_path'])
+    print("Tile data path:", tile_data_path)
+    if os.path.exists(tile_data_path):
+        os.remove(tile_data_path)  # Remove the tile data file on exit
+    gateway.port.close() # Close the port
 
 atexit.register(cleanup)
 
