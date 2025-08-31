@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 import { SongEntry } from '../models/song-entry.model';
 import { NgIf, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -16,8 +16,10 @@ import { WebsocketService } from '../services/websocket.service';
 export class CurrentSongComponent implements OnInit, OnDestroy {
   @Input() currentTime: number = 0;
   @Input() song: SongEntry | null = null;
+  @Output() playStateChange = new EventEmitter<boolean>();
   selectedInstrumentIds: number[] = [];
   isPlaying = false;
+  
   instruments: { id: number, channel: number, name: string }[] = [];
   volume = 100;
   constructor(private socket: WebsocketService) { }
@@ -55,8 +57,10 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
     this.isPlaying = !this.isPlaying;
     if (this.isPlaying) {
       this.socket.emit('play', "");
+      this.playStateChange.emit(true);
     } else {
       this.socket.emit('pause', "");
+      this.playStateChange.emit(false);
     }
   }
   incrementVolume() {
