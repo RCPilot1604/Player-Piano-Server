@@ -106,7 +106,10 @@ class MidiPlayerGateway:
         """Connect to a specific output port."""
         try:
             selected_port = self.output_ports[port_idx]
-            self.client.port.connect_to(selected_port)
+            if self.port is not None:
+                self.port.connect_to(selected_port)
+            else:
+                raise Exception("ALSA port not initialized")
             print(f"Connected to MIDI output port: {selected_port}")
         except Exception as e:
             logger.error(f"Error connecting to MIDI output port: {e}")
