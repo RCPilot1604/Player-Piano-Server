@@ -56,7 +56,7 @@ class MidiPlayerGateway:
         self.start_alsa()
         self.get_connected_port()
         # Get the absolute path of the current file
-        self.abspath = os.path.abspath(__file__)
+        self.abspath = os.path.dirname(os.path.abspath(__file__))
 
     def start_alsa(self):
         max_retries = 3
