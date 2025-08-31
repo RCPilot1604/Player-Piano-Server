@@ -113,7 +113,9 @@ class MidiPlayerGateway:
                     self.websocket.emit('updateConnectedPort', connections[0])
                     print(f"Currently connected to port: {connections[0]}")
                 else: 
-                    print("No connected ports to ALSA sequencer")
+                    print("Port has attr connections but no connections are found")
+            else:
+                print("Port does not have attr connections")
         except Exception as e:
             logger.error(f"Error getting connected ALSA port: {e}")
             return None
