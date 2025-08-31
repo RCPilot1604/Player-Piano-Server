@@ -54,7 +54,7 @@ class MidiPlayerGateway:
         self.client = None
         self.start_alsa()
         self.output_ports = []
-
+        
     def start_alsa(self):
         max_retries = 3
         retry_delay = 0.5
@@ -101,6 +101,19 @@ class MidiPlayerGateway:
             return self.output_ports
         except Exception as e:
             logger.error(f"Error listing MIDI ports: {e}")
+
+    def get_connected_port(self):
+        """Return the currently connected ALSA output port, or None if not connected."""
+        try:
+            if self.port and hasattr(self.port, 'connections'):
+                connections = self.port.connections
+                if connections:
+                    # Return the first connected port (usually only one)
+                    self.websocket.emit('updateConnectedPort', connections[0])
+                    print(f"Currently connected to port: {connections[0]}")
+        except Exception as e:
+            logger.error(f"Error getting connected ALSA port: {e}")
+            return None
 
     def connect_to_output_port(self, port_idx):
         """Connect to a specific output port."""
