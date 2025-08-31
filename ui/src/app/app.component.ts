@@ -14,6 +14,7 @@ import { TileEvent } from './models/tile-event.model';
 import { environment } from '../environments/environment';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { DEFAULT_NOTE_COLORS } from './models/note-colors.model';
 import { KeyboardComponent } from './keyboard/keyboard.component';
@@ -30,7 +31,7 @@ interface StatusEvent {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SongListComponent, MatToolbarRow, MatIconModule, MatButtonModule, MatMenuModule, ScrollableCanvasComponent, MatSliderModule, MatInputModule, FormsModule, KeyboardComponent],
+  imports: [RouterOutlet, SongListComponent, MatToolbarRow, MatIconModule, MatButtonModule, MatMenuModule, ScrollableCanvasComponent, MatSliderModule, MatInputModule, MatSelectModule, FormsModule, KeyboardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -48,10 +49,19 @@ export class AppComponent {
   volume = 100; // Volume level (0-100)
   instruments: string[] = []; // List of instruments available
   tracksToPlay: number[] = []; // Tracks that are currently set to play
+  midiPorts: { id: number, channel: number, name: string }[] = []; // List of available ports
+  selectedMidiPort: number | null = null; // Currently selected MIDI port
   constructor(public dialog: MatDialog, private socket: WebsocketService) { }
 
   @ViewChild(SongListComponent) songListComponent!: SongListComponent;
-
+  onMidiPortChange() {
+    console.log(`Selected MIDI port: ${this.selectedMidiPort}`);
+    this.socket.emit('selectPort', this.selectedMidiPort);
+  }
+  refreshMidiPorts() {
+    console.log('Refreshing MIDI ports');
+    this.socket.emit('refreshPorts', '');
+  }
   openAddSongDialog(): void {
     const dialogRef = this.dialog.open(AddSongDialogComponent, {
     });
