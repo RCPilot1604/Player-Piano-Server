@@ -51,22 +51,49 @@ class MidiPlayerGateway:
         self.current_time = 0
         # For logging MIDI events
         self.midi_log_path = None
-        self.client = SequencerClient("Player Piano")
+        self.client = None
         self.start_alsa()
         self.output_ports = []
 
     def start_alsa(self):
-        try:
-            # Store the port object returned by create_port
-            self.port = self.client.create_port('output', 
-                                            caps=PortCaps.READ | PortCaps.SUBS_READ, 
-                                            type=PortType.MIDI_GENERIC)
-            print(f"MIDI output port created successfully: {self.port}")
-            print(f"Port ID: {self.port.port_id if hasattr(self.port, 'port_id') else 'Unknown'}")
-        except Exception as e:
-            logger.error(f"Error creating MIDI output port: {e}")
+        max_retries = 3
+        retry_delay = 0.5
+        
+        for attempt in range(max_retries):
+            try:
+                print(f"ALSA port creation attempt {attempt + 1}/{max_retries}")
+                
+                # Ensure client is properly initialized
+                if not hasattr(self, 'client') or self.client is None:
+                    print("Creating new ALSA client...")
+                    self.client = SequencerClient("Player Piano")
+                
+                print(f"Client created: {type(self.client)}")
+                
+                # Create the port
+                self.port = self.client.create_port('output', 
+                                                caps=PortCaps.READ | PortCaps.SUBS_READ, 
+                                                type=PortType.MIDI_GENERIC)
+                
+                print(f"MIDI output port created successfully: {self.port}")
+                print(f"Client ID: {self.client.client_id}, Port ID: {self.port.port_id}")
+                return  # Success, exit the retry loop
+                
+            except Exception as e:
+                print(f"Attempt {attempt + 1} failed: {e}")
+                if attempt < max_retries - 1:
+                    print(f"Retrying in {retry_delay} seconds...")
+                    time.sleep(retry_delay)
+                    # Try to cleanup and recreate client
+                    try:
+                        if hasattr(self, 'client'):
+                            del self.client
+                    except:
+                        pass
+                else:
+                    logger.error(f"Failed to create ALSA port after {max_retries} attempts: {e}")
 
-    def list_output_ports(self):
+    def get_output_ports(self):
         """List all available MIDI ports."""
         try:
             self.output_ports = self.client.list_ports(output=True, type=PortType.MIDI_GENERIC)
@@ -524,9 +551,7 @@ def register_websocket_events(socketio):
     def handle_refresh_ports(placeholder=None):
         """Refresh ALSA MIDI ports and send to frontend"""
         try:
-            output_ports = gateway.list_output_ports()
-            print(f"Found {len(output_ports)} output MIDI ports: {output_ports}")
-                
+            output_ports = gateway.get_output_ports()
             output_port_data = []
             for i, p in enumerate(output_ports):
                 port_info = {
@@ -543,7 +568,7 @@ def register_websocket_events(socketio):
         except Exception as e:
             logger.error(f"Error refreshing MIDI ports: {e}")
             socketio.emit('error', {'message': str(e)})
-            
+
     @socketio.on('selectPort')
     def handle_select_port(port_idx):
         gateway.connect_to_output_port(port_idx)
