@@ -5,8 +5,8 @@ class Settings:
     
     def __init__(self):
         self.settings = {
-            'midi_json_file_path': '/tmp/final_data.json',
-            'midi_tile_data_file_path': './tmp/midi_tile_data.json',
+            'midi_json_file_path': './tmp/final_data.json',
+            'midi_tile_data_file_path': 'tmp/midi_tile_data.json',
             'clock_period': 0.02, # 20 ms
             'lowest_note': 21,  # A0
             'highest_note': 108,  # C8
