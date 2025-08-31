@@ -53,11 +53,19 @@ class MidiPlayerGateway:
         self.midi_log_path = None
         self.client = SequencerClient("Player Piano")
         self.start_alsa()
-        
+
     def start_alsa(self):
         try:
-            self.client.create_port('output', caps=PortCaps.READ | PortCaps.SUBS_READ, type=PortType.MIDI_GENERIC)
-            print("MIDI output port created successfully")
+            print(f"ALSA client name: {self.client.name}")
+            print(f"ALSA client ID: {self.client.client_id}")
+            
+            # Store the port object returned by create_port
+            self.port = self.client.create_port('output', 
+                                            caps=PortCaps.READ | PortCaps.SUBS_READ, 
+                                            type=PortType.MIDI_GENERIC)
+            
+            print(f"MIDI output port created successfully: {self.port}")
+            print(f"Port ID: {self.port.port_id if hasattr(self.port, 'port_id') else 'Unknown'}")
         except Exception as e:
             logger.error(f"Error creating MIDI output port: {e}")
 
