@@ -52,14 +52,14 @@ class MidiPlayerGateway:
         # For logging MIDI events
         self.midi_log_path = None
         self.client = SequencerClient("Player Piano")
-
-    def clock_thread_function(self, socketio):
+    def start_alsa(self):
         try:
             self.client.create_port('output', caps=PortCaps.READ | PortCaps.SUBS_READ, type=PortType.MIDI_GENERIC)
             print("MIDI output port created successfully")
         except Exception as e:
             logger.error(f"Error creating MIDI output port: {e}")
-            socketio.emit('error', {'message': str(e)})
+
+    def clock_thread_function(self, socketio):
         print(f"Current value of current_time: {self.current_time}")
         self.midi_idx = 0  # Reset index for clock thread
         while self.current_events[self.midi_idx].timestamp < self.current_time and self.midi_idx < len(self.current_events) - 1:
@@ -552,6 +552,7 @@ def register_websocket_events(socketio):
                 if not gateway.clock_thread or not gateway.clock_thread.is_alive():
                     # Start the clock thread if not already running
                     gateway.clock_thread = Thread(target=gateway.clock_thread_function, args=(socket,))
+                    gateway.clock_thread.start()
             else:
                 socketio.emit('error', {'message': 'Failed to parse MIDI file'})
         except Exception as e:
@@ -673,10 +674,12 @@ if __name__ == '__main__':
     CORS(app, origins="*")
     socket.init_app(app, cors_allowed_origins="*")
 
+    # Start ALSA midi player
+    gateway.start_alsa()
+
     # Register WebSocket events
     register_websocket_events(socket)
     gateway.stop_event = False
     gateway.pause_event.set()  # Start in paused state
     gateway.midi_idx = 0
     socket.run(app, host='0.0.0.0', port=5000)
-    gateway.clock_thread.start() #Start the clock thread
