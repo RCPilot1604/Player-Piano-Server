@@ -55,7 +55,9 @@ class MidiPlayerGateway:
         self.output_ports = []
         self.start_alsa()
         self.get_connected_port()
-        
+        # Get the absolute path of the current file
+        self.abspath = os.path.abspath(__file__)
+
     def start_alsa(self):
         max_retries = 3
         retry_delay = 0.5
@@ -284,16 +286,14 @@ def cleanup():
         gateway.stop_event = True
         gateway.clock_thread.join()
     # Get the directory of the current file
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    tile_data_path = os.path.join(current_dir, settings.settings['midi_tile_data_file_path'])
+    tile_data_path = os.path.join(gateway.abspath, settings.settings['midi_tile_data_file_path'])
     print("Tile data path:", tile_data_path)
     if os.path.exists(tile_data_path):
         os.remove(tile_data_path)  # Remove the tile data file on exit
-    gateway.port.close() # Close the port
-
-atexit.register(cleanup)
-
-@app.route('/')
+    try:
+        gateway.port.close()  # Close the port
+    except:
+        pass
 def home():
     return 'Hello, Flask!'
 
