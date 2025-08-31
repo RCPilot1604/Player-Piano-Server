@@ -1,6 +1,6 @@
 <div *ngIf="song">
   <h2>{{ song.title }}</h2>
-  <p><strong>Composer:</strong> {{ song.composer }}</p>
+  <p><strong>Composer:</strong> {{ song.composer ? song.composer : 'Unknown' }}</p>
   <p><strong>MIDI Path:</strong> <a [href]="song.midiPath">{{ song.midiPath }}</a></p>
   <div class="player-controls">
     <div id="instrument-selection" class="instrument-selection-container">
