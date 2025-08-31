@@ -53,6 +53,7 @@ class MidiPlayerGateway:
         self.midi_log_path = None
         self.client = SequencerClient("Player Piano")
         self.start_alsa()
+        self.output_ports = []
 
     def start_alsa(self):
         try:
@@ -64,6 +65,24 @@ class MidiPlayerGateway:
             print(f"Port ID: {self.port.port_id if hasattr(self.port, 'port_id') else 'Unknown'}")
         except Exception as e:
             logger.error(f"Error creating MIDI output port: {e}")
+
+    def list_output_ports(self):
+        """List all available MIDI ports."""
+        try:
+            self.output_ports = self.client.list_ports(output=True, type=PortType.MIDI_GENERIC)
+            print(f"Found {len(self.output_ports)} output MIDI ports: {self.output_ports}")
+            return self.output_ports
+        except Exception as e:
+            logger.error(f"Error listing MIDI ports: {e}")
+
+    def connect_to_output_port(self, port_idx):
+        """Connect to a specific output port."""
+        try:
+            selected_port = self.output_ports[port_idx]
+            self.client.port.connect_to(selected_port)
+            print(f"Connected to MIDI output port: {selected_port}")
+        except Exception as e:
+            logger.error(f"Error connecting to MIDI output port: {e}")
 
     def clock_thread_function(self, socketio):
         print(f"Current value of current_time: {self.current_time}")
@@ -505,45 +524,29 @@ def register_websocket_events(socketio):
     def handle_refresh_ports(placeholder=None):
         """Refresh ALSA MIDI ports and send to frontend"""
         try:
-            # Get both input and output ports
-            input_ports = gateway.client.list_ports(input=True, type=PortType.MIDI_GENERIC)
-            output_ports = gateway.client.list_ports(output=True, type=PortType.MIDI_GENERIC)
-            
-            print(f"Found {len(input_ports)} input MIDI ports: {input_ports}")
+            output_ports = gateway.list_output_ports()
             print(f"Found {len(output_ports)} output MIDI ports: {output_ports}")
-            
-            # Extract port information correctly
-            input_port_data = []
-            for p in input_ports:
-                port_info = {
-                    'name': p.name,
-                    'client_id': p.client_id,  # Client ID
-                    'port_id': p.port_id,      # Port ID  
-                    'full_address': f"{p.client_id}:{p.port_id}",  # Full address for connections
-                    'type': 'input'
-                }
-                input_port_data.append(port_info)
                 
             output_port_data = []
-            for p in output_ports:
+            for i, p in enumerate(output_ports):
                 port_info = {
+                    'idx': i,
                     'name': p.name,
                     'client_id': p.client_id,
                     'port_id': p.port_id,
                     'full_address': f"{p.client_id}:{p.port_id}",
-                    'type': 'output'
                 }
                 output_port_data.append(port_info)
-            
-            # Send both input and output ports to frontend
-            port_data = {
-                'inputs': input_port_data,
-                'outputs': output_port_data
-            }
-            socketio.emit('portsUpdate', port_data, room='midi_players')
+
+            socketio.emit('portsUpdate', output_port_data, room='midi_players')
+
         except Exception as e:
             logger.error(f"Error refreshing MIDI ports: {e}")
             socketio.emit('error', {'message': str(e)})
+            
+    @socketio.on('selectPort')
+    def handle_select_port(port_idx):
+        gateway.connect_to_output_port(port_idx)
 
     @socketio.on('parseMidi')
     def handle_load_song(selected_tracks):
