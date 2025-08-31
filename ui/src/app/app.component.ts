@@ -141,6 +141,6 @@ export class AppComponent {
           }
         });
     });
-
+    this.refreshMidiPorts();
   }
 }
