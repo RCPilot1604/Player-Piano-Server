@@ -106,6 +106,11 @@ export class AppComponent {
     this.socket.fromEvent('connected').subscribe(() => {
       console.log('Connected to server');
       this.keyColors = [];
+      this.currentSong = null;
+      this.instruments = [];
+      this.tracksToPlay = [];
+      this.isPlaying = false;
+      this.tileData = [];
     });
     this.socket.fromEvent('songUpdate').subscribe((data: SongEntry) => {
       this.currentSong = data;
