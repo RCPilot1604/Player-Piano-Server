@@ -52,6 +52,8 @@ class MidiPlayerGateway:
         # For logging MIDI events
         self.midi_log_path = None
         self.client = SequencerClient("Player Piano")
+        self.start_alsa()
+        
     def start_alsa(self):
         try:
             self.client.create_port('output', caps=PortCaps.READ | PortCaps.SUBS_READ, type=PortType.MIDI_GENERIC)
@@ -673,9 +675,6 @@ if __name__ == '__main__':
     # Initialize extensions
     CORS(app, origins="*")
     socket.init_app(app, cors_allowed_origins="*")
-
-    # Start ALSA midi player
-    gateway.start_alsa()
 
     # Register WebSocket events
     register_websocket_events(socket)
