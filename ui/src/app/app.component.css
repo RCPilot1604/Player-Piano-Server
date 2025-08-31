@@ -99,6 +99,10 @@ keyboard, #p-wrapper, ul#piano {
   white-space: nowrap; /* Prevent keys from wrapping */
 }
 
+.midi-port-field {
+    background: transparent !important;
+}
+
 @media (max-width: 600px) {
     .playback-slider {
         width: 90%;
