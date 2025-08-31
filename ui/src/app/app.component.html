@@ -4,6 +4,19 @@
       <mat-icon id="piano-icon">piano</mat-icon>
       <h2 id="name">Player Piano Control Webapp</h2>
     </span>
+    <div class="midi-port-select">
+      <mat-form-field class="midi-port-field">
+        <mat-label>MIDI Port</mat-label>
+        <mat-select [(value)]="selectedMidiPort" (selectionChange)="onMidiPortChange()">
+          <mat-option *ngFor="let port of midiPorts" [value]="port.id">
+            {{ port.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-icon-button (click)="refreshMidiPorts()" aria-label="Refresh MIDI Ports">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </div>
     <button mat-icon-button [matMenuTriggerFor]="menu" id="side-menu" aria-label="Options">
       <mat-icon>menu</mat-icon>
     </button>
