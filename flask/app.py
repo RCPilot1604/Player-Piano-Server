@@ -494,9 +494,41 @@ def register_websocket_events(socketio):
     def handle_refresh_ports(placeholder=None):
         """Refresh ALSA MIDI ports and send to frontend"""
         try:
-            ports = gateway.client.list_ports(input=True, type=PortType.MIDI_GENERIC) # Only consider the hardware ports
-            print(f"Found {len(ports)} MIDI ports: {ports}")
-            port_data = [{'name': p.name, 'id': p.id} for p in ports]
+            # Get both input and output ports
+            input_ports = gateway.client.list_ports(input=True, type=PortType.MIDI_GENERIC)
+            output_ports = gateway.client.list_ports(output=True, type=PortType.MIDI_GENERIC)
+            
+            print(f"Found {len(input_ports)} input MIDI ports: {input_ports}")
+            print(f"Found {len(output_ports)} output MIDI ports: {output_ports}")
+            
+            # Extract port information correctly
+            input_port_data = []
+            for p in input_ports:
+                port_info = {
+                    'name': p.name,
+                    'client_id': p.client_id,  # Client ID
+                    'port_id': p.port_id,      # Port ID  
+                    'full_address': f"{p.client_id}:{p.port_id}",  # Full address for connections
+                    'type': 'input'
+                }
+                input_port_data.append(port_info)
+                
+            output_port_data = []
+            for p in output_ports:
+                port_info = {
+                    'name': p.name,
+                    'client_id': p.client_id,
+                    'port_id': p.port_id,
+                    'full_address': f"{p.client_id}:{p.port_id}",
+                    'type': 'output'
+                }
+                output_port_data.append(port_info)
+            
+            # Send both input and output ports to frontend
+            port_data = {
+                'inputs': input_port_data,
+                'outputs': output_port_data
+            }
             socketio.emit('portsUpdate', port_data, room='midi_players')
         except Exception as e:
             logger.error(f"Error refreshing MIDI ports: {e}")
