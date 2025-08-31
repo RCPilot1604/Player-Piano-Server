@@ -52,8 +52,9 @@ class MidiPlayerGateway:
         # For logging MIDI events
         self.midi_log_path = None
         self.client = None
-        self.start_alsa()
         self.output_ports = []
+        self.start_alsa()
+        self.get_connected_port()
         
     def start_alsa(self):
         max_retries = 3
