@@ -20,6 +20,7 @@ import { DEFAULT_NOTE_COLORS } from './models/note-colors.model';
 import { KeyboardComponent } from './keyboard/keyboard.component';
 import { ViewChild } from '@angular/core';
 import { SongEntry }  from './models/song-entry.model';
+import { MidiPort } from './models/port-data.model';
 
 interface StatusEvent {
   isPlaying: boolean;
@@ -49,7 +50,7 @@ export class AppComponent {
   volume = 100; // Volume level (0-100)
   instruments: string[] = []; // List of instruments available
   tracksToPlay: number[] = []; // Tracks that are currently set to play
-  midiPorts: { id: number, channel: number, name: string }[] = []; // List of available ports
+  midiPorts: MidiPort[] = []; // List of available ports
   selectedMidiPort: number | null = null; // Currently selected MIDI port
   constructor(public dialog: MatDialog, private socket: WebsocketService) { }
 
@@ -140,6 +141,10 @@ export class AppComponent {
             console.log('Total time upated:', this.totalTime);
           }
         });
+    });
+    this.socket.fromEvent('portsUpdate').subscribe((data: MidiPort[]) => {
+      this.midiPorts = data;
+      console.log('MIDI ports updated:', this.midiPorts);
     });
     this.refreshMidiPorts();
   }
