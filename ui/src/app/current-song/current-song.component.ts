@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 import { SongEntry } from '../models/song-entry.model';
 import { NgIf, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +13,7 @@ import { WebsocketService } from '../services/websocket.service';
   templateUrl: './current-song.component.html',
   styleUrls: ['./current-song.component.css']
 })
-export class CurrentSongComponent implements OnInit, OnDestroy {
+export class CurrentSongComponent implements OnInit, OnDestroy, OnChanges {
   @Input() currentTime: number = 0;
   @Input() song: SongEntry | null = null;
   @Output() playStateChange = new EventEmitter<boolean>();
@@ -77,6 +77,15 @@ export class CurrentSongComponent implements OnInit, OnDestroy {
   seekTo() {
     this.socket.emit('seek', this.currentTime);
     console.log('Seek to:', this.currentTime);
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['currentTime']) {
+      const time = changes['currentTime'].currentValue;
+      if (time == 0) {
+        this.isPlaying = false;
+        this.playStateChange.emit(false);
+      }
+    }
   }
   ngOnInit() {
     this.socket.fromEvent('playUpdate').subscribe((data) => {
