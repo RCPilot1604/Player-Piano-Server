@@ -14,11 +14,18 @@
             </mat-form-field>
         </div>
         <mat-list>
-        <app-song *ngFor="let songComponent of filteredSongs" [song]="songComponent" (songClicked)="onSongClicked($event)"></app-song>
+        <app-song
+            *ngFor="let songComponent of filteredSongs"
+            [song]="songComponent"
+            [isDisabled]="isPlaying"
+            (songClicked)="!isPlaying ? onSongClicked($event) : null"
+            (songDeleted)="!isPlaying ? onSongDeleted($event) : null"
+            >
+        </app-song>
         </mat-list>
     </div>
     <div class="right-section">
-    <app-current-song [song]="currentSong" [currentTime]="currentTime"></app-current-song>
+    <app-current-song (playStateChange)="onPlayStateChange($event)" [song]="currentSong" [currentTime]="currentTime"></app-current-song>
     <mat-divider id="mobile-divider"></mat-divider>
     </div>
 </section>

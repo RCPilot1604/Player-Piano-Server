@@ -4,7 +4,7 @@ import { SongComponent } from '../song/song.component';
 import { SongsService } from '../services/songs.service';
 import { NgForOf } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { FormsModule, FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CurrentSongComponent } from '../current-song/current-song.component';
 import { Category, CategoryService } from '../services/categories.service';
 import { WebsocketService } from '../services/websocket.service';
@@ -27,6 +27,7 @@ import { ConfirmDialogComponent, ConfirmDialogData } from '../confirmation-dialo
 export class SongListComponent {
   @Input() currentTime: number = 0;
   @Input() currentSong: SongEntry | null = null;
+  isPlaying: boolean = false;
   songs: SongEntry[] = [];
   filteredSongs: SongEntry[] = [];
   songsService: SongsService = inject(SongsService);
@@ -101,5 +102,9 @@ export class SongListComponent {
 
   onSongClicked(song: SongEntry) {
     this.websocket.emit('loadMidi', song);
+  }
+
+  onPlayStateChange(isPlaying: boolean) {
+    this.isPlaying = isPlaying;
   }
 }
