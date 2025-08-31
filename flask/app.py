@@ -141,8 +141,9 @@ class MidiPlayerGateway:
                 else:
                     event_to_send = NoteOnEvent(note=event.note, velocity=event.velocity) if event.type == 'note_on' else NoteOffEvent(note=event.note, velocity=event.velocity)
                 if event_to_send:
-                    try:
-                        self.client.event_output(event_to_send)
+                    try: 
+                        self.client.event_output(event_to_send, port=self.port)
+                        self.client.drain_output()
                     except Exception as e:
                         logger.error(f"Failed to send MIDI event: {event_to_send}, error: {e}")
                 self.midi_idx += 1
