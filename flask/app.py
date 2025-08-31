@@ -562,7 +562,7 @@ def register_websocket_events(socketio):
                     'full_address': f"{p.client_id}:{p.port_id}",
                 }
                 output_port_data.append(port_info)
-
+            print(f"Emitting {len(output_port_data)} output ports to frontend")
             socketio.emit('portsUpdate', output_port_data, room='midi_players')
 
         except Exception as e:
