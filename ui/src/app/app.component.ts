@@ -15,13 +15,15 @@ import { environment } from '../environments/environment';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatOptionModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { DEFAULT_NOTE_COLORS } from './models/note-colors.model';
 import { KeyboardComponent } from './keyboard/keyboard.component';
 import { ViewChild } from '@angular/core';
-import { SongEntry }  from './models/song-entry.model';
+import { SongEntry } from './models/song-entry.model';
 import { MidiPort } from './models/port-data.model';
-import { ChangeDetectorRef } from '@angular/core';
+import { NgFor } from '@angular/common';
 
 interface StatusEvent {
   isPlaying: boolean;
@@ -33,7 +35,7 @@ interface StatusEvent {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SongListComponent, MatToolbarRow, MatIconModule, MatButtonModule, MatMenuModule, ScrollableCanvasComponent, MatSliderModule, MatInputModule, MatSelectModule, FormsModule, KeyboardComponent],
+  imports: [NgFor, RouterOutlet, SongListComponent, MatToolbarRow, MatIconModule, MatButtonModule, MatMenuModule, ScrollableCanvasComponent, MatSliderModule, MatInputModule, MatSelectModule, FormsModule, MatFormFieldModule, MatOptionModule, KeyboardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -53,8 +55,10 @@ export class AppComponent {
   tracksToPlay: number[] = []; // Tracks that are currently set to play
   midiPorts: MidiPort[] = []; // List of available ports
   selectedMidiPort: number | null = null; // Currently selected MIDI port
-  constructor(public dialog: MatDialog, private socket: WebsocketService, private cdr: ChangeDetectorRef) { }
-
+  constructor(public dialog: MatDialog, private socket: WebsocketService) { }
+  trackByPort(index: number, port: MidiPort): number {
+    return port.idx;
+  }
   @ViewChild(SongListComponent) songListComponent!: SongListComponent;
   onMidiPortChange() {
     console.log(`Selected MIDI port: ${this.selectedMidiPort}`);
@@ -144,9 +148,7 @@ export class AppComponent {
         });
     });
     this.socket.fromEvent('portsUpdate').subscribe((data: MidiPort[]) => {
-      this.midiPorts = data;
-      console.log('MIDI ports updated:', this.midiPorts);
-      this.cdr.detectChanges();
+      this.midiPorts = [...data]; // Create new array reference to trigger change detection
     });
     this.refreshMidiPorts();
   }
